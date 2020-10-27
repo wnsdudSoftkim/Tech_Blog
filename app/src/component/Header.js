@@ -136,7 +136,7 @@ function Header() {
 						<Link to="/" style={{textDecoration:'none'}}><p className="MenuText">홈</p></Link>
 					</div>
 					<div className="Right Right2">
-						<Link to="/introduce" style={{textDecoration:'none'}}><p className="MenuText">소개</p></Link>
+						<Link to="/Introduce" style={{textDecoration:'none'}}><p className="MenuText">소개</p></Link>
 					</div>
 					<div className="Right Right3 MenuText">포트폴리오</div>
 					<div className="Right Right4 MenuText">방명록</div>
