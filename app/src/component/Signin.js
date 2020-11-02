@@ -5,7 +5,6 @@ import Modal from './Modal/Modal.js'
 import { AiOutlineMail,AiOutlineLock,AiOutlineUser} from "react-icons/ai";
 
 function SignUp() {
-    const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [modal,setModal] = useState(true)
@@ -111,24 +110,13 @@ function SignUp() {
                 <GlobalStyle/>
                 <SigninBlock>
                     <div className="Header">
-                        <h1 className="h1">Sign Up</h1>
-                        <span className="text">회원가입</span>
+                        <h1 className="h1">Sign In</h1>
+                        <span className="text">로그인</span>
                     </div>
                     <div className="Section">
                         <div className="Inner">
                             <form className="form" onSubmit={onSubmit}>
-                                <lable for ="inputemail" className="label">이름 {name}</lable>
-                                <div className="box">
-                                    <AiOutlineUser/>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        className="input"
-                                        onChange={({target:{value}})=>setName(value)}
-                                        value={name}
-                                        placeholder="이름을 적어주세요"
-                                    />
-                                </div>
+                            
                                 
                                 <label for ="inputemail" className="label">이메일 {email}</label>
                                 <div className="box">
@@ -157,7 +145,10 @@ function SignUp() {
                                     required
                                 />
                                 </div>
-                                <button type="button" className="btn" onClick={Sign}>회원 가입</button>
+                                <button type="button" className="btn" onClick={Sign}>로그인</button>
+                                <button type="button" className="btn" onClick={Sign}>
+                                    <Link to="SignIn">회원가입</Link>
+                                </button>
                                 <Link to ="/Home" style={{textDecoration:'none',color:'#333'}}>
                                     <div className="btn btn2">Home</div>
                                 </Link>
