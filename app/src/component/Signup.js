@@ -3,6 +3,7 @@ import styled,{createGlobalStyle} from 'styled-components'
 import {Link} from 'react-router-dom'
 import Modal from './Modal/Modal.js'
 import { AiOutlineMail,AiOutlineLock,AiOutlineUser} from "react-icons/ai";
+import axios from 'axios'
 
 function SignUp() {
     const [name, setName] = useState("")
@@ -13,8 +14,19 @@ function SignUp() {
     const onSubmit =e => {
         e.preventDefault()
     }
+    axios.defaults.xsrfCookieName = "csrftoken"
+    axios.defaults.xsrfHeaderName = "X-CSRFToken"
     const Sign =() => {
-
+        axios.post('User/',{
+            email:{email},
+            password:{password},
+            author:{name}
+        }).then(function(response){
+            console.log(response)
+        }).catch(function(error){
+            console.log(error)
+        })
+        console.log(email)
     }
     const GlobalStyle = createGlobalStyle`
         body{
