@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import styled,{createGlobalStyle} from 'styled-components'
 import {Link} from 'react-router-dom'
-import Modal from './Modal/Modal.js'
-import { AiOutlineMail,AiOutlineLock,AiOutlineUser} from "react-icons/ai";
+import Header from './Header'
+import axios from 'axios'
+import LoginModal from './Modal/LoginModal'
+import { AiOutlineMail,AiOutlineLock} from "react-icons/ai";
 
 function SignUp() {
     const [email, setEmail] = useState("")
@@ -12,9 +14,28 @@ function SignUp() {
     const onSubmit =e => {
         e.preventDefault()
     }
-    const Sign =() => {
-
+    const login=()=> {
+        axios.post('Login/',{
+            email:{email},
+            password:{password},
+        }).then(function(response){
+            console.log(response.data['response'])
+            const res = response.data['response']
+            if(res==='null'){
+                alert("아이디가 존재하지 않습니다.")
+            }
+            else if(res==='good'){
+                setModal(false)
+            }
+            else if(res==='fail'){
+                alert("아이디와 비밀번호가 틀립니다.")
+            }
+        }).catch(function(error){
+            console.log(error)
+        })
+        console.log(email)
     }
+    
     const GlobalStyle = createGlobalStyle`
         body{
             background:#e9ecef;
@@ -76,29 +97,46 @@ function SignUp() {
                     .label{
                         font-size:16px;
                         font-family: 'Roboto', sans-serif;
+                        margin-top:8px;
                     }
                     .input{
+                        border-radius:8px;
                         outline:none;
                         border:none;
                         font-size:18px;
                        
                     
                     }
-                    .btn{
-                        margin-top:10px;
-                        outline:none;
-                        background:#eee;
-                        font-size:18px;
-                        border-radius:4px;
-                        cursor:pointer;
-
-                    }
-                    .btn2{
-                        text-align:center;
-                        padding:1px 6px;
-                        box-shadow:1px 2px 8px rgba(0,0,0,0.34);
-                        color:black;
-                        font-weight:420;
+                     .wrap{
+                        margin-top:32px;
+                        heigth:100%;
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        .btn {
+                            width: 140px;
+                            height: 45px;
+                            font-family: 'Roboto', sans-serif;
+                            font-size: 11px;
+                            text-transform: uppercase;
+                            letter-spacing: 2.5px;
+                            font-weight: 500;
+                            color: #000;
+                            background-color: #fff;
+                            border: none;
+                            border-radius: 45px;
+                            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                            transition: all 0.3s ease 0s;
+                            cursor: pointer;
+                            outline: none;
+                        }
+                          
+                        .btn:hover {
+                            background-color: #2EE59D;
+                            box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+                            color: #fff;
+                            transform: translateY(-7px);
+                        }
                     }
                 }
             }
@@ -107,57 +145,63 @@ function SignUp() {
     if(modal) {
         return(
             <>
-                <GlobalStyle/>
-                <SigninBlock>
-                    <div className="Header">
-                        <h1 className="h1">Sign In</h1>
-                        <span className="text">로그인</span>
-                    </div>
-                    <div className="Section">
-                        <div className="Inner">
-                            <form className="form" onSubmit={onSubmit}>
-                            
-                                
-                                <label for ="inputemail" className="label">이메일 {email}</label>
-                                <div className="box">
-                                    <AiOutlineMail/>
-                                    <input 
-                                    type="text"
-                                    name ="email" 
-                                    className="input"
-                                    onChange={({target:{value}})=>setEmail(value)}
-                                    value={email}
-                                    placeholder="이메일을 적어주세요"
-                                    required
-                                    />
-                                </div>
-                            
-                                <label for ="inputpassword" className="label">패스워드 {password}</label>
-                                <div className="box">
-                                    <AiOutlineLock/>
-                                    <input 
-                                    type="text"
-                                    className="input"
-                                    name="password"
-                                    onChange={({target:{value}})=>setPassword(value)}
-                                    value={password}
-                                    placeholder="패스워드를 적어주세요"
-                                    required
-                                />
-                                </div>
-                                <button type="button" className="btn" onClick={Sign}>로그인</button>
-                                <button type="button" className="btn" onClick={Sign}>
-                                    <Link to="SignIn">회원가입</Link>
-                                </button>
-                                <Link to ="/Home" style={{textDecoration:'none',color:'#333'}}>
-                                    <div className="btn btn2">Home</div>
-                                </Link>
-                            </form>
+            <Header/>
+            <>
+                    <GlobalStyle/>
+                    <SigninBlock>
+                        <div className="Header">
+                            <h1 className="h1">Sign In</h1>
+                            <span className="text">로그인</span>
                         </div>
-                    </div>
-                </SigninBlock>
+                        <div className="Section">
+                            <div className="Inner">
+                                <form className="form" onSubmit={onSubmit}>
+                                
+                                    
+                                    <label for ="inputemail" className="label">이메일 {email}</label>
+                                    <div className="box">
+                                        <AiOutlineMail/>
+                                        <input 
+                                        type="text"
+                                        name ="email" 
+                                        className="input"
+                                        onChange={({target:{value}})=>setEmail(value)}
+                                        value={email}
+                                        placeholder="이메일을 적어주세요"
+                                        required
+                                        />
+                                    </div>
+                                
+                                    <label for ="inputpassword" className="label">패스워드 {password}</label>
+                                    <div className="box">
+                                        <AiOutlineLock/>
+                                        <input 
+                                        type="text"
+                                        className="input"
+                                        name="password"
+                                        onChange={({target:{value}})=>setPassword(value)}
+                                        value={password}
+                                        placeholder="패스워드를 적어주세요"
+                                        required
+                                    />
+                                    </div>
+                                    <div className="wrap">
+                                    <button type="button" className="btn" onClick={login}>로그인</button>
+                                    <Link to ="/SignUp">
+                                        <button type="button" className="btn">회원 가입</button>
+                                    </Link>
+                                    
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </SigninBlock>
+                </>
             </>
+                
         )
+    }else {
+        <LoginModal/>
     }
 }
 export default SignUp

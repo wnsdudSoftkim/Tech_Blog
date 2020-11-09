@@ -2,14 +2,16 @@ import React,{useState} from 'react'
 import styled,{createGlobalStyle} from 'styled-components'
 import {Link} from 'react-router-dom'
 import Modal from './Modal/Modal.js'
-import { AiOutlineMail,AiOutlineLock,AiOutlineUser} from "react-icons/ai";
+import { AiOutlineMail,AiOutlineLock,AiOutlineUser, AiOutlineChrome} from "react-icons/ai";
 import axios from 'axios'
+import Header from './Header'
 
 function SignUp() {
-    const [name, setName] = useState("")
+    const [author, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [modal,setModal] = useState(true)
+   
    
     const onSubmit =e => {
         e.preventDefault()
@@ -20,9 +22,16 @@ function SignUp() {
         axios.post('User/',{
             email:{email},
             password:{password},
-            author:{name}
+            author:{author}
         }).then(function(response){
-            console.log(response)
+            console.log(response.data['response'])
+            const res = response.data['response']
+            if(res==='exist'){
+                alert("아이디와 비밀번호를 확인해주세요")
+            }
+            else if(res==='good'){
+                setModal(false)
+            }
         }).catch(function(error){
             console.log(error)
         })
@@ -89,36 +98,57 @@ function SignUp() {
                     .label{
                         font-size:16px;
                         font-family: 'Roboto', sans-serif;
+                        margin-top:8px;
                     }
                     .input{
+                    
+                        border-radius:8px;
                         outline:none;
                         border:none;
                         font-size:18px;
                        
                     
                     }
-                    .btn{
-                        margin-top:10px;
-                        outline:none;
-                        background:#eee;
-                        font-size:18px;
-                        border-radius:4px;
-                        cursor:pointer;
-
+                    .wrap{
+                        margin-top:32px;
+                        heigth:100%;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        .btn {
+                            width: 140px;
+                            height: 45px;
+                            font-family: 'Roboto', sans-serif;
+                            font-size: 11px;
+                            text-transform: uppercase;
+                            letter-spacing: 2.5px;
+                            font-weight: 500;
+                            color: #000;
+                            background-color: #fff;
+                            border: none;
+                            border-radius: 45px;
+                            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                            transition: all 0.3s ease 0s;
+                            cursor: pointer;
+                            outline: none;
+                        }
+                          
+                        .btn:hover {
+                            background-color: #2EE59D;
+                            box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+                            color: #fff;
+                            transform: translateY(-7px);
+                        }
                     }
-                    .btn2{
-                        text-align:center;
-                        padding:1px 6px;
-                        box-shadow:1px 2px 8px rgba(0,0,0,0.34);
-                        color:black;
-                        font-weight:420;
-                    }
+                    
                 }
             }
         }
     `
     if(modal) {
         return(
+            <>
+            <Header/>
             <>
                 <GlobalStyle/>
                 <SigninBlock>
@@ -129,7 +159,7 @@ function SignUp() {
                     <div className="Section">
                         <div className="Inner">
                             <form className="form" onSubmit={onSubmit}>
-                                <lable for ="inputemail" className="label">이름 {name}</lable>
+                                <lable for ="inputemail" className="label">이름 {author}</lable>
                                 <div className="box">
                                     <AiOutlineUser/>
                                     <input
@@ -137,7 +167,7 @@ function SignUp() {
                                         name="name"
                                         className="input"
                                         onChange={({target:{value}})=>setName(value)}
-                                        value={name}
+                                        value={author}
                                         placeholder="이름을 적어주세요"
                                     />
                                 </div>
@@ -169,16 +199,26 @@ function SignUp() {
                                     required
                                 />
                                 </div>
-                                <button type="button" className="btn" onClick={Sign}>회원 가입</button>
-                                <Link to ="/Home" style={{textDecoration:'none',color:'#333'}}>
-                                    <div className="btn btn2">Home</div>
-                                </Link>
+                                <div className="wrap">
+                                    <button type="button" className="btn" onClick={Sign}>회원 가입</button>
+                                </div>
+                                
+                            
                             </form>
                         </div>
                     </div>
                 </SigninBlock>
             </>
+        
+        </>
         )
+            
+           
+    }else {
+        return (
+            <Modal/>
+        )
+        
     }
 }
 export default SignUp
