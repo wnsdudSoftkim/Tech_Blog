@@ -40,11 +40,14 @@ def login(request):
     elif request.method=="POST":
         req = json.loads(request.body.decode('utf-8'))
         email=req['email']
-        password=['password']
+        password=req['password']
         myemail=get_item(email,'email')
-        if User.objects.filter(email=email).exists():
-            myuser = User.objects.get(email=email)
-            if check_password(password,myuser.password):
+        mypassword=get_item(password,'password')
+        print(myemail)
+        print(mypassword)
+        if User.objects.filter(email=myemail).exists():
+            myuser = User.objects.get(email=myemail)
+            if mypassword==myuser.password:
                 return HttpResponse(simplejson.dumps({"response":"good"}))
             else:
                 return HttpResponse(simplejson.dumps({"response":"fail"}))

@@ -63,10 +63,13 @@ function Modal() {
     return (
         <ModalBlock>
            <div class="modal">
-                <p class="message">Look at this fancy pop-up</p>
+                <p class="message">홈페이지로 이동하시겠습니까?</p>
                 <div class="options">
-                    <button class="btn">Yes</button>
-                    <button class="btn">No</button>
+                    <button class="btn" onClick={onClickYes}>Yes</button>
+                    <Link to ="/SignIn" style={{color:'#333'}}>
+                         <button class="btn" >No</button>
+                    </Link>
+                   
                 </div>
             </div>
         </ModalBlock>

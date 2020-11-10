@@ -15,7 +15,7 @@ function SignUp() {
         e.preventDefault()
     }
     const login=()=> {
-        axios.post('Login/',{
+        axios.post('User/login',{
             email:{email},
             password:{password},
         }).then(function(response){
@@ -201,7 +201,10 @@ function SignUp() {
                 
         )
     }else {
-        <LoginModal/>
+        return (
+            <LoginModal/>
+        )
+        
     }
 }
 export default SignUp
