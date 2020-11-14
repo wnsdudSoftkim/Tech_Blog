@@ -28,6 +28,7 @@ function Modal() {
                 margin-top: 0;
            }
            .btn {
+                cursor:pointer;
                 color:inherit;
                 font-family:inherit;
                 font-size: inherit;

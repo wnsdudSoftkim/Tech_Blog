@@ -122,7 +122,10 @@ function Header() {
         <>
             <HeaderBlock>
                 <LeftMenu>
-                    <div className="Left Left1 MenuText" onClick={GoHome}>Jun</div>
+                    <Link to="/">
+                        <div className="Left Left1 MenuText" onClick={GoHome} style={{textDecoration:'none'}}>Jun</div>
+                    </Link>
+                    
                     <div className="Left Left2" onClick={onToggle}>
                         <div className="MenuText">Home</div>
                         <div className="Logo">
@@ -152,7 +155,10 @@ function Header() {
                     <MdDehaze size ="40" color="#1a1a1a"/>
                 </div>
                 <div className="Title">
-                    <p className = "TitleText" onClick={GoHome}>Jun's Blog</p>
+                    <Link to ="/" style={{textDecoration:'none',color:'#333'}}>
+                        <p className = "TitleText">Jun's Blog</p>
+                    </Link>
+                    
                 </div>
             </MediaBlock>
             <Nav Toggle ={Toggle}/>
