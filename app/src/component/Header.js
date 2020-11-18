@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
 import Nav from "./Nav"
+import './Header.scss'
 import { MdKeyboardArrowDown,MdKeyboardArrowUp,MdDehaze} from "react-icons/md";
 import {Link} from 'react-router-dom'
 function Header() {
@@ -134,7 +135,7 @@ function Header() {
                     </div>
 
                 </LeftMenu>
-                <RightMenu>
+                {/* <RightMenu>
 					<div className="Right Right1">
 						<Link to="/" style={{textDecoration:'none'}}><p className="MenuText">홈</p></Link>
 					</div>
@@ -148,7 +149,92 @@ function Header() {
 					</div>
 					<div classNAme="Right Right6 Logo">
 					</div>
-				</RightMenu>
+				</RightMenu> */}
+                <nav class="navigation">
+                    <ul class="menu">
+                        <Link to="/introduce">
+
+                        
+                            <li class="menu__item">
+                                <a href="#" class="menu__link">
+                                    <span class="menu__title">
+                                        <span class="menu__first-word" data-hover="About">
+                                            About
+                                        </span>
+                                        <span class="menu__second-word" data-hover="me">
+                                            me
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        </Link>
+                        <Link to="/addpost">
+                            <li class="menu__item">
+                                <a href="#" class="menu__link">
+                                    <span class="menu__title">
+                                        <span class="menu__first-word" data-hover="Add">
+                                            Add
+                                        </span>
+                                        <span class="menu__second-word" data-hover="Note">
+                                            Note
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        </Link>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">
+                                <span class="menu__title">
+                                    <span class="menu__first-word" data-hover="Latest">
+                                        Latest
+                                    </span>
+                                    <span class="menu__second-word" data-hover="News">
+                                        News
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">
+                                <span class="menu__title">
+                                    <span class="menu__first-word" data-hover="New">
+                                        New
+                                    </span>
+                                    <span class="menu__second-word" data-hover="Arrivals">
+                                        Arrivals
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <Link to="signin">
+                            <li class="menu__item">
+                                <a href="#" class="menu__link">
+                                    <span class="menu__title">
+                                        <span class="menu__first-word" data-hover="Log">
+                                            Sign
+                                        </span>
+                                        <span class="menu__second-word" data-hover="In">
+                                            In
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        </Link>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">
+                                <span class="menu__title">
+                                    <span class="menu__first-word" data-hover="Contact">
+                                        Contact
+                                    </span>
+                                    <span class="menu__second-word" data-hover="Us">
+                                        Us
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+            </nav>
             </HeaderBlock>
             <MediaBlock>
                 <div className="Logo" onClick={onToggle}>

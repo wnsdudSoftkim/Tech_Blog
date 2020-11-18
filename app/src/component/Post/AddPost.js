@@ -1,26 +1,88 @@
-import React ,{useState} from 'react'
+import React ,{useState,useEffect,useRef,useCallback} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import Header from '../Header'
 import {Link} from 'react-router-dom'
 import TextSizeAutoSize from 'react-textarea-autosize'
-function AddPost() {
-    const [headerinput,SetHeaderInput] = useState("")
-   
-    const [bodyinput,SetBodyInput] = useState("")
+function HeaderInput() {
+    const [headerinput,SetHeaderInput] = useState({header:""})
+    const {header} = headerinput
     const onChangeHeader = e => {
-        SetHeaderInput(
-            e.target.value
-        )
+        e.preventDefault()
+        SetHeaderInput({
+            header:e.target.value
+
+        })
+        
     }
-    const onChangeBody = e=> {
-        SetBodyInput(e.target.value)
+    HeaderProp({header})
+    return (
+        <>
+            <TextSizeAutoSize 
+                className="textArea headertext" 
+                placeholder="제목을 입력하세요" 
+                value={header}
+                onChange={e=>onChangeHeader(e)}
+                />
+            {/* <HeaderProp header={header}/> */}
+            
+            
+            
+            
+        </>
+        
+    )
+}
+function BodyInput() {
+    const [bodyinput,SetBodyInput] = useState({body:""})
+    const {body} = bodyinput
+    const onChangeBody = e => {
+        e.preventDefault()
+        SetBodyInput({
+            body:e.target.value
+
+        })
     }
+    return(
+        <>
+            <TextSizeAutoSize 
+            className="textArea bodytext"
+            value={body}
+            onChange={e=>onChangeBody(e)}
+            placeholder="글을 써보세요" 
+            />
+        </>
+    )
+}
+function HeaderProp({header}) {
+    console.log(header)
+    
+    return (
+        <>
+            <h1 className="h1">
+                ㅁㅁ{header}
+            </h1>
+        </>
+    )
+}
+function AddPost() {
+    const inputElement=useRef(null)
+    const callbackRef = useCallback(inputElement=> {
+        if(inputElement) {
+            inputElement.focus()
+        }
+    },[])
+    // useEffect(()=> {
+    //     if(inputElement.current){
+    //         inputElement.current.focus()
+    //     }
+    // },[inputElement.current])
+   
     const Block = styled.div`
         display:flex;
     `
     const AddPostBlock = styled.div`
-        width:45%;
+        
         height:100%;
         position:relative;
         display:flex;
@@ -128,7 +190,7 @@ function AddPost() {
 
     `
     const RightBlock =  styled.div`
-        width:45%;
+        
         margin-left:10%;
         padding:1rem;
         word-break:break-word;
@@ -136,7 +198,8 @@ function AddPost() {
         overflow-y:auto;
         height:100%;
         @media(max-width:463px){
-            width:0%;
+            display:none;
+            width:0px;
         }
         .h1 {
             font-size:2.5em;
@@ -148,39 +211,29 @@ function AddPost() {
         }
 
     `
+    
     return (
         <>
             <Block>
                 <AddPostBlock>
                     <MainBodyBlock>
                         <div className="Header">
-                            <div className="HeaderBox">
-                                <TextSizeAutoSize 
-                                className="textArea headertext" 
-                                placeholder="제목을 입력하세요" 
-                                value={headerinput}
-                                onChange={e=>onChangeHeader(e)}
-                                />
+                            <div className="HeaderBox" key="edit">
+                                <HeaderInput/>
+                                
                                 <div className="border"/>
                             </div>
 
                         </div>
                         <div className="Section">
-                            <TextSizeAutoSize 
-                            className="textArea bodytext"
-                            value={bodyinput}
-                            onChange={e=>onChangeBody(e)}
-                            placeholder="글을 써보세요" 
-                            />
+                           <BodyInput />
                         </div>
                     </MainBodyBlock>
                 </AddPostBlock>
                 <RightBlock>
-                    <h1 className="h1"> 
-                        aa{headerinput}
-                    </h1>
+                    <HeaderProp />
                     <div className="section">
-
+                        aa
 
                     </div>
                 </RightBlock>
@@ -197,4 +250,5 @@ function AddPost() {
     )
 }
 export default AddPost
+
    
