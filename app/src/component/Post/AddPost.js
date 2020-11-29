@@ -15,7 +15,7 @@ function HeaderInput() {
         })
         
     }
-    HeaderProp({header})
+    console.log(header)
     return (
         <>
             <TextSizeAutoSize 
@@ -23,12 +23,7 @@ function HeaderInput() {
                 placeholder="제목을 입력하세요" 
                 value={header}
                 onChange={e=>onChangeHeader(e)}
-                />
-            {/* <HeaderProp header={header}/> */}
-            
-            
-            
-            
+            />    
         </>
         
     )
@@ -54,35 +49,22 @@ function BodyInput() {
         </>
     )
 }
-function HeaderProp({header}) {
-    console.log(header)
-    
-    return (
-        <>
-            <h1 className="h1">
-                ㅁㅁ{header}
-            </h1>
-        </>
-    )
-}
 function AddPost() {
-    const inputElement=useRef(null)
-    const callbackRef = useCallback(inputElement=> {
-        if(inputElement) {
-            inputElement.focus()
-        }
-    },[])
+    // const inputElement=useRef(null)
+    // const callbackRef = useCallback(inputElement=> {
+    //     if(inputElement) {
+    //         inputElement.focus()
+    //     }
+    // },[])
     // useEffect(()=> {
     //     if(inputElement.current){
     //         inputElement.current.focus()
     //     }
     // },[inputElement.current])
    
-    const Block = styled.div`
-        display:flex;
-    `
+  
     const AddPostBlock = styled.div`
-        
+        width:100%;
         height:100%;
         position:relative;
         display:flex;
@@ -189,56 +171,30 @@ function AddPost() {
           
 
     `
-    const RightBlock =  styled.div`
-        
-        margin-left:10%;
-        padding:1rem;
-        word-break:break-word;
-        flex:1 1 0%;
-        overflow-y:auto;
-        height:100%;
-        @media(max-width:463px){
-            display:none;
-            width:0px;
-        }
-        .h1 {
-            font-size:2.5em;
-            margin-bottom:4rem;
-            font-weight:800;
-        }
-        .section {
-
-        }
-
-    `
+   
     
     return (
         <>
-            <Block>
-                <AddPostBlock>
-                    <MainBodyBlock>
-                        <div className="Header">
-                            <div className="HeaderBox" key="edit">
-                                <HeaderInput/>
-                                
-                                <div className="border"/>
-                            </div>
-
+           
+            <AddPostBlock>
+                <MainBodyBlock>
+                    <div className="Header">
+                        <div className="HeaderBox" >
+                            <HeaderInput />
+                            
+                            <div className="border"/>
                         </div>
-                        <div className="Section">
-                           <BodyInput />
-                        </div>
-                    </MainBodyBlock>
-                </AddPostBlock>
-                <RightBlock>
-                    <HeaderProp />
-                    <div className="section">
-                        aa
 
                     </div>
-                </RightBlock>
-            </Block>
-           
+                    <div className="Section">
+                        <BodyInput />
+                    </div>
+                </MainBodyBlock>
+            </AddPostBlock>
+                
+              
+            
+
             <FooterBlock>
                     <Link to ="/">
                         <button className="button btn1">나가기</button>

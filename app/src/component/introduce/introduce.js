@@ -135,10 +135,7 @@ function Introduce() {
 			<IntroBlock>
 				<SectionBlock>
 					<IntroHeaderBlock>
-						<Link to="/" style={{textDecoration:'none',color:'#333'}}>
-							<MdKeyboardReturn className="Md" size="30">
-							</MdKeyboardReturn>
-						</Link>
+						
 						<TumbBlock>
 							<img src={img} alt='aa' size="80" />
 						</TumbBlock>
