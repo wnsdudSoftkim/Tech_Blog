@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+SECRET_KEY = 'xl-4$&o#zy510a7z9sx8fn!!xy%r-r=-ph*wsi@phj1t2)vp6!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+   
     'simplejson',
     'rest_framework',
     'main',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,11 +78,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Server.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases\
-import my_settings
-DATABASES  = my_settings.my_DATABASES
-SECRET_KEY = my_settings.my_SECRET_KEY
+DATABASES  = {
+    'default': {
+        'ENGINE'   : 'django.db.backends.mysql',
+        'NAME'     : 'mydb',
+        'USER'     : 'root',
+        'PASSWORD' : 'tjdnftkfka0501',
+        'HOST'     : '127.0.0.2',
+        'PORT'     :'3306', 
+    }
+}	
 
 
 
