@@ -7,7 +7,7 @@ class UserListSerializer(serializers.ModelSerializer):
         fields = ('email','author','password')
 class UserListView(generics.ListAPIView):
     queryset = User.objects.all()
-    print("HAAHAHAH",queryset)
+    print("User Work",queryset)
     serializer_class = UserListSerializer
     def list(self,request):
         queryset = self.get_queryset()
@@ -15,7 +15,7 @@ class UserListView(generics.ListAPIView):
         serializer = serializer_class(queryset,many=True)
 
         page = self.paginate_queryset(queryset)
-        print("HAsdasdHAHAH",page)
+        print("User Work",page)
         if page is not None:
             serializer = self.get_serializer(page,many=True)
             return self.get_paginated_response(serializer.data)

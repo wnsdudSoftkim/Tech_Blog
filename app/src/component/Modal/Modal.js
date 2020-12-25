@@ -55,6 +55,7 @@ function Modal() {
                             <Link to ="/Signin" style={{textDecoration:'none',color:"#333"}}>아니오</Link>
                             
                         </button>
+                    
                     </div>
                 </div>
             

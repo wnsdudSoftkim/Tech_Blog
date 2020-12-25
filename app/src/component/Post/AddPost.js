@@ -4,6 +4,9 @@ import axios from 'axios'
 import Header from '../Header'
 import {Link} from 'react-router-dom'
 import TextSizeAutoSize from 'react-textarea-autosize'
+import IntroduceInfo from '../introduce/introduceinfo'
+import PostModal from '../Modal/PostModal'
+var Toggle = "none"
 function HeaderInput() {
     const [headerinput,SetHeaderInput] = useState({header:""})
     const {header} = headerinput
@@ -15,7 +18,13 @@ function HeaderInput() {
         })
         
     }
+    
     console.log(header)
+    if(header.length===0) {
+        Toggle = "none"
+    }else {
+        Toggle = "exist"
+    }
     return (
         <>
             <TextSizeAutoSize 
@@ -38,6 +47,7 @@ function BodyInput() {
 
         })
     }
+    console.log(body)
     return(
         <>
             <TextSizeAutoSize 
@@ -46,6 +56,30 @@ function BodyInput() {
             onChange={e=>onChangeBody(e)}
             placeholder="글을 써보세요" 
             />
+        </>
+    )
+}
+function SubmitPost() {
+    const visible =false
+    const show = () => {
+        visible = true
+    }
+    const hide =() => {
+        visible = false
+    }
+    if(Toggle==='none') {
+        console.log('No Data Here')
+        return (
+            <>
+                <PostModal />
+            </>
+        )
+    }else {
+        console.log('good to go')
+    }
+    return(
+        <>
+            
         </>
     )
 }
@@ -188,6 +222,7 @@ function AddPost() {
                     </div>
                     <div className="Section">
                         <BodyInput />
+                        <PostModal />
                     </div>
                 </MainBodyBlock>
             </AddPostBlock>
@@ -200,7 +235,10 @@ function AddPost() {
                         <button className="button btn1">나가기</button>
                     </Link>
                     
-                    <button className="button">저장하기</button>
+                    <button className="button" onClick={SubmitPost}>
+                        저장하기
+                    </button>
+                
             </FooterBlock>
         </>
     )
