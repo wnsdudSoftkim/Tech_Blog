@@ -12,8 +12,5 @@
   django-restframework
   axios(front)
 ### 데이터베이스
-<<<<<<< HEAD
   MySQL
-=======
-  MySQL
->>>>>>> 93163b57955bb04d4b0c36e9ef0f494e4c777df3
+
