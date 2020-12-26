@@ -1,12 +1,10 @@
 import React ,{useState,useEffect,useRef,useCallback} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import Header from '../Header'
 import {Link} from 'react-router-dom'
 import TextSizeAutoSize from 'react-textarea-autosize'
-import IntroduceInfo from '../introduce/introduceinfo'
-import PostModal from '../Modal/PostModal'
-var Toggle = "none"
+var Toggle = false
+var data = {titledata:"none",bodydata:"none"}
 function HeaderInput() {
     const [headerinput,SetHeaderInput] = useState({header:""})
     const {header} = headerinput
@@ -17,13 +15,13 @@ function HeaderInput() {
 
         })
         
-    }
-    
+    }   
     console.log(header)
     if(header.length===0) {
-        Toggle = "none"
+        Toggle = false
     }else {
-        Toggle = "exist"
+        Toggle = true
+        data.titledata=header
     }
     return (
         <>
@@ -48,6 +46,11 @@ function BodyInput() {
         })
     }
     console.log(body)
+    if(body.length===0) {
+
+    }else {     
+        data.bodydata=body
+    }
     return(
         <>
             <TextSizeAutoSize 
@@ -60,28 +63,30 @@ function BodyInput() {
     )
 }
 function SubmitPost() {
-    const visible =false
-    const show = () => {
-        visible = true
-    }
-    const hide =() => {
-        visible = false
-    }
-    if(Toggle==='none') {
+    if(!Toggle) {
         console.log('No Data Here')
-        return (
-            <>
-                <PostModal />
-            </>
-        )
+        alert("제목을 입력해주시기 바랍니다")
     }else {
         console.log('good to go')
+        axios.defaults.xsrfCookieName = "csrftoken"
+        axios.defaults.xsrfHeaderName = "X-CSRFToken"
+        axios.post('Post/',{
+            title:data.titledata,
+            body:data.bodydata
+        }).then(function(response){
+            console.log(response.data['response'])
+            if(response.data['response']==="Good") {
+                console.log("aaggga")
+                window.location.assign("http://localhost:3000")
+            }else {
+                alert("오류가 발생하였습니다")
+            }
+        }).catch(function(error){
+            console.log(error)
+            alert("Error Code",error)
+        })
     }
-    return(
-        <>
-            
-        </>
-    )
+   
 }
 function AddPost() {
     // const inputElement=useRef(null)
@@ -222,7 +227,7 @@ function AddPost() {
                     </div>
                     <div className="Section">
                         <BodyInput />
-                        <PostModal />
+                    
                     </div>
                 </MainBodyBlock>
             </AddPostBlock>
@@ -236,9 +241,8 @@ function AddPost() {
                     </Link>
                     
                     <button className="button" onClick={SubmitPost}>
-                        저장하기
+                        저장하기   
                     </button>
-                
             </FooterBlock>
         </>
     )

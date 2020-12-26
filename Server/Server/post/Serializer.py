@@ -5,7 +5,7 @@ class PostListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('title','body')
-class UserListView(generics.ListAPIView):
+class PostListView(generics.ListAPIView):
     queryset = Post.objects.all()
     print("Post Work",queryset)
     serializer_class = PostListSerializer

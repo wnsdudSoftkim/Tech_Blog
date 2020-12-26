@@ -5,6 +5,7 @@ import Introduce from '../component/introduce/introduce'
 import SignUp from '../component/Signup'
 import SignIn from '../component/Signin'
 import AddPost from '../component/Post/AddPost'
+import PostPage from '../component/Post/PostPage'
 function Router() {
     return (
         <BrowserRouter>
@@ -14,6 +15,7 @@ function Router() {
                 <Route path="/SignUp" component={SignUp} />
                 <Route path="/SignIn" component={SignIn} />
                 <Route path="/AddPost" component={AddPost}/>
+                <Route path="/PostPage" component={PostPage}/>
             </Switch>
         </BrowserRouter>
     )

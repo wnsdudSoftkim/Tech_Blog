@@ -20,14 +20,15 @@ def PostBook(request):
         req = json.loads(request.body.decode('utf-8'))
         title = req['title']
         body = req['body']
-        mytitle=get_item(title,'title')
-        mybody=get_item(body,'body')
-        if Post.objects.filter(title=title).exists():
-            return HttpResponse(simplejson.dumps({"response":"exist"}))
-        else:
-            poster= Post(title=mytitle,body=mybody)
+        print(title)
+        if title!="None":
+            print("POST 데이터를 정상적으로 입력받았습니다")
+            poster= Post(title=title,body=body)
             poster.save()
-            return HttpResponse(simplejson.dumps({"response":"good"}))     
+            return HttpResponse(simplejson.dumps({"response":"Good"}))
+        else:
+            print("POST 데이터를 찾을 수 없습니다")
+            return HttpResponse(simplejson.dumps({"response":"Fail"}))     
 @register.filter
 def get_item(dictionary,key):
     return dictionary.get(key)
