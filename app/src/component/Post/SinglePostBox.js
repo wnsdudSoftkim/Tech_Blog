@@ -10,13 +10,16 @@ function SinglePostBox() {
         
         background:white;
         border-radius:4px;
-        box-shadow:rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
+        box-shadow:rgba(0, 0, 0, 0.08) 0px 4px 16px 0px;
         transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
         overflow:hidden;
         padding:1rem;
         &:hover {
             transform: translateY(-8px);
             box-shadow: rgba(0, 0, 0, 0.08) 0px 12px 20px 0px;
+        }
+        .cover {
+            margin:0 auto;
         }
         .titlebody{
             display:block;
@@ -31,6 +34,7 @@ function SinglePostBox() {
            color:rgb(33.37.41); 
         }
         .bodyhint{
+            text-align:center
             margin: 0px 0px 1.5rem;
             word-break:break-word;
             overflow-wrap:break-word;
@@ -39,12 +43,13 @@ function SinglePostBox() {
             color:rgb(73,80,87);
         }
         .date{
+            margin-top:1rem;
             font-size:0.75rem;
             line-height:1.5;
             color:rgb(134,142,150);
         }
         .footer {
-            padding:0.625rem 1rem;
+            padding:0.625rem 0;
             border-top:1px solid rgb(248,249,250);
             display:flex;
             font-size:0.75rem;
@@ -71,34 +76,37 @@ function SinglePostBox() {
     return (
         <>
             <SinglePostBoxBlock>
-                
-                <a className="titlebody">
-                    <h4 className="title">
-                        여기에 title값 받은거 적는다
-                    </h4>
-                    <div className="body">
-                        <p className="bodyhint">
-                            여기서 body 조금만 적는다
-                        </p>
-                    </div>
-                </a>
-                <div className="date">
-                    <span>2020년 12월 27일</span>
-                </div>
-                <div className="footer">
-                    <a className="userInfo">
-                        <img className="img" src={SiPostman}>
-
-                        </img>
-                        <span>
-                            by
-                            &nbsp;
-                            <b>jun</b>
-
-                        </span>
-
+                <div className="cover">
+                    <a className="titlebody">
+                        <h4 className="title">
+                            여기에 title값 받은거 적는다
+                        </h4>
+                        <div className="body">
+                            <p className="bodyhint">
+                                여기서 body 조금만 적는다
+                            </p>
+                        </div>
                     </a>
+                    <div className="date">
+                        <span>2020년 12월 27일</span>
+                    </div>
+                    <div className="footer">
+                        <a className="userInfo">
+                            <img className="img" src={SiPostman}>
+
+                            </img>
+                            <span>
+                                by
+                                &nbsp;
+                                <b>jun</b>
+
+                            </span>
+
+                        </a>
+                    </div>
                 </div>
+                
+                
 
             </SinglePostBoxBlock>
         </>
