@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect} from 'react'
 import styled from 'styled-components'
 import {Grid} from 'semantic-ui-react'
 import {useSelector, useDispatch} from 'react-redux'
@@ -6,12 +6,9 @@ import {fetchGetPost} from '../../store/action/index'
 import SinglePostBox from './SinglePostBox'
 import 'semantic-ui-css/semantic.min.css'
 import useMedia from '../../useMedia'
-import Axios from 'axios'
-import getpost from '../../store/reducers/getpost'
 //전체 Post를 Home 에서 보여주는 함수.
 //반응형 작업 4개 ->3개 ->2개 ->1개
 function ShowPost() {
-    const[Data,setData] = useState([])
     const columnCount = useMedia(
         // Media queries
         ['(min-width: 1300px)', '(min-width: 1000px)', '(min-width: 600px)'],
@@ -20,7 +17,6 @@ function ShowPost() {
         // Default column count
         1
     )
-    let completed = false
     const dispatch = useDispatch()
     const mydata = useSelector((state)=> state.fetchGetPost)
     useEffect(()=> {
@@ -28,7 +24,7 @@ function ShowPost() {
             dispatch(result)
         })
     },[])
-    console.log(mydata)
+    
 
 
 
@@ -46,20 +42,26 @@ function ShowPost() {
     //     }
     // },[])
     
-    console.log(completed)
     
 
     const ShowPostBlock = styled.div`
         
     `
-    if(completed) {
+    if(mydata!=null) {
         return (
         
             <>  
                 <ShowPostBlock>   
                     <Grid divided="vertically">
                         <Grid.Row columns={columnCount}>   
-                            {mydata}
+                        {Object.keys(mydata).map(function(key) {
+                            return (
+                                <Grid.Column>
+                                    <SinglePostBox key ={key} title={mydata[key]["title"]} body={mydata[key]["body"]} />
+                                </Grid.Column>
+                            )
+                       
+                        })}
                         </Grid.Row>
                     </Grid>
                 </ShowPostBlock>
@@ -69,7 +71,7 @@ function ShowPost() {
     }else {
         return (
             <>
-                aaaaaaaaaaa
+                Loading...
             </>
         )
     }

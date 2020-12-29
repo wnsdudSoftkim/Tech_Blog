@@ -2,8 +2,7 @@ import React,{useState} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {SiPostman} from 'react-icons/si'
-function SinglePostBox() {
-    const SinglePostBoxBlock = styled.div`
+const SinglePostBoxBlock = styled.div`
         display:flex;
         flex-direction:column;
         margin:0px;
@@ -24,6 +23,7 @@ function SinglePostBox() {
         .titlebody{
             display:block;
             text-decoration:none;
+            cursor:pointer;
         }
         .title {
            font-size:1rem;
@@ -73,20 +73,26 @@ function SinglePostBox() {
         
 
     `
+function SinglePostBox({key,title,body}) {
+    //타이틀 부분 클릭시 타이틀에 대한 정보를 찾는 통신과 동시에
+    //PostPage로 넘어가는 작업
+    const onClick =() => {
+
+    }
     return (
         <>
             <SinglePostBoxBlock>
                 <div className="cover">
-                    <a className="titlebody">
+                    <Link className="titlebody" key={key} onClick={onClick} to="/PostPage">
                         <h4 className="title">
-                            여기에 title값 받은거 적는다
+                            {title}
                         </h4>
                         <div className="body">
                             <p className="bodyhint">
-                                여기서 body 조금만 적는다
+                               {body}
                             </p>
                         </div>
-                    </a>
+                    </Link>
                     <div className="date">
                         <span>2020년 12월 27일</span>
                     </div>
