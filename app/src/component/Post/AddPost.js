@@ -1,8 +1,9 @@
-import React ,{useState,useEffect,useRef,useCallback} from 'react'
+import React ,{useState} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import TextSizeAutoSize from 'react-textarea-autosize'
+import FileList from './FileList'
 var Toggle = false
 var data = {titledata:"none",bodydata:"none"}
 function HeaderInput() {
@@ -100,8 +101,8 @@ function AddPost() {
     //         inputElement.current.focus()
     //     }
     // },[inputElement.current])
+
    
-  
     const AddPostBlock = styled.div`
         width:100%;
         height:100%;
@@ -227,14 +228,11 @@ function AddPost() {
                     </div>
                     <div className="Section">
                         <BodyInput />
-                    
+                        <FileList  />
                     </div>
                 </MainBodyBlock>
             </AddPostBlock>
                 
-              
-            
-
             <FooterBlock>
                     <Link to ="/">
                         <button className="button btn1">나가기</button>

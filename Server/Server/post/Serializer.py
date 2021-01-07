@@ -4,7 +4,7 @@ from .models import *
 class PostListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('title','body')
+        fields = ('title','body','user_date')
 class PostListView(generics.ListAPIView):
     queryset = Post.objects.all()
     print("Post Work",queryset)
