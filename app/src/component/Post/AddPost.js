@@ -54,12 +54,15 @@ function BodyInput() {
     }
     return(
         <>
-            <TextSizeAutoSize 
-            className="textArea bodytext"
-            value={body}
-            onChange={e=>onChangeBody(e)}
-            placeholder="글을 써보세요" 
-            />
+            <div>
+                <TextSizeAutoSize 
+                    className="textArea bodytext"
+                    value={body}
+                    onChange={e=>onChangeBody(e)}
+                    placeholder="글을 써보세요" 
+                />
+            </div>
+           
         </>
     )
 }
@@ -156,6 +159,10 @@ function AddPost() {
             flex:1 1 0%;
             display:flex;
             flex-direction:column;
+            .filelist{
+                width:100vw;
+                height:100vh;
+            }
         }
     `
     const FooterBlock = styled.div`
@@ -228,7 +235,7 @@ function AddPost() {
                     </div>
                     <div className="Section">
                         <BodyInput />
-                        <FileList  />
+                        <FileList />
                     </div>
                 </MainBodyBlock>
             </AddPostBlock>

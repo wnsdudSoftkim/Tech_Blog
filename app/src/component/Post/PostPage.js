@@ -1,6 +1,5 @@
-import React , {useState,useEffect} from 'react'
-import styled,{createGlobalStyle} from 'styled-components'
-import axios from 'axios'
+import React , {useState} from 'react'
+import styled from 'styled-components'
 import Header from '../Header'
 import tumb from '../image/tumb.PNG'
 import instablack from '../image/instablack.PNG'
