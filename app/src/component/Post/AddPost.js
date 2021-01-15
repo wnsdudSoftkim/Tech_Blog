@@ -235,7 +235,7 @@ function AddPost() {
                     </div>
                     <div className="Section">
                         <BodyInput />
-                        <FileList />
+                        {/*<FileList />*/}
                     </div>
                 </MainBodyBlock>
             </AddPostBlock>
