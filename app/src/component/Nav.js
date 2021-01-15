@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import instagram from './image/instagram.png'
 import user from './image/user.png'
 
 const PageBlock = styled.div`
@@ -73,16 +72,7 @@ const SideBottomBlock = styled.div`
         font-size:14px;
         font-family: 'Crimson Text', serif;
     }
-    .instagram {
-        cursor:pointer;
-        display:flex;
-        align-items:center;
-        .img{
-            width:20px;
-            height:20px;
-            margin-right:4px;
-        }
-    }
+    
 `
 const MediaBottomBlock = styled.div`
     display:none;
@@ -129,10 +119,7 @@ function Nav({Toggle}) {
 							<img src= {user} alt="jun" />
 						</div>
 						<p className="Text">test<br /> test<br />test </p>
-						<p className="instagram" onClick={() => {window.location.assign("https://www.instagram.com/c_mongkey/?hl=ko")}}>
-							<img className="img" size ="10" src={instagram} alt="인스타"  />
-							<p>c_mongkey</p>
-						</p>
+						
 					</SideBottomBlock>
 					<MediaBottomBlock>
 						<div className="margin">

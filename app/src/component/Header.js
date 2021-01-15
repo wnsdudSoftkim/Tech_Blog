@@ -182,31 +182,7 @@ function Header() {
                                 </a>
                             </li>
                         </Link>
-                        <li class="menu__item">
-                            <a href="#" class="menu__link">
-                                <span class="menu__title">
-                                    <span class="menu__first-word" data-hover="Latest">
-                                        Latest
-                                    </span>
-                                    <span class="menu__second-word" data-hover="News">
-                                        News
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="menu__item">
-                            <a href="#" class="menu__link">
-                                <span class="menu__title">
-                                    <span class="menu__first-word" data-hover="New">
-                                        New
-                                    </span>
-                                    <span class="menu__second-word" data-hover="Arrivals">
-                                        Arrivals
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
+                        
                         <Link to="signin">
                             <li class="menu__item">
                                 <a href="#" class="menu__link">
