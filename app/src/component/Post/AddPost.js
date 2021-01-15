@@ -1,9 +1,9 @@
-import React ,{useState} from 'react'
+import React ,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import TextSizeAutoSize from 'react-textarea-autosize'
-import FileList from './FileList'
+import CodeEditor from './CodeEditor'
 var Toggle = false
 var data = {titledata:"none",bodydata:"none"}
 function HeaderInput() {
@@ -39,28 +39,27 @@ function HeaderInput() {
 function BodyInput() {
     const [bodyinput,SetBodyInput] = useState({body:""})
     const {body} = bodyinput
-    const onChangeBody = e => {
-        e.preventDefault()
-        SetBodyInput({
-            body:e.target.value
+    // const onChangeBody = e => {
+    //     e.preventDefault()
+    //     SetBodyInput({
+    //         body:e.target.value
 
-        })
-    }
-    console.log(body)
-    if(body.length===0) {
+    //     })
+    // }
+    // console.log(body)
+    // if(body.length===0) {
 
-    }else {     
-        data.bodydata=body
-    }
+    // }else {     
+    //     data.bodydata=body
+    // }
+    
+    useEffect(()=> {
+
+    },[])
     return(
         <>
-            <div>
-                <TextSizeAutoSize 
-                    className="textArea bodytext"
-                    value={body}
-                    onChange={e=>onChangeBody(e)}
-                    placeholder="글을 써보세요" 
-                />
+            <div >
+               <CodeEditor/>
             </div>
            
         </>
@@ -159,10 +158,8 @@ function AddPost() {
             flex:1 1 0%;
             display:flex;
             flex-direction:column;
-            .filelist{
-                width:100vw;
-                height:100vh;
-            }
+           
+
         }
     `
     const FooterBlock = styled.div`
@@ -235,7 +232,7 @@ function AddPost() {
                     </div>
                     <div className="Section">
                         <BodyInput />
-                        {/*<FileList />*/}
+                       
                     </div>
                 </MainBodyBlock>
             </AddPostBlock>
