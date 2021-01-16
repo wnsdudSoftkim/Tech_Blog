@@ -1,13 +1,14 @@
 import {EDIT_BODY} from '../action/index'
 const initialState = {
-    body:'',
+    cursor:'',
+    body:''
 }
 function writedata(state=initialState,action) {
+    console.log(action)
     switch(action.type) {
         case EDIT_BODY:
-            return {
-                ...action.payload
-            }
+            return action.data
+            
         default:
             return state
     }

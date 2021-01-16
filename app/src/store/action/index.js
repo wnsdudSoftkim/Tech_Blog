@@ -17,9 +17,12 @@ export const PostImageData=(data)=> {
         payload:data
     }
 }
-export const EditBody = (value) => {
+export const EditBody = (cursor,body) => {
     return {
         type:"EDIT_BODY",
-        payload:value
+        data:{
+            cursor:cursor,
+            body:body,
+        }
     }
 }

@@ -1,9 +1,12 @@
 import React ,{useState,useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import styled from 'styled-components'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import TextSizeAutoSize from 'react-textarea-autosize'
+import { Button } from 'semantic-ui-react'
 import CodeEditor from './CodeEditor'
+import writedata from '../../store/reducers/write'
 var Toggle = false
 var data = {titledata:"none",bodydata:"none"}
 function HeaderInput() {
@@ -52,13 +55,21 @@ function BodyInput() {
     // }else {     
     //     data.bodydata=body
     // }
-    
+    const dispatch = useDispatch()
+    const mydata = useSelector(state=> state.writedata)
     useEffect(()=> {
-
-    },[])
+        
+        console.log(mydata)
+    },[mydata])
+   
+    
+    
     return(
         <>
             <div >
+                <div className="test">
+                
+                </div>
                <CodeEditor/>
             </div>
            
@@ -158,6 +169,10 @@ function AddPost() {
             flex:1 1 0%;
             display:flex;
             flex-direction:column;
+            .SelectButton {
+                display:flex;
+                flex-direction:row;
+            }
            
 
         }
@@ -231,6 +246,11 @@ function AddPost() {
 
                     </div>
                     <div className="Section">
+                        <div className="SelectButton">
+                            <Button>Write</Button>
+                            <Button>Preview</Button>
+                        </div>
+                        
                         <BodyInput />
                        
                     </div>
