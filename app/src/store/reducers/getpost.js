@@ -4,7 +4,6 @@ const initialState= {
     body:"None"
 }
 function data(state={}, action) {
-    console.log(action)
     switch(action.type) {
         case FETCH_GET_POST:
             return {

@@ -32,7 +32,7 @@ class CodeEditor extends Component {
            
         })
     }
-    editor.on()
+    
     componentDidUpdate() {
 
     }
