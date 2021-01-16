@@ -8,11 +8,41 @@
         display:flex;
         min-width:0;
         flex:1;
+        
         .CodeMirror {
             flex:1;
-            width:auto;
-            height:auto;
             min-height:600px;
+            font-family: 'D2 coding';
+            font-size:1.25rem;
+            line-height:1.5rem;
+           
+            .cm-header {
+                color:#ae81ff ;
+            }
+            .cm-header-1 {
+                font-size:3rem;
+                line-height: 4rem;
+            }
+            .cm-header-2 {
+                font-size:2.5rem;
+                line-height: 3.5rem;
+            }
+            .cm-header-3 {
+                font-size:2rem;
+                line-height: 3rem;
+            }
+            .cm-header-4 {
+                font-size:1.75rem;
+                line-height: 2.5rem;
+            }
+            .cm-quote {
+                font-style: italic;
+            }
+            &.CodeMirror-empty {
+                color:gray;
+            }
+            
+            
         }
     }
 }
