@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 import TextSizeAutoSize from 'react-textarea-autosize'
 import { Button } from 'semantic-ui-react'
 import CodeEditor from './CodeEditor'
-import writedata from '../../store/reducers/write'
 var Toggle = false
 var data = {titledata:"none",bodydata:"none"}
 function HeaderInput() {
@@ -55,12 +54,6 @@ function BodyInput() {
     // }else {     
     //     data.bodydata=body
     // }
-    const dispatch = useDispatch()
-    const mydata = useSelector(state=> state.writedata)
-    useEffect(()=> {
-        
-        console.log(mydata)
-    },[mydata])
    
     
     

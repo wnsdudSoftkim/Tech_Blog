@@ -1,4 +1,6 @@
-import React, {Component}from 'react'
+import React, { useEffect, useState}from 'react'
+import {useSelector,useDispatch} from 'react-redux'
+import {EditBody} from '../../store/action/index'
 import './CodeEditor.scss'
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/addon/display/autorefresh';
@@ -19,66 +21,73 @@ import 'codemirror/mode/ruby/ruby'
 //theme
 import 'codemirror/theme/monokai.css';
 //action
-import * as actions from '../../store/action/index'
-import writedata from '../../store/reducers/write'
-import Test from './Test'
 const CodeMirror = require("codemirror")
-var data = {
-    "cursor":null,
-    "body":null,
-}
-class CodeEditor extends Component {
-    
-    state ={
-        cursor:null,
+
+function CodeEditor() {
+    const mydata = useSelector(state=> state.writedata)
+    const state ={
+        cursor:"",
+        body:""
     }
-    initialize = () => {
-        this.codeMirror = CodeMirror(this.editor,{
+    const dispatch = useDispatch()
+    
+    useEffect(()=> {
+        const editor = document.getElementById("editor")
+        const codeMirror = CodeMirror(editor,{
             mode:'markdown',
             theme:'default',
             linenumbers:true,
             lineWrapping:true,
             scrollbarStyle:'overlay',
             placeholder:'글을 적어보세요',
-           
+        
         })
-        this.codeMirror.on('change',this.onChange)
-    }
+                
+        codeMirror.on('change',onChange)
 
-    onChange = (doc) => {
-        this.setState({
-            cursor:doc.getCursor(),
-        })
+    },[])
+    // useEffect(()=> {
+    //     // EditBody(value["cursor"],value["body"]).then(function(result){
+    //     //     dispatch(result)
+    //     // })
+    //     dispatch(EditBody(value["cursor"],value["body"]))
+       
+    //     console.log(mydata)
+    // },[value])
+   
+        
+  
+   
     
-        console.log(doc.getCursor(),doc.getValue())
-        data["cursor"]=""
-        data["body"]=doc.getValue()
+
+    const onChange = (doc) => {
+        state.cursor = doc.getCursor()
+        state.body = doc.getValue()
+        // EditBody(state.cursor,state.body).then(function(result){
+        //     dispatch(result)
+        // })
+        dispatch(EditBody(state.cursor,state.body))  
+   
+        console.log(mydata)
+    
         
       
     }
     
-    componentDidUpdate() {
-        
-    }
-    componentDidMount() {
-        this.initialize()
-    }
-    render() {
-        const {left,right} = this.props
-        return (
-            <>
-                <div className="CodeEditor">
-                    <div className="editor" ref={(ref)=> this.editor = ref}>
-                    
-                    </div>
+   
+    return (
+        <>
+            <div className="CodeEditor">
+                <div className="editor" id="editor" >
+                
                 </div>
-                <Test value ={data}/>
-            </>
+            </div>
+        </>
 
-            
-            
-        )
-    }
+        
+        
+    )
+    
 }
 
 export default CodeEditor

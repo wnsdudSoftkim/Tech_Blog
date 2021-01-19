@@ -1,7 +1,10 @@
 import {EDIT_BODY} from '../action/index'
 const initialState = {
-    cursor:'',
-    body:''
+    data: {
+        cursor:'',
+        body:''
+    }
+    
 }
 function writedata(state=initialState,action) {
     console.log(action)

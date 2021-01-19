@@ -4,7 +4,6 @@ const initialState= {
     body:"None"
 }
 function imagedata(state={},action) {
-    console.log(action)
     switch(action.type){
         case POST_IMAGE_DATA:
             return {
