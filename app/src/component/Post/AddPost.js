@@ -1,11 +1,11 @@
-import React ,{useState,useEffect} from 'react'
+import React ,{useState,useEffect, createRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import styled from 'styled-components'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import TextSizeAutoSize from 'react-textarea-autosize'
-import { Button } from 'semantic-ui-react'
 import CodeEditor from './CodeEditor'
+import  CodeEditorPreview  from './CodeEditorPreview'
 var Toggle = false
 var data = {titledata:"none",bodydata:"none"}
 function HeaderInput() {
@@ -38,9 +38,27 @@ function HeaderInput() {
         
     )
 }
+const BodyBlcok = styled.div`
+    width:100%;
+    display:flex;
+`
+const LeftBlock =styled.div`
+    width:100%;
+    display:flex
+`
+const RightBlock = styled.div`
+    width:100%;
+    display:flex;
+`
 function BodyInput() {
     const [bodyinput,SetBodyInput] = useState({body:""})
     const {body} = bodyinput
+    useEffect(()=> {
+        return CodeEditorPreview.bind(mydata)
+    },[])
+    const mydata = useSelector(state=> state.writedata)
+    console.log(mydata.body)
+   
     // const onChangeBody = e => {
     //     e.preventDefault()
     //     SetBodyInput({
@@ -54,22 +72,36 @@ function BodyInput() {
     // }else {     
     //     data.bodydata=body
     // }
+  
    
     
+
+   
     
+   
     return(
+    
         <>
-            <div >
-                <div className="test">
-                
-                </div>
-               <CodeEditor/>
-            </div>
-           
+            <BodyBlcok>
+                <LeftBlock>
+                    <CodeEditor/>
+                </LeftBlock>
+                <RightBlock>
+                    <CodeEditorPreview mydata={mydata}/>
+                </RightBlock>
+            </BodyBlcok>
+        
         </>
+
+
     )
+   
+        
+        
+    
 }
 function SubmitPost() {
+   
     if(!Toggle) {
         console.log('No Data Here')
         alert("제목을 입력해주시기 바랍니다")
@@ -96,17 +128,13 @@ function SubmitPost() {
    
 }
 function AddPost() {
-    // const inputElement=useRef(null)
-    // const callbackRef = useCallback(inputElement=> {
-    //     if(inputElement) {
-    //         inputElement.focus()
-    //     }
-    // },[])
-    // useEffect(()=> {
-    //     if(inputElement.current){
-    //         inputElement.current.focus()
-    //     }
-    // },[inputElement.current])
+    const [activeTab,setActiveTab] = useState(1)
+    
+    const toggle =tab => {
+        if(tab!== activeTab) {
+            setActiveTab(tab)
+        }
+    }
 
    
     const AddPostBlock = styled.div`
@@ -162,10 +190,8 @@ function AddPost() {
             flex:1 1 0%;
             display:flex;
             flex-direction:column;
-            .SelectButton {
-                display:flex;
-                flex-direction:row;
-            }
+            min-height:500px;
+            
            
 
         }
@@ -239,10 +265,7 @@ function AddPost() {
 
                     </div>
                     <div className="Section">
-                        <div className="SelectButton">
-                            <Button>Write</Button>
-                            <Button>Preview</Button>
-                        </div>
+                        
                         
                         <BodyInput />
                        

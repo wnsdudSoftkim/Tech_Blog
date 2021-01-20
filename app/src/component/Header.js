@@ -130,20 +130,30 @@ function Header() {
                 <nav className="site-nav">
                     <ul className="nav">
                         <li className="nav-home">
-                            HOME
+                            <Link to="/" className="Link">
+                                HOME
+                            </Link>
+                            
                         </li>
                         <li className="nav-home">
-                            POSTS
+                            <Link to="/addpost"  className="Link">
+                                POSTS
+                            </Link>
+                           
                         </li>
                         <li className="nav-home">
-                            BOOKS
+                            <Link to="/"  className="Link">
+                                GUEST BOOK
+                            </Link>
+                            
                         </li>
                         <li className="nav-home">
-                            PROBLEMS
+                            <Link to="/introduce"  className="Link">
+                                ABOUT
+                            </Link>
+                            
                         </li>
-                        <li className="nav-home">
-                            home
-                        </li>
+                       
                     </ul>
                 </nav>
 

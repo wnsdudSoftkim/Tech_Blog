@@ -1,5 +1,5 @@
-import React, { useEffect, useState}from 'react'
-import {useSelector,useDispatch} from 'react-redux'
+import React, { useEffect}from 'react'
+import {useDispatch} from 'react-redux'
 import {EditBody} from '../../store/action/index'
 import './CodeEditor.scss'
 import 'codemirror/lib/codemirror.css';
@@ -24,7 +24,7 @@ import 'codemirror/theme/monokai.css';
 const CodeMirror = require("codemirror")
 
 function CodeEditor() {
-    const mydata = useSelector(state=> state.writedata)
+   
     const state ={
         cursor:"",
         body:""
@@ -36,14 +36,29 @@ function CodeEditor() {
         const codeMirror = CodeMirror(editor,{
             mode:'markdown',
             theme:'default',
+            dragDrop:true,
             linenumbers:true,
             lineWrapping:true,
             scrollbarStyle:'overlay',
-            placeholder:'글을 적어보세요',
+            placeholder:'마크다운 형식으로 작성됩니다.',
         
         })
                 
         codeMirror.on('change',onChange)
+        codeMirror.on('drop',function(data,e) {
+            var file;
+            var files;
+            // Check if files were dropped
+            files = e.dataTransfer.files;
+            if (files.length > 0) {
+                e.preventDefault();
+                e.stopPropagation();
+                file = files[0];
+                alert('File: ' + file.name);
+                return false;
+            }
+          
+        })
 
     },[])
     // useEffect(()=> {
@@ -61,6 +76,7 @@ function CodeEditor() {
     
 
     const onChange = (doc) => {
+        
         state.cursor = doc.getCursor()
         state.body = doc.getValue()
         // EditBody(state.cursor,state.body).then(function(result){
@@ -68,17 +84,18 @@ function CodeEditor() {
         // })
         dispatch(EditBody(state.cursor,state.body))  
    
-        console.log(mydata)
+   
     
         
       
     }
     
+    
    
     return (
         <>
             <div className="CodeEditor">
-                <div className="editor" id="editor" >
+                <div className="editor" id="editor"  >
                 
                 </div>
             </div>

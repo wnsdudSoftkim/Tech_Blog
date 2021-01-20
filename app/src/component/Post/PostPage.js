@@ -1,6 +1,5 @@
 import React , {useState} from 'react'
 import styled from 'styled-components'
-import Header from '../Header'
 import tumb from '../image/tumb.PNG'
 import instablack from '../image/instablack.PNG'
 import facebook from '../image/facebook.PNG'
@@ -8,6 +7,7 @@ import user2 from '../image/user2.png'
 import {Link} from 'react-router-dom'
 import { MdDelete } from "react-icons/md";
 import Comment from './Comment'
+import HeaderSmall from '../HeaderSmall'
 //하나의 포스트를 클릭시 들어가지는 페이지
 function PostPage({match}){
     const [title,SetTitle] = useState()
@@ -119,7 +119,7 @@ function PostPage({match}){
     
     return (
         <>
-            <Header />
+            <HeaderSmall />
             <PostPageBlock>
                 {!Toggle ?
                     <>

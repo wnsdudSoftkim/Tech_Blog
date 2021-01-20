@@ -1,10 +1,9 @@
 import React,{useState} from 'react'
 import styled, { css } from 'styled-components'
-import img from '../image/user.png'
+import profile from '../image/profile.jpg'
 import IntroduceInfo from './introduceinfo'
-import {MdKeyboardReturn} from 'react-icons/md'
-import {Link} from 'react-router-dom'
-import Header from '../Header'
+
+import HeaderSmall from '../HeaderSmall'
 
 function Introduce() {
     const [activeTab,setActiveTab] = useState(1)
@@ -72,14 +71,17 @@ function Introduce() {
     `
     const TumbBlock = styled.div`
         position:absolute;
-        top:-20%;
+        top:0%;
         right:0%;
-        width:160px;
-        height:160px;
-        border-radius:50px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
+        .profile {
+            
+            width:100px;
+            height:100px;
+            border-radius:50px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
 
     `
     const ButtonBlock = styled.div`
@@ -151,13 +153,13 @@ function Introduce() {
     `
     return (
 		<>
-			<Header />
+			<HeaderSmall />
 			<IntroBlock>
 				<SectionBlock>
 					<IntroHeaderBlock>
 						
 						<TumbBlock>
-							<img src={img} alt='aa' size="80" />
+							<img src={profile} className="profile" alt='aa' size="80" />
 						</TumbBlock>
 						<strong className="H1">김준영</strong>
 						<span className="SubH1 GrayText">한국외국어대학교 정보통신공학과</span>

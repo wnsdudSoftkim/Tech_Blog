@@ -1,0 +1,45 @@
+.preview {
+    font-family: 'D2 coding';
+    font-size:1.25rem;
+    line-height:1.5rem;
+    padding-left:2rem;
+    h1,h2,h3,h4,h5 {
+        color:#ae81ff ;
+    }
+    h1 {
+        font-size:3rem;
+        line-height: 4rem;  
+    }
+    h2 {
+        font-size:2.5rem;
+        line-height: 3.5rem;
+    }
+    h3 {
+        font-size:2rem;
+        line-height: 3rem;
+    }
+    h4 {
+        font-size:1.75rem;
+        line-height: 2.5rem;
+    }
+    blockquote {
+        margin:0;
+        font-style: italic;
+    }
+    code {
+        background: #f4f4f4;
+        border: 1px solid #ddd;
+        border-left: 3px solid black;
+        color: #666;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1.6em;
+        max-width: 100%;
+        overflow: auto;
+        padding: 1em 1.5em;
+        display: block;
+        word-wrap: break-word;
+    }
+}
