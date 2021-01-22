@@ -1,6 +1,8 @@
 import React, { useEffect}from 'react'
 import {useDispatch} from 'react-redux'
 import {EditBody} from '../../store/action/index'
+//aws s3
+import S3FileUpload from 'react-s3'
 import './CodeEditor.scss'
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/addon/display/autorefresh';
@@ -30,6 +32,14 @@ function CodeEditor() {
         body:""
     }
     const dispatch = useDispatch()
+    //aws s3 사용 옵션
+    const AWSconfig ={
+        bucketName:"jun-techblog",
+        dirName:"images/",
+        region:"ap-northeast-2",
+        accessKeyId:"AKIAJINCVVQXT4IZKS7Q",
+        secretAccessKey:'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'
+    }
     
     useEffect(()=> {
         const editor = document.getElementById("editor")
@@ -48,27 +58,29 @@ function CodeEditor() {
         codeMirror.on('drop',function(data,e) {
             var file;
             var files;
-            // Check if files were dropped
             files = e.dataTransfer.files;
             if (files.length > 0) {
                 e.preventDefault();
                 e.stopPropagation();
                 file = files[0];
-                alert('File: ' + file.name);
+                console.log(file)
+                //aws S3 로 이미지 전송
+                S3FileUpload.uploadFile(file,AWSconfig)
+                .then((data)=> {
+                    console.log(data.location)
+                })
                 return false;
             }
           
         })
 
     },[])
-    // useEffect(()=> {
-    //     // EditBody(value["cursor"],value["body"]).then(function(result){
-    //     //     dispatch(result)
-    //     // })
-    //     dispatch(EditBody(value["cursor"],value["body"]))
-       
-    //     console.log(mydata)
-    // },[value])
+
+
+    //redux store에 붙여주는 작업
+    const Paste= (cursor,body,file)=> {
+        dispatch(EditBody(state.cursor,state.body))
+    }
    
         
   
@@ -82,7 +94,7 @@ function CodeEditor() {
         // EditBody(state.cursor,state.body).then(function(result){
         //     dispatch(result)
         // })
-        dispatch(EditBody(state.cursor,state.body))  
+        Paste(state.cursor,state.body)
    
    
     
