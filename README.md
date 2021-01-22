@@ -3,14 +3,16 @@
 
 개인프로젝트 시작 (10/26~
 
-## 초기디자인
-![초기디자인1](https://user-images.githubusercontent.com/48875061/103145616-e1866780-4780-11eb-8005-d5bfac5cff20.PNG)
-![초기디자인2](https://user-images.githubusercontent.com/48875061/103145623-ed722980-4780-11eb-9ac8-f84b0d8dd89c.PNG)
-![초기디자인3](https://user-images.githubusercontent.com/48875061/103145629-f4993780-4780-11eb-9e92-1d63144f415b.PNG)
-## 기술 스택
-### 통신
-  django-restframework
-  axios(front)
-### 데이터베이스
-  MySQL
+## 1/20 진행상황
+<h2>Home</h2>
+<div style={{display:flex}}>
+  <img src="https://user-images.githubusercontent.com/48875061/105150438-1c917600-5b48-11eb-9348-4ff6ebfe0c1a.PNG" />
+  <h2>Introduce</h2>
+  <img src="https://user-images.githubusercontent.com/48875061/105150634-595d6d00-5b48-11eb-9f13-62c2d6d70bee.PNG"/>
+  <h2>AddPost</h2>
+  <img src="https://user-images.githubusercontent.com/48875061/105150703-7134f100-5b48-11eb-890c-f317d32e7778.PNG"/>
+
+</div>
+
+
 
