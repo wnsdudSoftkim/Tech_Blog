@@ -11,7 +11,7 @@ import json
 import simplejson
 from django.template.defaulttags import register
 
-# 회원가입
+
 @method_decorator(csrf_exempt,name='dispatch')
 def PostBook(request):
     if request.method =="GET":
@@ -20,10 +20,11 @@ def PostBook(request):
         req = json.loads(request.body.decode('utf-8'))
         title = req['title']
         body = req['body']
+        thumbnail = req['thumbnail']
         print(title)
         if title!="None":
             print("POST 데이터를 정상적으로 입력받았습니다")
-            poster= Post(title=title,body=body)
+            poster= Post(title=title,body=body,thumbnail=thumbnail)
             poster.save()
             return HttpResponse(simplejson.dumps({"response":"Good"}))
         else:

@@ -2,7 +2,8 @@ import {EDIT_BODY} from '../action/index'
 const initialState = {
     data: {
         cursor:'',
-        body:''
+        body:'',
+        thumbnail:[],
     }
     
 }

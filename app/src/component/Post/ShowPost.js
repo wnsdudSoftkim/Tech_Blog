@@ -11,9 +11,9 @@ import useMedia from '../../useMedia'
 function ShowPost() {
     const columnCount = useMedia(
         // Media queries
-        ['(min-width: 1300px)', '(min-width: 1000px)', '(min-width: 600px)'],
+        ['(min-width: 1024px)', '(min-width: 768px)', '(min-width: 400px)'],
         // Column counts (relates to above media queries by array index)
-        [4, 3, 2],
+        [3, 2, 1],
         // Default column count
         1
     )
@@ -57,7 +57,7 @@ function ShowPost() {
                         {Object.keys(mydata).map(function(key) {
                             return (
                                 <Grid.Column>
-                                    <SinglePostBox key ={key} title={mydata[key]["title"]} body={mydata[key]["body"]} />
+                                    <SinglePostBox key ={key} title={mydata[key]["title"]} body={mydata[key]["body"]} thumbnail={mydata[key]["thumbnail"]} />
                                 </Grid.Column>
                             )
                        

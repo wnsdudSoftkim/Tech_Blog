@@ -17,12 +17,13 @@ export const PostImageData=(data)=> {
         payload:data
     }
 }
-export const EditBody = (cursor,body) => {
+export const EditBody = (cursor,body,thumbnail) => {
     return {
         type:"EDIT_BODY",
         data:{
             cursor:cursor,
             body:body,
+            thumbnail:thumbnail
         }
     }
 }

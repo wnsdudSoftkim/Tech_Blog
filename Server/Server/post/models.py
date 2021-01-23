@@ -3,8 +3,9 @@ from django.db import models
 # Create your models here.
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=64,verbose_name="제목",null=True)
-    body = models.CharField(max_length=64,verbose_name="Body",null=True)
+    title = models.TextField(verbose_name="title")
+    body = models.TextField(verbose_name="Body")
+    thumbnail=models.TextField(verbose_name="thumbnail")
     user_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

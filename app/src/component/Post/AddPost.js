@@ -7,7 +7,10 @@ import TextSizeAutoSize from 'react-textarea-autosize'
 import CodeEditor from './CodeEditor'
 import  CodeEditorPreview  from './CodeEditorPreview'
 var Toggle = false
-var data = {titledata:"none",bodydata:"none"}
+var data = {titledata:"none",
+            bodydata:"none",
+            thumbnail:""
+}
 function HeaderInput() {
     const [headerinput,SetHeaderInput] = useState({header:""})
     const {header} = headerinput
@@ -43,21 +46,25 @@ const BodyBlcok = styled.div`
     display:flex;
 `
 const LeftBlock =styled.div`
-    width:100%;
+    width:50vw;
     display:flex
+    
 `
 const RightBlock = styled.div`
-    width:100%;
+    width:50vw;
     display:flex;
+    
 `
 function BodyInput() {
     const [bodyinput,SetBodyInput] = useState({body:""})
     const {body} = bodyinput
     useEffect(()=> {
-        return CodeEditorPreview.bind(mydata)
+        return CodeEditorPreview.bind(mydata||"")
     },[])
     const mydata = useSelector(state=> state.writedata)
     console.log(mydata.body)
+    data.bodydata = mydata.body
+    data.thumbnail=mydata.thumbnail
    
     // const onChangeBody = e => {
     //     e.preventDefault()
@@ -67,11 +74,7 @@ function BodyInput() {
     //     })
     // }
     // console.log(body)
-    // if(body.length===0) {
-
-    // }else {     
-    //     data.bodydata=body
-    // }
+    
   
    
     
@@ -111,7 +114,8 @@ function SubmitPost() {
         axios.defaults.xsrfHeaderName = "X-CSRFToken"
         axios.post('Post/',{
             title:data.titledata,
-            body:data.bodydata
+            body:data.bodydata,
+            thumbnail:data.thumbnail,
         }).then(function(response){
             console.log(response.data['response'])
             if(response.data['response']==="Good") {
@@ -191,6 +195,7 @@ function AddPost() {
             display:flex;
             flex-direction:column;
             min-height:500px;
+            overflow-x:scroll;
             
            
 

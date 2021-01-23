@@ -29,7 +29,8 @@ function CodeEditor() {
    
     const state ={
         cursor:"",
-        body:""
+        body:"",
+        thumbnail:[],
     }
     const dispatch = useDispatch()
     //aws s3 사용 옵션
@@ -68,6 +69,14 @@ function CodeEditor() {
                 S3FileUpload.uploadFile(file,AWSconfig)
                 .then((data)=> {
                     console.log(data.location)
+                    codeMirror.setValue(state.body+"\n"+
+                    "![]("
+                    +data.location+
+                    ")")
+                    state.thumbnail.push(data.location)
+                    dispatch(EditBody(state.cursor,state.body,state.thumbnail[0]))
+                
+                  
                 })
                 return false;
             }
@@ -77,11 +86,6 @@ function CodeEditor() {
     },[])
 
 
-    //redux store에 붙여주는 작업
-    const Paste= (cursor,body,file)=> {
-        dispatch(EditBody(state.cursor,state.body))
-    }
-   
         
   
    
@@ -94,7 +98,7 @@ function CodeEditor() {
         // EditBody(state.cursor,state.body).then(function(result){
         //     dispatch(result)
         // })
-        Paste(state.cursor,state.body)
+        dispatch(EditBody(state.cursor,state.body,state.thumbnail[0]))
    
    
     
