@@ -2,6 +2,7 @@ import Axios from "axios"
 export const FETCH_GET_POST = 'FETCH_GET_POST'
 export const POST_IMAGE_DATA = "POST_IMAGE_DATA"
 export const EDIT_BODY = "EDIT_BODY"
+export const SINGLE_POST_DATA="SINGLE_POST_DATA"
 
 
 export const fetchGetPost = async() => {
@@ -24,6 +25,17 @@ export const EditBody = (cursor,body,thumbnail) => {
             cursor:cursor,
             body:body,
             thumbnail:thumbnail
+        }
+    }
+}
+export const SinglePostData =(title,body,thumbnail,user_date) => {
+    return {
+        type:"SINGLE_POST_DATA",
+        data: {
+            title:title,
+            body:body,
+            thumbnail:thumbnail,
+            user_date:user_date
         }
     }
 }

@@ -57,7 +57,13 @@ function ShowPost() {
                         {Object.keys(mydata).map(function(key) {
                             return (
                                 <Grid.Column>
-                                    <SinglePostBox key ={key} title={mydata[key]["title"]} body={mydata[key]["body"]} thumbnail={mydata[key]["thumbnail"]} />
+                                    <SinglePostBox key ={key} 
+                                        title={mydata[key]["title"]} 
+                                        body={mydata[key]["body"]} 
+                                        thumbnail={mydata[key]["thumbnail"]} 
+                                        user_date={mydata[key]["user_date"]}
+                                        
+                                        />
                                 </Grid.Column>
                             )
                        

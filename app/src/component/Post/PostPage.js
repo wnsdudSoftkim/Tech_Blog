@@ -1,17 +1,28 @@
-import React , {useState} from 'react'
+import React , {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import tumb from '../image/tumb.PNG'
 import instablack from '../image/instablack.PNG'
 import facebook from '../image/facebook.PNG'
 import user2 from '../image/user2.png'
 import {Link} from 'react-router-dom'
-import { MdDelete } from "react-icons/md";
+
 import Comment from './Comment'
 import HeaderSmall from '../HeaderSmall'
+import {useSelector} from 'react-redux'
+import CodeEditorPreview from './CodeEditorPreview'
 //하나의 포스트를 클릭시 들어가지는 페이지
-function PostPage({match}){
-    const [title,SetTitle] = useState()
-    const [body,SetBody] = useState()
+function PostPage({title,body,thumbnail,user_date}){
+    //단일 데이터를 받아온다
+    const mydata = useSelector(state=> state.singlepostdata)
+    var value;
+    useEffect(()=> {
+        
+        console.log(mydata.body)
+       
+    },[mydata])
+    
+    
+    
     const [Toggle,SetToggle] = useState(false)
     const PostPageBlock = styled.div`
         display:flex;
@@ -19,11 +30,12 @@ function PostPage({match}){
         align-items:center;
         width:100%;
         background:white;
+        padding: 20px 11vw 50px;
         box-shadow: 0px -2px -4px 4px #eee;
 
         .PageBlock {
-            width:768px;
-            border-top:1px solid #a8a5a5;
+            
+           
             display:flex;
             flex-direction:column;
             @media(max-width:767px) {
@@ -41,29 +53,38 @@ function PostPage({match}){
                 
             }
             .title {
+                width:100%;
+                padding: 20px 0 50px;
                 .titleandDelete{
                     display:flex;
-                    justify-content:space-between;
+                    flex-direction:row;
+                    justify-content:center;
                     align-items:center;
-                    margin-top:10px;
+                    margin:2rem;
+                    padding-top:50px;
+                    padding-bottom:10px;
+                    
                     .itemTitle {
                         color:rgba(0,0,0,0.84);
-                        font-size:32px;
-                        line-height:40px;
-                        font-weight:400;
-                        margin-top:10px;
+                        font-size:55px;
+                        line-height:1.5rem;
+                        font-weight:500;
+                        display:flex;
+                        justify-content:center;
+                        text-align:center;
                        
                     }
-                    .Delete {
-                        cursor:pointer;
-                    }
+                   
                 }
-               
+                
                 .LogoWithIntro {
                     display:flex;
                     margin-top:10px;
-                    justify-content:space-between;
+                    justify-content:space-around;
                     align-items:center;
+                    padding-bottom:60px;
+                    border-bottom: 1px solid lightgray;
+                    
                     @media(max-width:768px) {
                         flex-direction:column-reverse;
                         align-items:stretch;
@@ -96,27 +117,31 @@ function PostPage({match}){
                                 margin-bottom:30px;
                             }
                         }
-                        .insta {
-                            
-                        }
+                       
                     }
                         
                     
                 }
             }
             .body {
-                margin-bottom:20px;
-                
-                margin-top:28px;
+               
+                box-sizing:border-box;
+               
+                margin:1rem auto;
                 .center {
-                    font-size:18px;
+                    box-sizing:border-box;
+                    margin:0 auto;
+                    width:100%;
+                    text-align:center;
+                    padding:0;
+                    overflow-x:scroll;
 
                 }
                
             }
         }
     `
-    
+    console.log(title)
     return (
         <>
             <HeaderSmall />
@@ -126,20 +151,17 @@ function PostPage({match}){
                         <div className="PageBlock">
                             <div className="title">
                                 <div className="titleandDelete">
-                                    
-                                    <h1 className="itemTitle"style={{margin:'0'}}>
-                                        {title}
+                                    <h1 className="itemTitle">
+                                        {mydata.title}
                                     </h1>
                                     
-                                    <div className="Delete"  >
-                                        <MdDelete size="25"></MdDelete>
-                                        
-                                    </div>
+                                    
+
                                 </div>
                                 <div className="LogoWithIntro">
                                     <div className="Intro">
                                         <div>
-                                            <img size ="10" src={user2} />
+                                            <img size ="14" src={user2} />
                                         </div>
                                         
                                         <div className="description">
@@ -148,32 +170,31 @@ function PostPage({match}){
 
                                             </p>
                                             <p className="text name" style={{margin:'0'}}>
-                                            <Link to={`/PostPage/${match.params.id}`} style={{textDecoration:'none'}}><div className="text">MAY 7, 2020</div></Link>
+                                                {mydata.user_date}
                                             </p>
                                         </div>                                             
                                     </div>
                                     <div className ="Logo">
                                         <p className=" Logo1 insta" onClick={() => {window.location.assign("https://www.instagram.com/c_mongkey/?hl=ko")}}>
-                                            <img size ="10" src={instablack} alt="인스타" />
+                                            <img size ="14" src={instablack} alt="인스타" />
                                         </p>
                                         <p className="Logo1 facebook" onClick={() => {window.location.assign("https://www.facebook.com")}}>
-                                            <img size ="10" src={facebook} alt="페이스북" />
+                                            <img size ="14" src={facebook} alt="페이스북" />
                                         </p>
                                         <p className="Logo1 twitter" onClick={() => {window.location.assign("https://www.tumblr.com/blog/junyoung110707")}}>
-                                            <img size ="10" src={tumb} alt="텀블러" />
+                                            <img size ="14" src={tumb} alt="텀블러" />
                                         </p>
                                     </div>
                                 </div>
                             </div>
+                        
                             <div className="body">
-                                <div className="Section">
-                                    <p className="center">
-                                        {body}
-                                    </p>
-                                </div>
-                                <div className="catalog">
                                 
+                                <div className="center">
+                                    <CodeEditorPreview mydata={mydata}/>
                                 </div>
+                             
+                                
                                 
                             </div>
                         </div>

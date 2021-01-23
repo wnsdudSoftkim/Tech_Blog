@@ -2,6 +2,9 @@ import React,{useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {SiPostman} from 'react-icons/si'
+import PostPage from './PostPage'
+import { useDispatch } from 'react-redux'
+import {SinglePostData} from '../../store/action/index'
 
 const SinglePostBoxBlock = styled.div`
         display:flex;
@@ -40,13 +43,15 @@ const SinglePostBoxBlock = styled.div`
         .body {
             
             width:100%;
-            height:13rem;
+            height:14rem;
             .thumbnail_image {
+                height:100%;
+                width:100%;
+                object-fit:cover;
+                max-width:100%;
+                image-rendering:auto;
                
-                object-fit:fill;
-              
                 
-                text-align:center;
                
             }
         }
@@ -96,27 +101,32 @@ const SinglePostBoxBlock = styled.div`
         
 
     `
-function SinglePostBox({key,title,body,thumbnail}) {
-    //타이틀 부분 클릭시 타이틀에 대한 정보를 찾는 통신과 동시에
+function SinglePostBox({key,title,body,thumbnail,user_date}) {
+    
     //PostPage로 넘어가는 작업
-    const onClick =() => {
-
+    const dispatch = useDispatch()
+    //클릭시 postpage로 이동하면서 각 데이터들은 store에 저장된다.
+    const onClick=() => {
+        dispatch(SinglePostData(title,body,thumbnail,user_date))
     }
-    const temple_thumbnail= [
-        "https://jun-techblog.s3.amazonaws.com/images//showpost2.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost3.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost4.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost5.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost6.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost7.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost8.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost9.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost10.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost11.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost12.png",
-        "https://jun-techblog.s3.amazonaws.com/images//showpost13.png"
+    //썸네일 이 없으면 임의로 붙여준다
+    const temple_thumbnail=[
+        "https://jun-techblog.s3.amazonaws.com/images//showpost7.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost10.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost11.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost12.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost13.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost3.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost5.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost6.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost7.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost9.jpeg",
+        "https://jun-techblog.s3.amazonaws.com/images//showpost2.png"
     ]
-    const a=temple_thumbnail[Math.floor(Math.random()*12)]
+
+    
+    
+  
     
     
     
@@ -124,13 +134,17 @@ function SinglePostBox({key,title,body,thumbnail}) {
         <>
             <SinglePostBoxBlock>
                 <div className="cover">
-                    <Link className="titlebody" key={key} onClick={onClick} to="/PostPage">
+                    <Link className="titlebody" onClick={onClick} key={key} to="/postpage">
                         <h4 className="title">
                             {title}
                         </h4>
                         <div className="body">
-                            
-                            <img className="thumbnail_image" src={thumbnail===null?a:thumbnail}/> 
+                            {thumbnail===null || thumbnail===undefined?
+                                <img className="thumbnail_image" srcSet={temple_thumbnail[Math.floor(Math.random()*12)]+" 400w"}/>
+                                :
+                                <img className="thumbnail_image" srcSet={thumbnail+" 400w"}/>
+                            }
+                             
                             
                            
                         </div>
@@ -150,7 +164,7 @@ function SinglePostBox({key,title,body,thumbnail}) {
 
                         </a>
                         <div className="date">
-                            <span className="date-span">2020년 12월 27일</span>
+                            <span className="date-span">{user_date}</span>
                         </div>
                     </div>
                 </div>
