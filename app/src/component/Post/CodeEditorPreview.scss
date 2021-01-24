@@ -4,23 +4,31 @@
     line-height:1.5rem;
     padding-left:.5rem;
     h1,h2,h3,h4,h5 {
-        color:#ae81ff ;
+        color:#000000 ;
+        padding: 2.5rem 0;
+        line-height: 1.2;
+    }
+    p {
+        margin: 1.5rem 0;
+        img {
+            margin-top:1rem;
+        }
     }
     h1 {
         font-size:3rem;
-        line-height: 4rem;  
+        
     }
     h2 {
         font-size:2.5rem;
-        line-height: 3.5rem;
+        
     }
     h3 {
         font-size:2rem;
-        line-height: 3rem;
+        
     }
     h4 {
         font-size:1.75rem;
-        line-height: 2.5rem;
+       
     }
     blockquote {
         margin:0;

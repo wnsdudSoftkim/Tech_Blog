@@ -7,10 +7,14 @@ function Comment() {
         display:flex;
         flex-direction:column;
         justify-content:center;
-        margin: 20px 11vw 50px;
+        margin: 20px 11vw 20px;
 
         background:#f1f4f8;
         border: 1px solid #DADDE0;
+        @media(max-width:400px) {
+            width:100%;
+            margin:0 0 10px 0;
+        }
       
         .Background {
             .form {

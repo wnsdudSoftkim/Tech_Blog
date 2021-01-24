@@ -4,7 +4,7 @@ var marked = require('marked');
 marked.setOptions({
     headerPrefix: "header-"
 });
-function CodeEditorPreview ({mydata=""}) {
+function CodeEditorPreview ({mydata}) {
  
     var value = marked(mydata.body||'');
    

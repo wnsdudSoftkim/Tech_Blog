@@ -59,12 +59,13 @@ function CodeEditor() {
         codeMirror.on('drop',function(data,e) {
             var file;
             var files;
+            var date=new Date()
             files = e.dataTransfer.files;
             if (files.length > 0) {
+               
                 e.preventDefault();
                 e.stopPropagation();
                 file = files[0];
-                console.log(file)
                 //aws S3 로 이미지 전송
                 S3FileUpload.uploadFile(file,AWSconfig)
                 .then((data)=> {

@@ -10,16 +10,27 @@ import Comment from './Comment'
 import HeaderSmall from '../HeaderSmall'
 import {useSelector} from 'react-redux'
 import CodeEditorPreview from './CodeEditorPreview'
+
 //하나의 포스트를 클릭시 들어가지는 페이지
+var refresh_data ={
+    title:'',
+    body:'',
+    user_date:'',
+
+}
 function PostPage({title,body,thumbnail,user_date}){
     //단일 데이터를 받아온다
-    const mydata = useSelector(state=> state.singlepostdata)
-    var value;
+    var mydata  = useSelector(state=> state.singlepostdata)
+   
     useEffect(()=> {
-        
-        console.log(mydata.body)
-       
+        refresh_data.title = mydata.title
+        refresh_data.body = mydata.body
+        refresh_data.user_date = mydata.user_date
+        console.log(mydata)
+        console.log(refresh_data)
+      
     },[mydata])
+    
     
     
     
@@ -150,7 +161,7 @@ function PostPage({title,body,thumbnail,user_date}){
             }
         }
     `
-    console.log(title)
+   
     return (
         <>
             <HeaderSmall />

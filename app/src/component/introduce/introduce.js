@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import styled, { css } from 'styled-components'
 import profile from '../image/profile.jpg'
 import IntroduceInfo from './introduceinfo'
-
 import HeaderSmall from '../HeaderSmall'
 
 function Introduce() {
@@ -15,8 +14,9 @@ function Introduce() {
     }
     const IntroBlock = styled.div`
         width:100%;
-        position:relative;
+        position:absolute;
         font-family: 'Noto Sans KR', sans-serif;
+        margin-top:3rem;
     `
     const SectionBlock = styled.div`
         position:relative;
@@ -151,6 +151,7 @@ function Introduce() {
         position:absolute;
         width:100%
     `
+
     return (
 		<>
 			<HeaderSmall />
@@ -191,8 +192,10 @@ function Introduce() {
 					</IntroBottomBlock>
 				</SectionBlock>
 			</IntroBlock>
-			
+       
+
 		</>
+        
 		
 	)
 
