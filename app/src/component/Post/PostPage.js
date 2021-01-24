@@ -5,7 +5,7 @@ import instablack from '../image/instablack.PNG'
 import facebook from '../image/facebook.PNG'
 import user2 from '../image/user2.png'
 import {Link} from 'react-router-dom'
-
+import Footer from '../Footer'
 import Comment from './Comment'
 import HeaderSmall from '../HeaderSmall'
 import {useSelector} from 'react-redux'
@@ -35,7 +35,7 @@ function PostPage({title,body,thumbnail,user_date}){
 
         .PageBlock {
             
-           
+            width:100%;
             display:flex;
             flex-direction:column;
             @media(max-width:767px) {
@@ -67,10 +67,15 @@ function PostPage({title,body,thumbnail,user_date}){
                     .itemTitle {
                         color:rgba(0,0,0,0.84);
                         font-size:55px;
+                        @media(max-width:1000px) {
+                            line-height:0;
+                        }
+                        @media(max-width:600px) {
+                            font-size:40px;
+                        }
                         line-height:1.5rem;
                         font-weight:500;
-                        display:flex;
-                        justify-content:center;
+                      
                         text-align:center;
                        
                     }
@@ -87,7 +92,8 @@ function PostPage({title,body,thumbnail,user_date}){
                     
                     @media(max-width:768px) {
                         flex-direction:column-reverse;
-                        align-items:stretch;
+                    
+                        
                     }
                     .Intro {
                        display:flex;
@@ -127,14 +133,17 @@ function PostPage({title,body,thumbnail,user_date}){
                
                 box-sizing:border-box;
                
-                margin:1rem auto;
+                display:flex;
+                justify-content:center;
+
                 .center {
                     box-sizing:border-box;
-                    margin:0 auto;
-                    width:100%;
+                    justify-content:center;
+                    width:90%;
+                    margin-bottom:3rem;
                     text-align:center;
-                    padding:0;
-                    overflow-x:scroll;
+                    padding-right:2rem;
+                   
 
                 }
                
@@ -152,7 +161,10 @@ function PostPage({title,body,thumbnail,user_date}){
                             <div className="title">
                                 <div className="titleandDelete">
                                     <h1 className="itemTitle">
-                                        {mydata.title}
+                                        <p>
+                                            {mydata.title}
+                                        </p>
+                                        
                                     </h1>
                                     
                                     
@@ -206,6 +218,7 @@ function PostPage({title,body,thumbnail,user_date}){
                 
             </PostPageBlock>
             <Comment/>
+            <Footer/>
             
 
 

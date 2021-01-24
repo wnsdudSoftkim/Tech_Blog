@@ -1,0 +1,34 @@
+.site-footer {  
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    color: #fff;
+    background: #090a0b;
+    .site-footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+        margin: 0 auto;
+        max-width: 1280px;
+        width: 100%;
+        a{
+            color: hsla(0,0%,100%,.7);
+            &:hover{
+                color: hsla(0,0%,100%,.9);
+            }
+        }
+        
+        .site-footer-nav {
+            display: flex;
+            a {
+                padding:.5rem;
+                &:hover{
+                    color: hsla(0,0%,100%,.9);
+                }
+            }
+        }
+        
+    }
+}

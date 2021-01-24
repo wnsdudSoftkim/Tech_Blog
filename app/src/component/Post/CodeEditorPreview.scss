@@ -2,7 +2,7 @@
     font-family: 'D2 coding';
     font-size:1.25rem;
     line-height:1.5rem;
-    padding-left:2rem;
+    padding-left:.5rem;
     h1,h2,h3,h4,h5 {
         color:#ae81ff ;
     }
@@ -41,5 +41,14 @@
         padding: 1em 1.5em;
         display: block;
         word-wrap: break-word;
+    }
+    img {
+      
+        height:100%;
+        width:100%;
+        object-fit:cover;
+        max-width:100%;
+        image-rendering:auto;
+       
     }
 }

@@ -3,30 +3,15 @@ import styled from 'styled-components'
 import axios from 'axios'
 function Comment() {
     const CommentBlock = styled.div`
-        width:768px;
+        width:80%;
         display:flex;
         flex-direction:column;
-        margin: 0 auto;
+        justify-content:center;
+        margin: 20px 11vw 50px;
+
         background:#f1f4f8;
         border: 1px solid #DADDE0;
-        @media(max-width:767px) {
-            width:512px;
-        
-            
-        }
-        @media(max-width:540px) {
-            width:420px;
-            margin-left:20px;
-            margin-right:20px;
-            margin-top:20px;
-            
-        }
-        @media(max-width:450px) {
-            width:400px;
-        }
-        @media(max-width:400px) {
-            width:345px;
-        }
+      
         .Background {
             .form {
                 display:flex;
@@ -82,7 +67,7 @@ return (
         <CommentBlock>
             <div className="Background" >
                 <form className="form">
-                    <input type="text"  className="input 1" placeholder="필명"/>
+                    <input type="text"  className="input 1" placeholder="이름"/>
                     <input type="text" className="input 2" placeholder="확인번호"  />
                 </form>
                 <div className="textarea1">

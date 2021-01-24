@@ -14,7 +14,8 @@ function CodeEditorPreview ({mydata=""}) {
             
             <div className="preview" >
                 <div  className="tab-pane result_preview active" 
-                    dangerouslySetInnerHTML={{__html:value}}></div>
+                    dangerouslySetInnerHTML={{__html:value}} style={{maxWidth: '100%',
+                        height: 'auto'}}></div>
             </div>
       
         </>

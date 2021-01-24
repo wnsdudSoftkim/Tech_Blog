@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 import Header from './Header'
 import ShowPost from './Post/ShowPost'
 
@@ -7,6 +8,7 @@ function Home() {
         <>
             <Header />
             <ShowPost/>
+            <Footer/>
         </>
     )
 }
