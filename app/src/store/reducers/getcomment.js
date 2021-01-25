@@ -7,7 +7,7 @@ const initialState= {
 function data(state=initialState, action) {
     switch(action.type) {
         case FETCH_COMMENT:
-            return action.data
+            return {...action.data}
         default:
             return state
     }

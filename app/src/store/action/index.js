@@ -41,11 +41,9 @@ export const SinglePostData =(title,body,thumbnail,user_date,my_id) => {
         }
     }
 }
-export const fetchComment = (my_id) => {
+export const fetchComment = (commentlist) => {
     return {
         type:'FETCH_COMMENT',
-        data:{
-            my_id:my_id
-        }
+        data:commentlist
     }
 }

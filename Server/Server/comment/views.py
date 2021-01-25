@@ -10,7 +10,7 @@ import json
 import simplejson
 from django.template.defaulttags import register
 
-
+#댓글을 입력받는 창
 @method_decorator(csrf_exempt,name='dispatch')
 def commentPost(request):
     if request.method =="GET":
@@ -31,7 +31,7 @@ def commentPost(request):
             print("comment 데이터를 찾을 수 없습니다")
             return HttpResponse(simplejson.dumps({"response":"Fail"})) 
 
-
+#단일 포스트 접속시 id 비교하여 뿌려주는 역활
 @method_decorator(csrf_exempt,name='dispatch')
 def fetchComment(request):
     if request.method=="GET":

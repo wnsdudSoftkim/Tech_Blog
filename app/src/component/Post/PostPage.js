@@ -12,6 +12,7 @@ import HeaderSmall from '../HeaderSmall'
 import {useSelector,useDispatch} from 'react-redux'
 import CodeEditorPreview from './CodeEditorPreview'
 import {fetchComment} from '../../store/action/index'
+import ShowComment from './ShowComment'
 
 //하나의 포스트를 클릭시 들어가지는 페이지
 var refresh_data ={
@@ -21,10 +22,12 @@ var refresh_data ={
     my_id:'',
 
 }
+//댓글 갯수 받는 변수
+var commentlist=[]
 function PostPage({title,body,thumbnail,user_date}){
     //단일 데이터를 받아온다
     var mydata  = useSelector(state=> state.singlepostdata)
-   
+    const dispatch = useDispatch()
     useEffect(()=> {
         refresh_data.title = mydata.title
         refresh_data.body = mydata.body
@@ -45,6 +48,10 @@ function PostPage({title,body,thumbnail,user_date}){
             my_id:mydata.my_id
         }).then(function(response){
             console.log(response)
+            console.log(response.data.length)
+            dispatch(fetchComment(response.data))
+            //response.data를 전부 store에 저장
+
         }).catch(function(error){
             console.log(error)
             alert("Error Code",error)
@@ -57,7 +64,7 @@ function PostPage({title,body,thumbnail,user_date}){
     
     
     
-    const [Toggle,SetToggle] = useState(false)
+    
     const PostPageBlock = styled.div`
         display:flex;
         justify-content:center;
@@ -200,68 +207,64 @@ function PostPage({title,body,thumbnail,user_date}){
         <>
             <HeaderSmall />
             <PostPageBlock>
-                {!Toggle ?
-                    <>
-                        <div className="PageBlock">
-                            <div className="title">
-                                <div className="titleandDelete">
-                                    <h1 className="itemTitle">
-                                        <p>
-                                            {mydata.title}
-                                        </p>
-                                        
-                                    </h1>
-                                    
-                                    
+                <div className="PageBlock">
+                    <div className="title">
+                        <div className="titleandDelete">
+                            <h1 className="itemTitle">
+                                <p>
+                                    {mydata.title}
+                                </p>
+                                
+                            </h1>
+                            
+                            
 
+                        </div>
+                        <div className="LogoWithIntro">
+                            <div className="Intro">
+                                <div>
+                                    <img size ="14" src={user2} />
                                 </div>
-                                <div className="LogoWithIntro">
-                                    <div className="Intro">
-                                        <div>
-                                            <img size ="14" src={user2} />
-                                        </div>
-                                        
-                                        <div className="description">
-                                            <p className="text name" style={{margin:'0'}}>
-                                                <Link className ="text" to ="/introduce" style={{textDecoration:'none'}}><div className="text">김준영</div></Link>
+                                
+                                <div className="description">
+                                    <p className="text name" style={{margin:'0'}}>
+                                        <Link className ="text" to ="/introduce" style={{textDecoration:'none'}}><div className="text">김준영</div></Link>
 
-                                            </p>
-                                            <p className="text name" style={{margin:'0'}}>
-                                                {mydata.user_date}
-                                            </p>
-                                        </div>                                             
-                                    </div>
-                                    <div className ="Logo">
-                                        <p className=" Logo1 insta" onClick={() => {window.location.assign("https://www.instagram.com/c_mongkey/?hl=ko")}}>
-                                            <img size ="14" src={instablack} alt="인스타" />
-                                        </p>
-                                        <p className="Logo1 facebook" onClick={() => {window.location.assign("https://www.facebook.com")}}>
-                                            <img size ="14" src={facebook} alt="페이스북" />
-                                        </p>
-                                        <p className="Logo1 twitter" onClick={() => {window.location.assign("https://www.tumblr.com/blog/junyoung110707")}}>
-                                            <img size ="14" src={tumb} alt="텀블러" />
-                                        </p>
-                                    </div>
-                                </div>
+                                    </p>
+                                    <p className="text name" style={{margin:'0'}}>
+                                        {mydata.user_date}
+                                    </p>
+                                </div>                                             
                             </div>
-                        
-                            <div className="body">
-                                
-                                <div className="center">
-                                    <CodeEditorPreview mydata={mydata}/>
-                                </div>
-                             
-                                
-                                
+                            <div className ="Logo">
+                                <p className=" Logo1 insta" onClick={() => {window.location.assign("https://www.instagram.com/c_mongkey/?hl=ko")}}>
+                                    <img size ="14" src={instablack} alt="인스타" />
+                                </p>
+                                <p className="Logo1 facebook" onClick={() => {window.location.assign("https://www.facebook.com")}}>
+                                    <img size ="14" src={facebook} alt="페이스북" />
+                                </p>
+                                <p className="Logo1 twitter" onClick={() => {window.location.assign("https://www.tumblr.com/blog/junyoung110707")}}>
+                                    <img size ="14" src={tumb} alt="텀블러" />
+                                </p>
                             </div>
                         </div>
-                        
-                    </>
-                    : <></>
-                }
-    
+                    </div>
                 
+                    <div className="body">
+                        
+                        <div className="center">
+                            <CodeEditorPreview mydata={mydata}/>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div>
             </PostPageBlock>
+            <ShowComment/>
+                        
+            
+            
             <Comment my_id={refresh_data.my_id} />
             <Footer/>
             
