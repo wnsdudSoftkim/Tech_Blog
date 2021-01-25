@@ -4,7 +4,7 @@ from .models import *
 class CommentListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('name','check','body','my_id')
+        fields = ('name','check','body','my_id','my_date')
 class CommentListView(generics.ListAPIView):
     queryset = Comment.objects.all()
     print("Comment Work",queryset)

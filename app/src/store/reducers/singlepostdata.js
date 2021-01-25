@@ -9,7 +9,7 @@ const initialState = {
     
 }
 function singlepostdata(state=initialState,action) {
-    console.log(action)
+  
     switch(action.type) {
         case SINGLE_POST_DATA:
             return action.data

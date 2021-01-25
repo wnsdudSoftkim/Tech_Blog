@@ -23,6 +23,7 @@ function CommentNameInput() {
         
         
     }
+    
     console.log(name)
     if(name.length===0) {
         Toggle.nametoggle=false
@@ -108,6 +109,9 @@ function CommentBodyInput() {
     )
 }
 function SubmitComment() {
+    const date =Date()
+    const my_date = date.substring(0,16)
+    console.log(my_date)
     if(!Toggle.checktoggle&&!Toggle.nametoggle) {
         console.log('No Data Here')
         alert("제목과 확인번호를 입력해주시기 바립니다.")
@@ -120,11 +124,13 @@ function SubmitComment() {
             name:data.namedata,
             check:data.checkdata,
             body:data.bodydata,
-            my_id:data.my_id
+            my_id:data.my_id,
+            my_date:my_date,
         }).then(function(response){
             console.log(response.data['response'])
             if(response.data['response']==="Good") {
-                //여기서 데이터 보여준다
+                //페이지 새로고침
+                window.location.reload()
                 
                 
             }else {
@@ -226,7 +232,7 @@ function Comment() {
                         <CommentBodyInput/>
                     </div>
                     <div className="Submit">
-                        <button type="submit" style={{}} className="btn" onClick={SubmitComment}>제출</button>
+                        <button type="submit" style={{}} className="btn" onClick={SubmitComment}>확인</button>
                     </div>
                 </div>
             </CommentBlock>

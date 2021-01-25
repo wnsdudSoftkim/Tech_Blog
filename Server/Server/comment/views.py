@@ -22,9 +22,10 @@ def commentPost(request):
         check = req['check']
         body = req['body']
         my_id = req['my_id']
+        my_date= req['my_date']
         if name!="None":
             print("comment 데이터를 정상적으로 입력받았습니다")
-            commend= Comment(name=name,check=check,body=body,my_id=my_id)
+            commend= Comment(name=name,check=check,body=body,my_id=my_id,my_date=my_date)
             commend.save()
             return HttpResponse(simplejson.dumps({"response":"Good"}))
         else:

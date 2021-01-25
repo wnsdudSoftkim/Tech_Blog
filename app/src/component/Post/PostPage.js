@@ -47,8 +47,6 @@ function PostPage({title,body,thumbnail,user_date}){
         axios.post('/Comment/fetchcomment',{
             my_id:mydata.my_id
         }).then(function(response){
-            console.log(response)
-            console.log(response.data.length)
             dispatch(fetchComment(response.data))
             //response.data를 전부 store에 저장
 
@@ -243,9 +241,7 @@ function PostPage({title,body,thumbnail,user_date}){
                                 <p className="Logo1 facebook" onClick={() => {window.location.assign("https://www.facebook.com")}}>
                                     <img size ="14" src={facebook} alt="페이스북" />
                                 </p>
-                                <p className="Logo1 twitter" onClick={() => {window.location.assign("https://www.tumblr.com/blog/junyoung110707")}}>
-                                    <img size ="14" src={tumb} alt="텀블러" />
-                                </p>
+                                
                             </div>
                         </div>
                     </div>

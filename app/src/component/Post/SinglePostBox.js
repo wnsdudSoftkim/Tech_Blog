@@ -43,7 +43,7 @@ const SinglePostBoxBlock = styled.div`
         .body {
             
             width:100%;
-            height:14rem;
+            height:18rem;
             .thumbnail_image {
                 height:100%;
                 width:100%;
@@ -59,7 +59,7 @@ const SinglePostBoxBlock = styled.div`
        
         .footer {
             padding:1rem;
-            margin-top:3rem;
+            margin-top:1rem;
             border-top:1px solid rgb(248,249,250);
             display:flex;
             font-size:0.75rem;
