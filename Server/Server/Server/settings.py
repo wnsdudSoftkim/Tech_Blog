@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'main',
     'post',
+    'comment',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
