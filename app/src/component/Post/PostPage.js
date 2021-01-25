@@ -7,9 +7,11 @@ import user2 from '../image/user2.png'
 import {Link} from 'react-router-dom'
 import Footer from '../Footer'
 import Comment from './Comment'
+import axios from 'axios'
 import HeaderSmall from '../HeaderSmall'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import CodeEditorPreview from './CodeEditorPreview'
+import {fetchComment} from '../../store/action/index'
 
 //하나의 포스트를 클릭시 들어가지는 페이지
 var refresh_data ={
@@ -30,8 +32,27 @@ function PostPage({title,body,thumbnail,user_date}){
         refresh_data.my_id = mydata.my_id
         console.log(mydata)
         console.log(refresh_data)
+        fetch_myComment()
+        
+        
       
     },[mydata])
+    //id 에 맞는 post 댓글을 불러오는 로직 (store에 저장)
+    const fetch_myComment=()=> {
+        axios.defaults.xsrfCookieName = "csrftoken"
+        axios.defaults.xsrfHeaderName = "X-CSRFToken"
+        axios.post('/Comment/fetchcomment',{
+            my_id:mydata.my_id
+        }).then(function(response){
+            console.log(response)
+        }).catch(function(error){
+            console.log(error)
+            alert("Error Code",error)
+        })
+    }
+    
+    
+    
     
     
     
@@ -45,6 +66,12 @@ function PostPage({title,body,thumbnail,user_date}){
         background:white;
         padding: 20px 11vw 50px;
         box-shadow: 0px -2px -4px 4px #eee;
+        @media(max-width:767px) {
+            padding:20px 0 50px;
+            
+           
+            
+        }
 
         .PageBlock {
             
@@ -52,22 +79,16 @@ function PostPage({title,body,thumbnail,user_date}){
             display:flex;
             flex-direction:column;
             @media(max-width:767px) {
-                width:512px;
+                width:100%;
+
                
                 
             }
-            @media(max-width:540px) {
-            
-                margin-left:20px;
-                margin-right:20px;
-                
-            }
-            @media(max-width:400px) {
-                
-            }
+           
             .title {
                 width:100%;
                 padding: 20px 0 50px;
+                
                 .titleandDelete{
                     display:flex;
                     flex-direction:row;
@@ -76,7 +97,12 @@ function PostPage({title,body,thumbnail,user_date}){
                     margin:2rem;
                     padding-top:50px;
                     padding-bottom:10px;
-                    
+                    @media(max-width:767px) {
+                        margin:1rem;
+                        
+                       
+                        
+                    }
                     .itemTitle {
                         color:rgba(0,0,0,0.84);
                         font-size:55px;
@@ -155,7 +181,13 @@ function PostPage({title,body,thumbnail,user_date}){
                     width:90%;
                     margin-bottom:3rem;
                     text-align:center;
-                    padding-right:2rem;
+                  
+                    @media(max-width:767px) {
+                        padding-right:0;
+                        
+                       
+                        
+                    }
                    
 
                 }

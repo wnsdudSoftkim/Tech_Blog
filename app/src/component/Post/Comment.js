@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import {useSelector} from 'react-redux'
 //name 과 check 둘다 입력해야 제출이 됨
 var Toggle = {
     nametoggle:false,
@@ -27,7 +28,6 @@ function CommentNameInput() {
         Toggle.nametoggle=false
     }else {
         Toggle.nametoggle = true
-        Comment.bind(Toggle)
         data.namedata=name
     }   
     return (
@@ -138,11 +138,11 @@ function SubmitComment() {
     
    
 }
-function Comment({my_id}) {
+function Comment() {
+    var mydata  = useSelector(state=> state.singlepostdata)
     useEffect(()=> {
-        console.log(my_id)
-        data.my_id=my_id
-    },[])
+        data.my_id=mydata.my_id
+    },[mydata])
     const CommentBlock = styled.div`
     input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 

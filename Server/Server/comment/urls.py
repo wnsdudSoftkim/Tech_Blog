@@ -4,4 +4,5 @@ from . import views
 
 urlpatterns = [
     path('',views.commentPost, name='commentpost'),
+    path('fetchcomment',views.fetchComment, name="fetchcomment")
 ]
