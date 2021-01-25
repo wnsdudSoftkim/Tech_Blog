@@ -6,6 +6,7 @@ class Comment(models.Model):
     name = models.TextField(verbose_name="name")
     check = models.TextField(verbose_name="check")
     body=models.TextField(verbose_name="body")
+    my_id = models.TextField(verbose_name="my_id")
 
     def __str__(self):
         return 'Name={0}'.format(self.name)

@@ -17,14 +17,15 @@ def commentPost(request):
         return CommentListView.as_view()(request)
     elif request.method =="POST":
         req = json.loads(request.body.decode('utf-8'))
-        title = req['title']
+        print(req)
+        name = req['name']
+        check = req['check']
         body = req['body']
-        thumbnail = req['thumbnail']
-        print(title)
-        if title!="None":
+        my_id = req['my_id']
+        if name!="None":
             print("POST 데이터를 정상적으로 입력받았습니다")
-            poster= Post(title=title,body=body,thumbnail=thumbnail)
-            poster.save()
+            commend= Comment(name=name,check=check,body=body,my_id=my_id)
+            commend.save()
             return HttpResponse(simplejson.dumps({"response":"Good"}))
         else:
             print("POST 데이터를 찾을 수 없습니다")

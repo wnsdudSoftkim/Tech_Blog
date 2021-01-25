@@ -16,6 +16,7 @@ var refresh_data ={
     title:'',
     body:'',
     user_date:'',
+    my_id:'',
 
 }
 function PostPage({title,body,thumbnail,user_date}){
@@ -26,6 +27,7 @@ function PostPage({title,body,thumbnail,user_date}){
         refresh_data.title = mydata.title
         refresh_data.body = mydata.body
         refresh_data.user_date = mydata.user_date
+        refresh_data.my_id = mydata.my_id
         console.log(mydata)
         console.log(refresh_data)
       
@@ -228,7 +230,7 @@ function PostPage({title,body,thumbnail,user_date}){
     
                 
             </PostPageBlock>
-            <Comment/>
+            <Comment my_id={refresh_data.my_id} />
             <Footer/>
             
 

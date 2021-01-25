@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 //name 과 check 둘다 입력해야 제출이 됨
@@ -8,7 +8,8 @@ var Toggle = {
 }
 var data = {namedata:"none",
             checkdata:"none",
-            bodydata:""
+            bodydata:"none",
+            my_id:"none",
 }
 function CommentNameInput() {
     const [nameinput,SetNameInput] = useState({name:""})
@@ -111,32 +112,37 @@ function SubmitComment() {
         console.log('No Data Here')
         alert("제목과 확인번호를 입력해주시기 바립니다.")
     }else {
+        console.log(data)
         console.log('good to go')
         axios.defaults.xsrfCookieName = "csrftoken"
         axios.defaults.xsrfHeaderName = "X-CSRFToken"
-        // axios.post('Post/',{
-        //     title:data.titledata,
-        //     body:data.bodydata,
-        //     thumbnail:data.thumbnail,
-        // }).then(function(response){
-        //     console.log(response.data['response'])
-        //     if(response.data['response']==="Good") {
-        //         console.log("aaggga")
-        //         //다시 페이지 렌더링? 해야하나
+        axios.post('/Comment/',{
+            name:data.namedata,
+            check:data.checkdata,
+            body:data.bodydata,
+            my_id:data.my_id
+        }).then(function(response){
+            console.log(response.data['response'])
+            if(response.data['response']==="Good") {
+                //여기서 데이터 보여준다
                 
-        //     }else {
-        //         alert("오류가 발생하였습니다")
-        //     }
-        // }).catch(function(error){
-        //     console.log(error)
-        //     alert("Error Code",error)
-        // })
+                
+            }else {
+                alert("오류가 발생하였습니다")
+            }
+        }).catch(function(error){
+            console.log(error)
+            alert("Error Code",error)
+        })
     }
     
    
 }
-function Comment() {
-    
+function Comment({my_id}) {
+    useEffect(()=> {
+        console.log(my_id)
+        data.my_id=my_id
+    },[])
     const CommentBlock = styled.div`
     input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 

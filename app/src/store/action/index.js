@@ -28,14 +28,15 @@ export const EditBody = (cursor,body,thumbnail) => {
         }
     }
 }
-export const SinglePostData =(title,body,thumbnail,user_date) => {
+export const SinglePostData =(title,body,thumbnail,user_date,my_id) => {
     return {
         type:"SINGLE_POST_DATA",
         data: {
             title:title,
             body:body,
             thumbnail:thumbnail,
-            user_date:user_date
+            user_date:user_date,
+            my_id:my_id,
         }
     }
 }

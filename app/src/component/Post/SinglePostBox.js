@@ -101,13 +101,14 @@ const SinglePostBoxBlock = styled.div`
         
 
     `
-function SinglePostBox({key,title,body,thumbnail,user_date}) {
+function SinglePostBox({key,title,body,thumbnail,user_date,my_id}) {
     
     //PostPage로 넘어가는 작업
     const dispatch = useDispatch()
     //클릭시 postpage로 이동하면서 각 데이터들은 store에 저장된다.
     const onClick=() => {
-        dispatch(SinglePostData(title,body,thumbnail,user_date))
+        console.log(my_id)
+        dispatch(SinglePostData(title,body,thumbnail,user_date,my_id))
     }
     //썸네일 이 없으면 임의로 붙여준다
     const temple_thumbnail=[

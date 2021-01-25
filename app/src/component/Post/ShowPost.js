@@ -62,7 +62,7 @@ function ShowPost() {
                                         body={mydata[key]["body"]} 
                                         thumbnail={mydata[key]["thumbnail"]} 
                                         user_date={mydata[key]["user_date"]}
-                                        
+                                        my_id={mydata[key]["my_id"]}
                                         />
                                 </Grid.Column>
                             )
