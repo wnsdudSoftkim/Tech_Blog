@@ -7,6 +7,7 @@ import SignIn from '../component/Signin'
 import AddPost from '../component/Post/AddPost'
 import PostPage from '../component/Post/PostPage'
 import ScrollToTop from '../component/ScrollToTop'
+import GuestBook from '../component/guest/GuestBook'
 
 function Router() {
     return (
@@ -19,7 +20,7 @@ function Router() {
                     <Route path="/SignIn" component={SignIn} />
                     <Route path="/AddPost" component={AddPost}/>
                     <Route path="/PostPage" component={PostPage}/>
-                   
+                    <Route path="/GuestBook" component={GuestBook}/>
                 </ScrollToTop>
                 
             </Switch>

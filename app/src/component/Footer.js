@@ -8,7 +8,7 @@ function Footer() {
                 <div className="site-footer-content">
                     <section className="copyright">
                         <Link to="/">
-                            JunYoung Kim | Student ©
+                            JunYoung Kim &nbsp;|&nbsp; Student ©
                     2021
                         </Link>
                     </section>

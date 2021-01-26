@@ -1,8 +1,8 @@
-import React , {useEffect, useState} from 'react'
+import React , {useEffect} from 'react'
 import styled from 'styled-components'
-import tumb from '../image/tumb.PNG'
 import instablack from '../image/instablack.PNG'
 import facebook from '../image/facebook.PNG'
+import {BsChatSquareDots} from 'react-icons/bs'
 import user2 from '../image/user2.png'
 import {Link} from 'react-router-dom'
 import Footer from '../Footer'
@@ -60,7 +60,10 @@ function PostPage({title,body,thumbnail,user_date}){
     
     
     
-    
+    const onClickChat=()=> {
+        var location = document.querySelector(".comment_container").offsetTop
+        window.scrollTo({top:location, behavior:'smooth'});
+    }
     
     
     const PostPageBlock = styled.div`
@@ -76,6 +79,15 @@ function PostPage({title,body,thumbnail,user_date}){
             
            
             
+        }
+        .bschatdot{
+            position: fixed;
+            top: 4rem;
+            right: 24px;
+            z-index: 999999;
+            width: 32px;
+            height: 32px;
+            cursor:pointer;
         }
 
         .PageBlock {
@@ -132,17 +144,16 @@ function PostPage({title,body,thumbnail,user_date}){
                     justify-content:space-around;
                     align-items:center;
                     padding-bottom:60px;
-                    border-bottom: 1px solid lightgray;
-                    
-                    @media(max-width:768px) {
-                        flex-direction:column-reverse;
-                    
-                        
+                  
+                    @media(max-width:700px){
+                        padding-bottom:0;
                     }
+                  
                     .Intro {
                        display:flex;
                        .description {
                            margin-left:12px;
+                         
                            display:flex;
                            flex-direction:column;
                            .text {
@@ -150,6 +161,7 @@ function PostPage({title,body,thumbnail,user_date}){
                                font-size:16px;
                                opacity:0.8;
                                cursor:pointer;
+                               line-height:34px;
                                &:hover {
                                    text-decoration:underline;
                                    opacity:1;
@@ -160,6 +172,7 @@ function PostPage({title,body,thumbnail,user_date}){
                     }
                     .Logo {
                         display:flex;
+                        padding-top:2rem;
                         .Logo1 {
                             padding-right:8px;
                             cursor:pointer;
@@ -202,9 +215,13 @@ function PostPage({title,body,thumbnail,user_date}){
     `
    
     return (
-        <>
+        <>  
             <HeaderSmall />
             <PostPageBlock>
+                <div className="bschatdot"  onClick={onClickChat}>
+                    <BsChatSquareDots size="48"/>
+                </div>
+                
                 <div className="PageBlock">
                     <div className="title">
                         <div className="titleandDelete">

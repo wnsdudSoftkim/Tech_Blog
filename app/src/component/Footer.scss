@@ -14,6 +14,7 @@
         max-width: 1280px;
         width: 100%;
         a{
+            margin-left: .5rem;
             color: hsla(0,0%,100%,.7);
             &:hover{
                 color: hsla(0,0%,100%,.9);
@@ -22,6 +23,7 @@
         
         .site-footer-nav {
             display: flex;
+            margin-right: .5rem;
             a {
                 padding:.5rem;
                 &:hover{

@@ -3,6 +3,8 @@
     background-color: black;
     position:fixed;
     width:100%;
+    height:50px;
+    z-index: 9999;
     .nav-small{
       color:white;
       display:flex;

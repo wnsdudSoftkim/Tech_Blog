@@ -136,8 +136,8 @@ function Header() {
                             
                         </li>
                         <li className="nav-home">
-                            <Link to="/addpost"  className="Link">
-                                POSTS
+                            <Link to="/guestbook"  className="Link">
+                                GUEST BOOK
                             </Link>
                            
                         </li>

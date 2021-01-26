@@ -4,6 +4,7 @@ import profile from '../image/profile.jpg'
 import IntroduceInfo from './introduceinfo'
 import HeaderSmall from '../HeaderSmall'
 
+
 function Introduce() {
     const [activeTab,setActiveTab] = useState(1)
     
@@ -111,6 +112,7 @@ function Introduce() {
         width:100%;
         .BottomUl {
             display:flex;
+            justify-content:space-between;
 
         }
         .BottomLi{
@@ -179,9 +181,7 @@ function Introduce() {
 							<li className="BottomLi" onClick={()=>toggle(1)}>
 								<a className="a a1" href="#info" onClick={()=>toggle(1)}>소개</a>
 							</li>
-							<li className="BottomLi" onClick={()=>toggle(2)}>
-								<a className="a a2"  href="#article" onClick={()=>toggle(2)}>글</a>
-							</li>
+							
 							<li className="BottomLi" onClick={()=>toggle(3)}>
 								<a className="a a3"  href="#Pot" onClick={()=>toggle(3)}>포트폴리오</a>
 							</li>
@@ -192,6 +192,7 @@ function Introduce() {
 					</IntroBottomBlock>
 				</SectionBlock>
 			</IntroBlock>
+           
        
 
 		</>
