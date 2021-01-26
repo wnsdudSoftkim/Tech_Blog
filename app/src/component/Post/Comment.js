@@ -212,7 +212,7 @@ function Comment() {
                 }
             }
         }
-        #4183c4;
+        
     
     
        

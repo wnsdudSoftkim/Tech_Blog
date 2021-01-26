@@ -5,7 +5,6 @@ import {SiPostman} from 'react-icons/si'
 import PostPage from './PostPage'
 import { useDispatch } from 'react-redux'
 import {SinglePostData} from '../../store/action/index'
-
 const SinglePostBoxBlock = styled.div`
         display:flex;
         flex-direction:column;

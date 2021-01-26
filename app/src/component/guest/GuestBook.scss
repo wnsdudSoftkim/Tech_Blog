@@ -1,14 +1,84 @@
-.guest-container {
-    padding: 10rem 10rem 10rem;
-    background-color: bisque;
-    margin: 0 auto;
-    .guest-header {
-        .guest-h1 {
-            letter-spacing: 1rem;
-            text-align: center;
-        }
+.wrapper{
+    .site-nav-small {
+        background-color: rgb(233, 131, 106);
     }
-    .guest-body{
-        
+    .guest-container {
+        padding: 2rem 5rem 10rem;
+        background-color: bisque;
+        margin: 0 auto;
+        .guest-header {
+            .guest-h1 {
+                margin: 0;
+                letter-spacing: 1rem;
+                text-align: center;
+            }
+        }
+        .guest-body{
+            
+            min-height:700px;
+            width:100%;
+            .guest-write-comment {
+                margin-top: 2rem;
+                border-radius: 1rem;
+                padding:1rem;
+                box-shadow:rgba(0, 0, 0, 0.18) 0px 4px 16px 0px;
+                background: rgb(253, 250, 250);
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                .form {
+                    display:flex;
+                    justify-content: space-around;
+                    padding:12px 20px 20px;
+                    .comment-header {
+                        display:flex;
+                        justify-content: space-around;
+                        width:92%;
+                        .input {
+                            width:100%;
+                            height:36px;
+                            padding:0 11px;
+                            border:1px solid #dbdfe5;
+                            border-radius: 10px;
+                            line-height:17px;
+                            color:#000;
+                            box-sizing:border-box;
+                            margin: 0 4px;
+                          
+                        }
+                    }
+                }
+                .textarea {
+                    width:90%;
+                    height:100px;
+                    margin:0 auto;
+                    padding:1rem;
+                    border-radius: 10px;
+                    border:1px solid #dbdfe5;
+                    box-sizing:border-box;
+                    resize:none;
+                }
+                .iconp {
+                    text-align: right;
+                    .sendicon {
+                        position: relative;
+                        right: 1px;
+                        cursor: pointer;
+                    }
+                }
+                
+            }
+            .guest-show-comment{
+                margin-top: 1rem;
+                border-radius: 1rem;
+              
+                box-shadow:rgba(0, 0, 0, 0.18) 0px 4px 16px 0px;
+                background: rgb(253, 250, 250);
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+        }
     }
 }
