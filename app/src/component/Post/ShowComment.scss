@@ -1,4 +1,10 @@
-
+.top {
+    display:flex;
+    .deleteicon {
+        display: flex;
+        align-items: center;
+    }
+}
 .comment_container{
    
     width:80%;

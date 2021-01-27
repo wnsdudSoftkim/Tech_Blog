@@ -47,6 +47,19 @@ def fetchComment(request):
             my_response = list(Comment.objects.filter(my_id=my_id).values())
             #JsonREsponse 한거랑 밑에 처럼 한거랑 똑같다.
             return HttpResponse(simplejson.dumps(my_response))
+@method_decorator(csrf_exempt,name='dispatch')
+def deleteComment(request):
+    if request.method=="GET":
+        return CommentListView.as_view()(request)
+    elif request.method=="POST":
+        req = json.loads(request.body.decode('utf-8'))
+        print(req)
+        my_id = req["my_id"]
+        name=req["name"]
+        check = req["check"]
+        Comment.objects.filter(my_id=my_id,name=name).delete()
+        print(list(Comment.objects.filter(my_id=my_id,name=name).values()))
+        return HttpResponse(simplejson.dumps({"response":"Good"}))
 @register.filter
 def get_item(dictionary,key):
     return dictionary.get(key)
