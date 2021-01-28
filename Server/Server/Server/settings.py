@@ -25,7 +25,7 @@ SECRET_KEY = 'xl-4$&o#zy510a7z9sx8fn!!xy%r-r=-ph*wsi@phj1t2)vp6!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ds2020-env.eba-iq5mtf6q.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
