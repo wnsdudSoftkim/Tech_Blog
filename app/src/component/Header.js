@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './Header.scss'
 import {Link} from 'react-router-dom'
 function Header() {

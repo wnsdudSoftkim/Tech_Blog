@@ -1,5 +1,5 @@
-import React ,{useState,useEffect, createRef} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import React ,{useState,useEffect} from 'react'
+import {useSelector } from 'react-redux'
 import styled from 'styled-components'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
@@ -56,8 +56,7 @@ const RightBlock = styled.div`
     
 `
 function BodyInput() {
-    const [bodyinput,SetBodyInput] = useState({body:""})
-    const {body} = bodyinput
+  
     useEffect(()=> {
         return CodeEditorPreview.bind(mydata||"")
     },[])
@@ -126,11 +125,7 @@ function SubmitPost() {
 function AddPost() {
     const [activeTab,setActiveTab] = useState(1)
     
-    const toggle =tab => {
-        if(tab!== activeTab) {
-            setActiveTab(tab)
-        }
-    }
+   
 
    
     const AddPostBlock = styled.div`

@@ -59,7 +59,7 @@ function CodeEditor() {
         codeMirror.on('drop',function(data,e) {
             var file;
             var files;
-            var date=new Date()
+            
             files = e.dataTransfer.files;
             if (files.length > 0) {
                

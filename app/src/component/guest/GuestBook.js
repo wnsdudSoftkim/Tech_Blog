@@ -161,8 +161,19 @@ function GuestBook() {
         axios.post('/Comment/fetchcomment',{
             my_id:data.my_id
         }).then(function(response){
-            dispatch(fetchComment(response.data))
-            //response.data를 전부 store에 저장
+            
+            if(!(response.data==="N")){
+                //response.data를 전부 store에 저장
+                dispatch(fetchComment(response.data))
+           
+            }else {
+                //데이터가 아무것도 없을 때 store 초기화
+                dispatch(fetchComment(null))
+            }
+                
+               
+            
+            
 
         }).catch(function(error){
             console.log(error)

@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
 import styled,{createGlobalStyle} from 'styled-components'
-import {Link} from 'react-router-dom'
 import Modal from './Modal/Modal.js'
-import { AiOutlineMail,AiOutlineLock,AiOutlineUser, AiOutlineChrome} from "react-icons/ai";
+import { AiOutlineMail,AiOutlineLock,AiOutlineUser} from "react-icons/ai";
 import axios from 'axios'
 import Header from './Header'
 

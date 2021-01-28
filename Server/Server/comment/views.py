@@ -46,7 +46,11 @@ def fetchComment(request):
             #쿼리셋을 json으로 바꿔준다
             my_response = list(Comment.objects.filter(my_id=my_id).values())
             #JsonREsponse 한거랑 밑에 처럼 한거랑 똑같다.
+           
             return HttpResponse(simplejson.dumps(my_response))
+        else :
+            return HttpResponse("N")
+        
 @method_decorator(csrf_exempt,name='dispatch')
 def deleteComment(request):
     if request.method=="GET":

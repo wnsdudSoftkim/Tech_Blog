@@ -1,8 +1,5 @@
 import {POST_IMAGE_DATA} from '../action/index'
-const initialState= {
-    title:"None",
-    body:"None"
-}
+
 function imagedata(state={},action) {
     switch(action.type){
         case POST_IMAGE_DATA:

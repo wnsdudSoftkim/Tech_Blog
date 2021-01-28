@@ -1,8 +1,7 @@
-import React,{useEffect, useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {SiPostman} from 'react-icons/si'
-import PostPage from './PostPage'
 import { useDispatch } from 'react-redux'
 import {SinglePostData} from '../../store/action/index'
 const SinglePostBoxBlock = styled.div`

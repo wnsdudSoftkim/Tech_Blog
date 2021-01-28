@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
 import instagram from '../image/instagram.png'
 import './introduceinfo.scss'
 function IntroduceInfo({activeTab}) {
@@ -59,13 +58,7 @@ function IntroduceInfo({activeTab}) {
         
     
     `
-    const ArticleBlock = styled.div`
-        display:block;
-        position:absolute;
-        width:100%;
-        font-family: 'Noto Sans KR', sans-serif;
-		color:#959595;
-    `
+   
     const PotBlock = styled.div`
         display:block;
         position:absolute;
