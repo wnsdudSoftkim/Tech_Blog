@@ -24,7 +24,7 @@ header {
   }
   .inner-header{
     margin:0 auto;
-    max-width:1040px;
+   
     width:100%;
     position: absolute; 
     top:0rem;
@@ -45,7 +45,6 @@ header {
       text-align: center;
       .site-title {
         z-index: 10;
-        margin: 0 0 .35em;
         padding: 0;
         font-size: 4.7rem;
         font-weight: 700;
@@ -65,7 +64,7 @@ header {
       .Link {
         padding: 10px 12px;
         font-weight: 700;
-        color:#4183c4;
+        color:white;
         &:hover {
           color:#2c6196;
         }

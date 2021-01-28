@@ -22,7 +22,7 @@ function ShowGuestComment() {
                     content:"input"
                 }).then((value)=> {
                     if(value===check){
-                        console.log(value)
+                       
                         deleteFunc(check,name)
                     }else {
                         swal("",{
@@ -45,12 +45,10 @@ function ShowGuestComment() {
             name:name
         }).then(function(response){
             window.location.reload()
-        }).catch(function(error) {
-            alert(error)
         })
     }
    
-    console.log(Object.keys(mydata).length)
+  
     return (
         <>  
             <div className="comment_container">
@@ -58,7 +56,7 @@ function ShowGuestComment() {
                 {Object.keys(mydata).map(function(key){
                     return (
                             <>
-                                <div className="top">
+                                <div className="top" key={key}>
                                     <div className="list_item">
                                         <div className="list_info">
                                             <div className="list_info_img">

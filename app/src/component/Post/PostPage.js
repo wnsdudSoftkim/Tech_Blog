@@ -33,8 +33,6 @@ function PostPage({title,body,thumbnail,user_date}){
         refresh_data.body = mydata.body
         refresh_data.user_date = mydata.user_date
         refresh_data.my_id = mydata.my_id
-        console.log(mydata)
-        console.log(refresh_data)
         fetch_myComment()
         
         
@@ -50,9 +48,6 @@ function PostPage({title,body,thumbnail,user_date}){
             dispatch(fetchComment(response.data))
             //response.data를 전부 store에 저장
 
-        }).catch(function(error){
-            console.log(error)
-            alert("Error Code",error)
         })
     }
     

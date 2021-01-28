@@ -17,7 +17,7 @@ def commentPost(request):
         return CommentListView.as_view()(request)
     elif request.method =="POST":
         req = json.loads(request.body.decode('utf-8'))
-        print(req)
+    
         name = req['name']
         check = req['check']
         body = req['body']
@@ -39,10 +39,10 @@ def fetchComment(request):
         return CommentListView.as_view()(request)  
     elif request.method=="POST":
         req = json.loads(request.body.decode('utf-8'))
-        print(req)
+       
         my_id = req["my_id"]
         if Comment.objects.filter(my_id=my_id).exists():
-            print(Comment.objects.filter(my_id=my_id).values())
+         
             #쿼리셋을 json으로 바꿔준다
             my_response = list(Comment.objects.filter(my_id=my_id).values())
             #JsonREsponse 한거랑 밑에 처럼 한거랑 똑같다.
@@ -53,12 +53,11 @@ def deleteComment(request):
         return CommentListView.as_view()(request)
     elif request.method=="POST":
         req = json.loads(request.body.decode('utf-8'))
-        print(req)
+      
         my_id = req["my_id"]
         name=req["name"]
         check = req["check"]
-        Comment.objects.filter(my_id=my_id,name=name).delete()
-        print(list(Comment.objects.filter(my_id=my_id,name=name).values()))
+        Comment.objects.filter(my_id=my_id,name=name,check=check).delete()
         return HttpResponse(simplejson.dumps({"response":"Good"}))
 @register.filter
 def get_item(dictionary,key):

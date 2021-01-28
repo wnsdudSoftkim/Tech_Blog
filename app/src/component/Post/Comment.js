@@ -24,7 +24,7 @@ function CommentNameInput() {
         
     }
     
-    console.log(name)
+   
     if(name.length===0) {
         Toggle.nametoggle=false
     }else {
@@ -57,7 +57,7 @@ function CommentCheckInput() {
     }
     
     
-    console.log(check)
+ 
     if(check.length===0) {
         Toggle.checktoggle = false
     }else {
@@ -89,7 +89,7 @@ function CommentBodyInput() {
         
         
     }
-    console.log(body)
+    
     if(body.length===0) {
        
     }else {
@@ -111,12 +111,12 @@ function CommentBodyInput() {
 function SubmitComment() {
     const date =Date()
     const my_date = date.substring(0,16)
-    console.log(my_date)
-    if(!Toggle.checktoggle&&!Toggle.nametoggle) {
+   
+    if(!Toggle.checktoggle || !Toggle.nametoggle) {
         console.log('No Data Here')
         alert("제목과 확인번호를 입력해주시기 바립니다.")
     }else {
-        console.log(data)
+      
         console.log('good to go')
         axios.defaults.xsrfCookieName = "csrftoken"
         axios.defaults.xsrfHeaderName = "X-CSRFToken"
@@ -127,7 +127,7 @@ function SubmitComment() {
             my_id:data.my_id,
             my_date:my_date,
         }).then(function(response){
-            console.log(response.data['response'])
+         
             if(response.data['response']==="Good") {
                 //페이지 새로고침
                 window.location.reload()
@@ -138,7 +138,7 @@ function SubmitComment() {
             }
         }).catch(function(error){
             console.log(error)
-            alert("Error Code",error)
+      
         })
     }
     

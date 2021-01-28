@@ -8,7 +8,7 @@ const initialState = {
     
 }
 function writedata(state=initialState,action) {
-    console.log(action)
+    
     switch(action.type) {
         case EDIT_BODY:
             return action.data

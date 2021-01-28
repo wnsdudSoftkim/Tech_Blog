@@ -22,7 +22,7 @@ function HeaderInput() {
         })
         
     }   
-    console.log(header)
+ 
     if(header.length===0) {
         Toggle = false
     }else {
@@ -62,18 +62,10 @@ function BodyInput() {
         return CodeEditorPreview.bind(mydata||"")
     },[])
     const mydata = useSelector(state=> state.writedata)
-    console.log(mydata.body)
+   
     data.bodydata = mydata.body
     data.thumbnail=mydata.thumbnail
    
-    // const onChangeBody = e => {
-    //     e.preventDefault()
-    //     SetBodyInput({
-    //         body:e.target.value
-
-    //     })
-    // }
-    // console.log(body)
     
   
    
@@ -117,16 +109,16 @@ function SubmitPost() {
             body:data.bodydata,
             thumbnail:data.thumbnail,
         }).then(function(response){
-            console.log(response.data['response'])
+           
             if(response.data['response']==="Good") {
-                console.log("aaggga")
+              
                 window.location.assign("http://localhost:3000")
             }else {
                 alert("오류가 발생하였습니다")
             }
         }).catch(function(error){
             console.log(error)
-            alert("Error Code",error)
+            
         })
     }
    

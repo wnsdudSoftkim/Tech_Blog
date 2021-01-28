@@ -28,20 +28,7 @@ function ShowPost() {
 
 
 
-    //비동기적으로 데이터불러옴
-    // useEffect(() => {
-    //     async function get() {
-    //         const result = await Axios.get('/Post')
-    //         setData(result.data)      
-    //         console.log(result.data)
-    //         console.log(result.data.length)
-    //     }
-    //     get()
-    //     return ()=> {
-    //         completed = true
-    //     }
-    // },[])
-    
+   
     
 
     const ShowPostBlock = styled.div`
@@ -56,8 +43,8 @@ function ShowPost() {
                         <Grid.Row columns={columnCount}>   
                         {Object.keys(mydata).map(function(key) {
                             return (
-                                <Grid.Column>
-                                    <SinglePostBox key ={key} 
+                                <Grid.Column key={key}>
+                                    <SinglePostBox
                                         title={mydata[key]["title"]} 
                                         body={mydata[key]["body"]} 
                                         thumbnail={mydata[key]["thumbnail"]} 

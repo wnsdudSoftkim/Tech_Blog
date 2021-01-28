@@ -166,7 +166,7 @@ function IntroduceInfo({activeTab}) {
                                     Django
                                 </code>
                                 <code>
-                                    React(+Redux)
+                                    React
                                 </code>
                                 <code>
                                     Node.js
@@ -292,7 +292,7 @@ function IntroduceInfo({activeTab}) {
                                 </b>
                                 <h3>기술 스택</h3>
                                 <b>
-                                   Kotlin, Firebase
+                                   Kotlin | Retrofit | Firebase
                                 </b>
                                 
                                
@@ -313,7 +313,7 @@ function IntroduceInfo({activeTab}) {
                                 </b>
                                 <h3>기술 스택</h3>
                                 <b>
-                                   Kotlin | Firebase
+                                   Kotlin | Retrofit | Firebase
                                 </b>
                                
                             </li>
@@ -329,12 +329,12 @@ function IntroduceInfo({activeTab}) {
                                 <b>
                                    기획,개발 | 프론트엔드 구현 | 백엔드 구현 | DB연동 | 이미지 DrapDrop을 aws s3에 저장하여 실시간 이미지 Preview 기능 구현
                                    | 댓글 구현 | 마크다운 글쓰기 기능 구현 | 회원가입 , 로그인 기능 구현 |
-                                   SQLite 에서 MySQL 로 DB 변경
+                                   SQLite 에서 MySQL 로 DB 변경 | 댓글 삭제 구현
 
                                 </b>
                                 <h3>기술 스택</h3>
                                 <b>
-                                   React | Redux | Django | MySQL | AWS S3 | 
+                                   React | Redux | React-router | SCSS | react-s3 | Semantic UI | redux-persist | redux-DevTools | lottie | CodeMirror | Marked | axios | Django | Django REST Framework | MySQL | AWS S3 
                                 </b>
                                
                             </li>

@@ -21,7 +21,7 @@ def PostBook(request):
         title = req['title']
         body = req['body']
         thumbnail = req['thumbnail']
-        print(title)
+      
         if title!="None":
             print("POST 데이터를 정상적으로 입력받았습니다")
             poster= Post(title=title,body=body,thumbnail=thumbnail)

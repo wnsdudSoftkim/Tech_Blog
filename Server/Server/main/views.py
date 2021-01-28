@@ -24,7 +24,7 @@ def MyUser(request):
         myemail=get_item(email,'email')
         mypassword=get_item(password,'password')
         myauthor=get_item(author,'author')
-        print('email',email)
+        
         if User.objects.filter(email=email).exists():
             return HttpResponse(simplejson.dumps({"response":"exist"}))
         else:
@@ -43,8 +43,7 @@ def login(request):
         password=req['password']
         myemail=get_item(email,'email')
         mypassword=get_item(password,'password')
-        print(myemail)
-        print(mypassword)
+     
         if User.objects.filter(email=myemail).exists():
             myuser = User.objects.get(email=myemail)
             if mypassword==myuser.password:

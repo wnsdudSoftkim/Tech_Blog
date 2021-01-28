@@ -22,7 +22,7 @@ function ShowComment() {
                     content:"input"
                 }).then((value)=> {
                     if(value===check){
-                        console.log(value)
+                       
                         deleteFunc(check,name,my_id)
                     }else {
                         swal("",{
@@ -45,12 +45,9 @@ function ShowComment() {
             name:name
         }).then(function(response){
             window.location.reload()
-        }).catch(function(error) {
-            alert(error)
         })
     }
    
-    console.log(Object.keys(mydata).length)
     return (
         <>  
            
