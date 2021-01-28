@@ -1,4 +1,5 @@
 asgiref==3.2.10
+awscli==1.18.221
 awsebcli==3.19.3
 beautifulsoup4==4.9.3
 botocore==1.19.61
@@ -10,16 +11,20 @@ colorama==0.4.3
 Django==3.1.2
 django-cors-headers==3.5.0
 djangorestframework==3.12.1
+docutils==0.15.2
 future==0.16.0
 idna==2.10
 jmespath==0.10.0
 pathspec==0.5.9
+pyasn1==0.4.8
 pypiwin32==223
 python-dateutil==2.8.1
 pytz==2020.1
 pywin32==300
 PyYAML==5.3.1
 requests==2.24.0
+rsa==4.5
+s3transfer==0.3.4
 semantic-version==2.5.0
 simplejson==3.17.2
 six==1.15.0
