@@ -4,12 +4,8 @@
 개인프로젝트 시작 (10/26~
 
 ## 1/31 진행상황
-<h2>배포 작업 구성도</h2>
-<div style={{display:flex}}>
-  <img src="https://user-images.githubusercontent.com/48875061/106361240-3872f400-6360-11eb-8c74-ee8ab2271cbf.png" />
-
-
-</div>
+## 배포 작업 구성도
+![Web App Reference Architecture (1)](https://user-images.githubusercontent.com/48875061/106361322-acad9780-6360-11eb-84b3-c2db9105da04.png)
 
 
 
