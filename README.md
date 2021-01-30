@@ -5,7 +5,8 @@
 
 ## 1/31 진행상황
 ## 배포 작업 구성도
-![Web App Reference Architecture (1)](https://user-images.githubusercontent.com/48875061/106361322-acad9780-6360-11eb-84b3-c2db9105da04.png)
+![Web App Reference Architecture (2)](https://user-images.githubusercontent.com/48875061/106361395-08782080-6361-11eb-8124-2593eee3bf98.png)
+
 
 
 
