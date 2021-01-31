@@ -13,6 +13,7 @@ django-cors-headers==3.5.0
 djangorestframework==3.12.1
 docutils==0.15.2
 future==0.16.0
+gunicorn==20.0.4
 idna==2.10
 jmespath==0.10.0
 pathspec==0.5.9
@@ -33,3 +34,4 @@ sqlparse==0.3.1
 termcolor==1.1.0
 urllib3==1.25.11
 wcwidth==0.1.9
+whitenoise==5.2.0
