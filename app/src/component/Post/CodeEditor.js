@@ -38,8 +38,8 @@ function CodeEditor() {
         bucketName:"jun-techblog",
         dirName:"images/",
         region:"ap-northeast-2",
-        accessKeyId:"AKIAVQ6UAGB7NMXTMY7Q",
-        secretAccessKey:'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'
+        accessKeyId:"모게",
+        secretAccessKey:'안알려주지'
     }
     
     useEffect(()=> {
