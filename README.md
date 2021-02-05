@@ -126,7 +126,20 @@ https://objective-blackwell-219591.netlify.app/
     </li>
   </ul>
 </div>
- 
+<div style="display:flex;width:100%;text-align:center;">
+  <center>
+    <h2>예시 이미지</h2>
+  </center>
+  <center>
+    
+  <div style="text-align:center;">
+    <img src="https://user-images.githubusercontent.com/48875061/107051129-6bf5c880-680f-11eb-81db-28994c75e4a3.PNG" width="33%"/>
+  </div>
+
+  <img src="https://user-images.githubusercontent.com/48875061/107051175-7c0da800-680f-11eb-9977-e6a1984c2ecb.PNG" width="33%"/>
+  <img src="https://user-images.githubusercontent.com/48875061/107051903-57fe9680-6810-11eb-9575-e66aa21ea069.PNG" width="66%"/>
+   </center>
+</div>
 
 
 
