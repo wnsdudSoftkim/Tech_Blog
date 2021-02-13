@@ -1,41 +1,38 @@
-## 프로젝트 소개
-😃Django 와 react로 만드는 기술블로그  
+
+## 😃Django 와 react로 만드는 기술블로그  
 https://objective-blackwell-219591.netlify.app/
-## 개발인원 및 기간
-<div>
-  <ul>
-    <li>
-      개발인원 : 1명
-    </li>
-     <li>
-      개발기간 : 2020.10~2021.02
-    </li>
-  </ul>
+<div style="display:flex;width:100%;text-align:center;">
+  <center>
+    <h2>🎨Overview</h2>
+  </center>
+  <center>
+    
+   <img src="https://user-images.githubusercontent.com/48875061/107051129-6bf5c880-680f-11eb-81db-28994c75e4a3.PNG" width="33%"/>
+  
+
+  <img src="https://user-images.githubusercontent.com/48875061/107051175-7c0da800-680f-11eb-9977-e6a1984c2ecb.PNG" width="33%"/>
+  <img src="https://user-images.githubusercontent.com/48875061/107051903-57fe9680-6810-11eb-9575-e66aa21ea069.PNG" width="66%"/>
+   </center>
 </div>
 <div>
   <h2>
-    프로젝트 구성도
+    ✅Project Architecture
   </h2>
-  <img src="https://user-images.githubusercontent.com/48875061/106361395-08782080-6361-11eb-8124-2593eee3bf98.png"/>
+  <img src="https://user-images.githubusercontent.com/48875061/107851176-3a9e7d80-6e4b-11eb-9ab5-431cce2cd014.png"/>
 </div>
 <div>
   <h2>
-    프론트 구성도
+    ✅Front Architecture
   </h2>
   <img src="https://user-images.githubusercontent.com/48875061/107024387-540c4d80-67eb-11eb-8201-3f5a4218bda5.png"/>
 </div>
+
 <div>
   <h2>
-    백엔드 구성도
-  </h2>
-  <img src="https://user-images.githubusercontent.com/48875061/107025838-4fe12f80-67ed-11eb-9b00-c993117dc1a3.png"/>
-</div>
-<div>
-  <h2>
-    적용기술
+    💻 Development Stack
   </h2>
   <h4>
-    프론트
+    Frontend
   </h4>
   <ul>
     <li>
@@ -58,7 +55,7 @@ https://objective-blackwell-219591.netlify.app/
     </li>
   </ul>
    <h4>
-    백엔드
+    Server
   </h4>
    <ul>
     <li>
@@ -73,7 +70,7 @@ https://objective-blackwell-219591.netlify.app/
     
   </ul>
    <h4>
-    클라우드
+    Cloud
   </h4>
   <ul>
     <li>
@@ -92,7 +89,7 @@ https://objective-blackwell-219591.netlify.app/
 </div>
 <div>
   <h2>
-    구현기능
+    Tech
   </h2>
   <ul>
     <li>
@@ -102,7 +99,7 @@ https://objective-blackwell-219591.netlify.app/
        CodeMirror을 통해 마크다운 글쓰기 / 실시간 PreView 
     </li>
      <li>
-       CodeMirror 이미지 dragdrop 기능 AWS S3 와 연동하여 이미지 PreView 
+       CodeMirror 이미지 dragdrop 기능 AWS S3 와 연동하여 이미지 실시간 PreView 
     </li>
     <li>
        댓글 / 방명록 구현 
@@ -112,33 +109,18 @@ https://objective-blackwell-219591.netlify.app/
 </div>
 <div>
   <h2>
-    프로젝트 한계점
+    😓Project limitations
   </h2>
   <ul>
     <li>
-      Heroku Server sleep 시 재가동 15초 delay
+      Heroku Server sleep 시 재가동 delay 현상
     </li>
     <li>
       AWS 프리티어 기한
     </li>
-    <li>
-      못생긴 도메인 이름
-    </li>
   </ul>
 </div>
-<div style="display:flex;width:100%;text-align:center;">
-  <center>
-    <h2>예시 이미지</h2>
-  </center>
-  <center>
-    
-   <img src="https://user-images.githubusercontent.com/48875061/107051129-6bf5c880-680f-11eb-81db-28994c75e4a3.PNG" width="33%"/>
-  
 
-  <img src="https://user-images.githubusercontent.com/48875061/107051175-7c0da800-680f-11eb-9977-e6a1984c2ecb.PNG" width="33%"/>
-  <img src="https://user-images.githubusercontent.com/48875061/107051903-57fe9680-6810-11eb-9575-e66aa21ea069.PNG" width="66%"/>
-   </center>
-</div>
 
 
 
