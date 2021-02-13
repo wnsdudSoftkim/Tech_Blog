@@ -89,7 +89,7 @@ https://objective-blackwell-219591.netlify.app/
 </div>
 <div>
   <h2>
-    Tech
+    🖋Tech
   </h2>
   <ul>
     <li>
