@@ -18,14 +18,9 @@ https://objective-blackwell-219591.netlify.app/
   <h2>
     ✅Project Architecture
   </h2>
-  <img src="https://user-images.githubusercontent.com/48875061/107851176-3a9e7d80-6e4b-11eb-9ab5-431cce2cd014.png"/>
+  <img src="https://user-images.githubusercontent.com/48875061/107946934-0a82e600-6fd5-11eb-9ba6-2cc0d21d7f0d.png"/>
 </div>
-<div>
-  <h2>
-    ✅Front Architecture
-  </h2>
-  <img src="https://user-images.githubusercontent.com/48875061/107024387-540c4d80-67eb-11eb-8201-3f5a4218bda5.png"/>
-</div>
+
 
 <div>
   <h2>
