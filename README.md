@@ -1,5 +1,6 @@
 
 ## 😃Django 와 react로 만드는 기술블로그  
+##### 게시물이 보여지는데 10초 delay현상이 나타날 수 있습니다.
 https://objective-blackwell-219591.netlify.app/
 <div style="display:flex;width:100%;text-align:center;">
   <center>
