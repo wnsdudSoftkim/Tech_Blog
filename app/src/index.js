@@ -10,7 +10,6 @@ import reportWebVitals from './reportWebVitals';
 //persist 를 사용해 새로고침 시 데이터 날라감 방지
 import {persistReducer,persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { PersistGate } from 'redux-persist/integration/react';
 import './styles/_typography.scss'
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //redux-persist
@@ -24,10 +23,7 @@ const store = createStore(enhancedReducer, composeEnhancer(applyMiddleware(thunk
 const persistor = persistStore(store)
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
        <App />
-    </PersistGate>
-    
   </Provider>,
   document.getElementById('root')
 );
