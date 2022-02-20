@@ -1,6 +1,6 @@
 import {FETCH_GET_POST} from '../action/index'
 
-function data(state={}, action) {
+function data(state = {}, action) {
     switch(action.type) {
         case FETCH_GET_POST:
             return {
