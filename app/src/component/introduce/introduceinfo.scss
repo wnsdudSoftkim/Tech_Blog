@@ -70,8 +70,11 @@ li{
         border-radius: 3px;
     }
     b{
+        display: inline-flex;
+        box-sizing: border-box;
         font-size: 1.2rem;
         font-weight: 400;
+        line-height: 1.5rem;
         padding:1rem;
     }
 }

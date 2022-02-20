@@ -186,6 +186,9 @@ function IntroduceInfo({activeTab}) {
                                 <code>
                                     Firebase
                                 </code>
+                                <code>
+                                    Heroku
+                                </code>
                                
                             </li>
                         </ul>
@@ -252,7 +255,7 @@ function IntroduceInfo({activeTab}) {
                                 <p>기술 블로그 Demo 런칭  <span> | 2020.04~2020.05</span></p>
                                 <h3>소개</h3>
                                 <b>
-                                    개인프로젝트 | FastCampus 강의를 토대로 만든 블로그 |
+                                    개인프로젝트 | FastCampus 강의를 토대로 만든 블로그 
                                     
                                    
                                    
@@ -315,19 +318,20 @@ function IntroduceInfo({activeTab}) {
                                 <h3>소개</h3>
                                 <b>
                                     개인프로젝트 | 마크다운으로 작성하는 기술 블로그 런칭 |
-                                    Issue 에 대한 내용을 정리 | 
+                                    Issue 에 대한 내용을 정리
                                 </b>
                                 
                                 <h3>역활</h3>
                                 <b>
                                    기획,개발 | 프론트엔드 구현 | 백엔드 구현 | DB연동 | 이미지 DrapDrop을 aws s3에 저장하여 실시간 이미지 Preview 기능 구현
                                    | 댓글 구현 | 마크다운 글쓰기 기능 구현 | 회원가입 , 로그인 기능 구현 |
-                                   SQLite 에서 MySQL 로 DB 변경 | 댓글 삭제 구현
+                                   SQLite 에서 MySQL 로 DB 변경 | 댓글 삭제 구현 | DB 배포 | Front/Back 배포
 
                                 </b>
                                 <h3>기술 스택</h3>
                                 <b>
-                                   React | Redux | React-router | SCSS | react-s3 | Semantic UI | redux-persist | redux-DevTools | lottie | CodeMirror | Marked | axios | Django | Django REST Framework | MySQL | AWS S3 
+                                   React | Redux | React-router | SCSS | redux-persist | redux-DevTools | Django | Django REST Framework | MySQL | AWS S3 |
+                                   AWS RDS | Heroku
                                 </b>
                                
                             </li>

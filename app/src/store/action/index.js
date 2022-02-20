@@ -8,6 +8,7 @@ export const FETCH_COMMENT = 'FETCH_COMMENT'
 
 export const fetchGetPost = async() => {
     const Data = await Axios.get('http://localhost:3000/Post/')
+    console.log(Data)
     return {
         type:'FETCH_GET_POST',
         payload:Data.data

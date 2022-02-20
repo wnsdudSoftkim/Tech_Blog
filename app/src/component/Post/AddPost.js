@@ -94,7 +94,7 @@ function BodyInput() {
         
     
 }
-function SubmitPost() {
+async function SubmitPost() {
    
     if(!Toggle) {
         console.log('No Data Here')
@@ -103,7 +103,7 @@ function SubmitPost() {
         console.log('good to go')
         axios.defaults.xsrfCookieName = "csrftoken"
         axios.defaults.xsrfHeaderName = "X-CSRFToken"
-        axios.post('Post/',{
+        await axios.post('Post/',{
             title:data.titledata,
             body:data.bodydata,
             thumbnail:data.thumbnail,
