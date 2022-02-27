@@ -165,9 +165,9 @@ function Introduce() {
 							<img src={profile} className="profile" alt='aa' size="80" />
 						</TumbBlock>
 						<strong className="H1">김준영</strong>
-						<span className="SubH1 GrayText">한국외국어대학교 정보통신공학과</span>
+						<span className="SubH1 GrayText">backend-developer</span>
 						<div className="visitor">
-							<p className="GrayText">개발에 관심많은 학생입니다</p>
+							<p className="GrayText">끊임없는 성장을 추구합니다.</p>
 							
 						</div>
 						<ButtonBlock onClick={()=> {

@@ -108,10 +108,7 @@ https://objective-blackwell-219591.netlify.app/
   </h2>
   <ul>
     <li>
-      Heroku Server sleep 시 재가동 delay 현상
-    </li>
-    <li>
-      AWS 프리티어 기한 
+      Heroku Server sleep 시 재가동 delay 현상 - cronjob 을 통해 임시 해결
     </li>
   </ul>
 </div>

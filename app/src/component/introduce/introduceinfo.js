@@ -126,76 +126,6 @@ function IntroduceInfo({activeTab}) {
                             </tbody>
                         </table>
                     </div>
-                    <div className="interest-skill">
-                        <h2>
-                        Techs that I've used at least once
-                        </h2>
-                        <ul>
-                            <li> 
-                                <p>Language</p>
-                                <code>
-                                    Java
-                                </code>
-                                <code>
-                                    Python
-                                </code>
-                                <code>
-                                    Javascript
-                                </code>
-                                <code>
-                                    Markdown
-                                </code>
-                                <code>
-                                    HTML5/CSS
-                                </code>
-                                <code>
-                                    Kotlin
-                                </code>
-                                
-                            </li>
-                            <li> 
-                                <p>Framework</p>
-                                <code>
-                                    Django
-                                </code>
-                                <code>
-                                    React
-                                </code>
-                                <code>
-                                    Node.js
-                                </code>
-                               
-                            </li>
-                        
-                       
-                            <li> 
-                                <p>Database</p>
-                                <code>
-                                    MySQL
-                                </code>
-                                <code>
-                                    MongoDB
-                                </code>
-                               
-                            </li>
-                            <li> 
-                                <p>Cloud</p>
-                                <code>
-                                    AWS
-                                </code>
-                                <code>
-                                    Firebase
-                                </code>
-                                <code>
-                                    Heroku
-                                </code>
-                               
-                            </li>
-                        </ul>
-                      
-                          
-                        
-                    </div>
                     <div className="education">
                             <table>
                                 <thead>
@@ -248,40 +178,76 @@ function IntroduceInfo({activeTab}) {
                                 </tbody>
                             </table>
                     </div>
+                    <div className="career">
+                        <h2>
+                            경력
+                        </h2>
+                        <ul>
+                            <li>
+                                <code>Xangle backend</code>
+                            </li>
+                        </ul>  
+                    </div>
                     <h3>Project</h3>
                     <div className="project">
-                        <ul>
+                        <ul>       
                             <li> 
-                                <p>기술 블로그 Demo 런칭  <span> | 2020.04~2020.05</span></p>
+                                <p>Virtual invest with coin data  <span> | 2022.01~2022.02</span></p>
                                 <h3>소개</h3>
                                 <b>
-                                    개인프로젝트 | FastCampus 강의를 토대로 만든 블로그 
-                                    
-                                   
-                                   
+                                    개인프로젝트 | 서버단에 클린코드에 집중한 프로젝트 | 이더리움, 비트코인 데이터를 기반으로 원하는 날짜에 맞는 수익률 창출                         
                                 </b>
-                                
                                 <h3>역활</h3>
                                 <b>
-                                   프론트엔드 구현 | 기획,개발
+                                   기획 | 프론트엔드 구현 | DB,API 설계 | 백엔드 설계
                                 </b>
                                 <h3>기술 스택</h3>
                                 <b>
-                                    React | Node.js | Heroku | MongoDB
+                                   vue3 | fastapi | mongodb | docker | cronjob
                                 </b>
-                               
                             </li>
-                            
+                            <li> 
+                                <p>AutoWatch  <span> | 2021.05~2021.08</span></p>
+                                <h3>소개</h3>
+                                <b>
+                                    팀프로젝트 | 자사 서비스인 Auto_Watch는 화상공유 플랫폼을 이용한 강의 및 시험에서 야기되는 집중력, 참여도 저하 및 부정행위 등의 문제를 해결하는 목적으로 제공되는 자동 감독 서비스입니다. 
+                                    | 오픈인프라 개발 경진대회 최우수상                    
+                                </b>
+                                <h3>역활</h3>
+                                <b>
+                                   기획 | WebRTC 구축, Signalling Server 구축
+                                </b>
+                                <h3>기술 스택</h3>
+                                <b>
+                                   React | express 
+                                </b>
+                            </li>
+                            <li> 
+                                <p>기술 블로그 런칭<span> | 2020.10~2021.2</span></p>
+                                <h3>소개</h3>
+                                <b>
+                                    개인프로젝트 | 마크다운으로 작성하는 기술 블로그 런칭 |
+                                    Issue 에 대한 내용을 정리
+                                </b>                      
+                                <h3>역활</h3>
+                                <b>
+                                   기획,개발 | 프론트엔드 구현 | 백엔드 구현 | DB연동 | 이미지 DrapDrop을 aws s3에 저장하여 실시간 이미지 Preview 기능 구현
+                                   | 댓글 구현 | 마크다운 글쓰기 기능 구현 | 회원가입 , 로그인 기능 구현 |
+                                   SQLite 에서 MySQL 로 DB 변경 | 댓글 삭제 구현 | DB 배포 | Front/Back 배포
+                                </b>
+                                <h3>기술 스택</h3>
+                                <b>
+                                   React | Redux | React-router | SCSS | redux-persist | redux-DevTools | Django | Django REST Framework | MySQL | AWS S3 |
+                                   AWS RDS | Heroku
+                                </b>        
+                            </li>                  
                             <li> 
                                 <p>전역일 계산기 앱  <span> | 2020.05~2020.06</span></p>
                                 <h3>소개</h3>
                                 <b>
                                     개인프로젝트 | Kotlin 기반으로 기획,개발하여 구글 플레이 스토어 배포
-                                    | 사용자 중심 첫 APP 개발 프로젝트
-                                   
-                                   
+                                    | 사용자 중심 첫 APP 개발 프로젝트                                
                                 </b>
-                                
                                 <h3>역활</h3>
                                 <b>
                                    기획 | 프론트엔드 구현 | DB,API 설계 | 간단한 로그인, 커뮤니티 구현
@@ -290,70 +256,7 @@ function IntroduceInfo({activeTab}) {
                                 <b>
                                    Kotlin | Retrofit | Firebase
                                 </b>
-                                
-                               
                             </li>
-                            <li> 
-                                <p>온비드 공공매매 앱  <span> | 2020.07~2020.10</span></p>
-                                <h3>소개</h3>
-                                <b>
-                                    팀프로젝트 | Kotlin 기반으로 기획,개발하여 제출 |첫 팀 프로젝트 |
-                                    깃으로 협업 방법 학습
-                                   
-                                   
-                                </b>
-                                
-                                <h3>역활</h3>
-                                <b>
-                                   프로젝트 조장 | 기획 | DB,API 설계 | OpenAPI 통신
-                                </b>
-                                <h3>기술 스택</h3>
-                                <b>
-                                   Kotlin | Retrofit | Firebase
-                                </b>
-                               
-                            </li>
-                            <li> 
-                                <p>기술 블로그 런칭<span> | 2020.10~2021.2</span></p>
-                                <h3>소개</h3>
-                                <b>
-                                    개인프로젝트 | 마크다운으로 작성하는 기술 블로그 런칭 |
-                                    Issue 에 대한 내용을 정리
-                                </b>
-                                
-                                <h3>역활</h3>
-                                <b>
-                                   기획,개발 | 프론트엔드 구현 | 백엔드 구현 | DB연동 | 이미지 DrapDrop을 aws s3에 저장하여 실시간 이미지 Preview 기능 구현
-                                   | 댓글 구현 | 마크다운 글쓰기 기능 구현 | 회원가입 , 로그인 기능 구현 |
-                                   SQLite 에서 MySQL 로 DB 변경 | 댓글 삭제 구현 | DB 배포 | Front/Back 배포
-
-                                </b>
-                                <h3>기술 스택</h3>
-                                <b>
-                                   React | Redux | React-router | SCSS | redux-persist | redux-DevTools | Django | Django REST Framework | MySQL | AWS S3 |
-                                   AWS RDS | Heroku
-                                </b>
-                               
-                            </li>
-                            <li> 
-                                <p>우리 지금 만나 앱<span> | 2020.10~</span></p>
-                                <h3>소개</h3>
-                                <b>
-                                    팀프로젝트 | 최대 4명의 사용자의 중간지점을 찾아 범위를 늘려가며 맛집, 관광명소 , 음식점 등 유용한 정보를 제공
-                                </b>
-                                
-                                <h3>역활</h3>
-                                <b>
-                                    프로젝트 조장 | PM 역활 수행 | 프론트엔드 구현 | DB 설계
-
-                                </b>
-                                <h3>기술 스택</h3>
-                                <b>
-                                   React | MySQL 
-                                </b>
-                               
-                            </li>
-                            
                         </ul>
                     </div>
                 </div>
