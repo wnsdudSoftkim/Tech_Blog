@@ -1,12 +1,16 @@
+from functools import lru_cache
+
 from pydantic import BaseSettings
 
 
 class GlobalSettings(BaseSettings):
-    ENV_STATE: str = 'development'
-    APP_ENV: str = 'development'
+    ENV_STATE: str = 'development'  # change mode
+    REDIS_HOST: str
+    MONGO_HOST: str
+    AWS_HOST: str
 
     class Config:
-        env_file = '.env'
+        env_file = 'development.env'
 
 
 class DevSettings(GlobalSettings):
@@ -30,5 +34,6 @@ class FactorySettings:
             return ProdSettings()
 
 
+@lru_cache()
 def get_setting():
     return FactorySettings.load()
