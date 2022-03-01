@@ -2,7 +2,7 @@ import React, { useEffect}from 'react'
 import {useDispatch} from 'react-redux'
 import {EditBody} from '../../store/action/index'
 //aws s3
-import S3FileUpload from 'react-s3'
+import S3FileUpload, { uploadFile } from 'react-s3'
 import './CodeEditor.scss'
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/addon/display/autorefresh';
@@ -26,22 +26,13 @@ import 'codemirror/theme/monokai.css';
 const CodeMirror = require("codemirror")
 
 function CodeEditor() {
-   
     const state ={
         cursor:"",
         body:"",
         thumbnail:[],
     }
     const dispatch = useDispatch()
-    //aws s3 사용 옵션
-    const AWSconfig ={
-        bucketName:"jun-techblog",
-        dirName:"images/",
-        region:"ap-northeast-2",
-        accessKeyId:"모게",
-        secretAccessKey:'안알려주지'
-    }
-    
+
     useEffect(()=> {
         const editor = document.getElementById("editor")
         const codeMirror = CodeMirror(editor,{
@@ -65,9 +56,11 @@ function CodeEditor() {
                
                 e.preventDefault();
                 e.stopPropagation();
-                file = files[0];
+                file = files[0]
                 //aws S3 로 이미지 전송
-                S3FileUpload.uploadFile(file,AWSconfig)
+                /* TODO s3 uri 통신 util의 uploadFile을 통해서 */
+
+                this.uploadFile(file)
                 .then((data)=> {
                     console.log(data.location)
                     codeMirror.setValue(state.body+"\n"+
@@ -75,9 +68,7 @@ function CodeEditor() {
                     +data.location+
                     ")")
                     state.thumbnail.push(data.location)
-                    dispatch(EditBody(state.cursor,state.body,state.thumbnail[0]))
-                
-                  
+                    dispatch(EditBody(state.cursor,state.body,state.thumbnail[0]))  
                 })
                 return false;
             }
