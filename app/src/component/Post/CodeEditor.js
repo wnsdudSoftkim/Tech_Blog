@@ -1,8 +1,6 @@
 import React, { useEffect}from 'react'
 import {useDispatch} from 'react-redux'
 import {EditBody} from '../../store/action/index'
-//aws s3
-import S3FileUpload, { uploadFile } from 'react-s3'
 import './CodeEditor.scss'
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/addon/display/autorefresh';
