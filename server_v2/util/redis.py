@@ -1,16 +1,16 @@
 import json
 import logging
 from functools import wraps
-from redis import StrictRedis
+from redis import Redis
 from config.config import get_setting
 
 
-class Redis(object):
+class RedisClient(object):
     host = get_setting().REDIS_HOST
     port = 6379
 
 
-redis = StrictRedis(host=Redis.host, port=Redis.port, socket_timeout=2)
+redis = Redis(host=RedisClient.host, port=RedisClient.port, socket_timeout=2)
 
 
 def cached(func):
