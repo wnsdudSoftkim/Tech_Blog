@@ -1,3 +1,4 @@
+import logging
 from functools import lru_cache
 
 from pydantic import BaseSettings
@@ -15,6 +16,8 @@ class GlobalSettings(BaseSettings):
 
 
 class DevSettings(GlobalSettings):
+    logging.basicConfig(level=logging.DEBUG)
+
     class Config:
         env_file = 'development.env'
 

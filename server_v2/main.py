@@ -11,7 +11,6 @@ app.include_router(router)
 
 @app.get("/")
 def root():
-
     return f'running mode : {get_setting()}'
 
 
@@ -24,4 +23,5 @@ async def startup_event():
 
 @app.on_event("shutdown")
 async def shutdown_evnet():
+    logging.info('SHUTDOWN EVENT')
     close_db()
