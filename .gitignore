@@ -1,1 +1,4 @@
 /node_modules
+/venv
+/server_v2/secrets/
+/server_v2/production.env
