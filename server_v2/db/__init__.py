@@ -1,10 +1,8 @@
 import logging
 from typing import Optional
-
 from bson import ObjectId
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, Field
-
 from config.config import get_setting
 
 
