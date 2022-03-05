@@ -40,5 +40,4 @@ class FactorySettings:
 
 @lru_cache()
 def get_setting():
-    """LRU cache 쓰는 이유 명확히"""
     return FactorySettings.load()
