@@ -14,6 +14,14 @@ class Operator(object):
         return await db[collection].find_one(condition, projection)
 
     @staticmethod
+    async def get_list(collection: str, condition: dict, projection: Optional[Dict], field: Optional[dict]):
+        db = get_mongo_db()
+
+        if condition is None:
+            condition = {}
+        await db[collection].find(condition, projection)
+
+    @staticmethod
     async def update(collection: str, condition: dict, field: dict):
         db = get_mongo_db()
 
