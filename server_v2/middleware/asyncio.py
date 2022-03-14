@@ -7,8 +7,8 @@ def async_decorator(func):
 
     @wraps(func)
     async def wrapper(*args, **kwargs):
-        result = loop.run_until_complete(await func)
-        return await result
+        result = loop.run_until_complete(func(*args, **kwargs))
+        return result
 
     return wrapper
 
