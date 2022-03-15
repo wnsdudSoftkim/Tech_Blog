@@ -5,18 +5,22 @@ from typing import List, Any, Optional, Dict
 class Operator(object):
 
     @staticmethod
-    async def get(collection: str, condition: dict, projection: Optional[Dict]):
+    async def get(collection: str, condition: dict, projection: Optional[Dict] = None):
         db = get_mongo_db()
 
         if condition is None:
             condition = {}
 
+        if projection:
+            projection = {item: 1 for item in projection}
+
         return await db[collection].find_one(condition, projection)
 
     @staticmethod
-    async def get_list(collection: str, condition: dict, projection: Optional[Dict], field: Optional[dict]):
+    async def get_list(collection: str, condition: dict, projection: Optional[List]):
         db = get_mongo_db()
-
+        if projection:
+            projection = {item: 1 for item in projection}
         if condition is None:
             condition = {}
         await db[collection].find(condition, projection)
