@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {fetchGetPost} from '../../store/action/index'
 import SinglePostBox from './SinglePostBox'
 import 'semantic-ui-css/semantic.min.css'
-import useMedia from '../../useMedia'
+import useMedia from '../../util/useMedia'
 //전체 Post를 Home 에서 보여주는 함수.
 //반응형 작업 4개 ->3개 ->2개 ->1개
 function ShowPost() {

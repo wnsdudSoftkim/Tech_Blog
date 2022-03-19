@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import styled, { css } from 'styled-components'
 import profile from '../image/profile.jpg'
 import IntroduceInfo from './introduceinfo'
-import HeaderSmall from '../HeaderSmall'
+import HeaderSmall from '../base/HeaderSmall'
 
 
 function Introduce() {

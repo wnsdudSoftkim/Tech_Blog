@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {useDispatch} from 'react-redux'
-import HeaderSmall from '../HeaderSmall'
+import HeaderSmall from '../base/HeaderSmall'
 import Lottie from 'react-lottie'
 import lottieanim from '../../lottie/GuestLottie.json'
 import {AiOutlineSend} from 'react-icons/ai'
