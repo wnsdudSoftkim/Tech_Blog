@@ -5,15 +5,14 @@ import facebook from '../image/facebook.PNG'
 import {BsChatSquareDots} from 'react-icons/bs'
 import user2 from '../image/user2.png'
 import {Link} from 'react-router-dom'
-import Footer from '../Footer'
+import Footer from '../base/Footer'
 import Comment from './Comment'
 import axios from 'axios'
-import HeaderSmall from '../HeaderSmall'
+import HeaderSmall from '../base/HeaderSmall'
 import {useSelector,useDispatch} from 'react-redux'
 import CodeEditorPreview from './CodeEditorPreview'
 import {fetchComment} from '../../store/action/index'
 import ShowComment from './ShowComment'
-
 //하나의 포스트를 클릭시 들어가지는 페이지
 var refresh_data ={
     title:'',
@@ -22,8 +21,6 @@ var refresh_data ={
     my_id:'',
 
 }
-
-
 function PostPage({title,body,thumbnail,user_date}){
     //단일 데이터를 받아온다
     var mydata  = useSelector(state=> state.singlepostdata)
@@ -34,9 +31,6 @@ function PostPage({title,body,thumbnail,user_date}){
         refresh_data.user_date = mydata.user_date
         refresh_data.my_id = mydata.my_id
         fetch_myComment()
-        
-        
-      
     },[mydata])
     //id 에 맞는 post 댓글을 불러오는 로직 (store에 저장)
     const fetch_myComment=()=> {
@@ -47,27 +41,17 @@ function PostPage({title,body,thumbnail,user_date}){
         }).then(function(response){
             if(!(response.data==="N")){
                 //response.data를 전부 store에 저장
-                dispatch(fetchComment(response.data))
-           
+                dispatch(fetchComment(response.data))           
             }else {
                 //데이터가 아무것도 없을 때 store 초기화
                 dispatch(fetchComment(null))
             }
-                
-
         })
     }
-    
-    
-    
-    
-    
     const onClickChat=()=> {
         var location = document.querySelector(".comment_container").offsetTop
         window.scrollTo({top:location, behavior:'smooth'});
     }
-    
-    
     const PostPageBlock = styled.div`
         display:flex;
         justify-content:center;
@@ -77,10 +61,7 @@ function PostPage({title,body,thumbnail,user_date}){
         padding: 20px 11vw 50px;
         box-shadow: 0px -2px -4px 4px #eee;
         @media(max-width:767px) {
-            padding:20px 0 50px;
-            
-           
-            
+            padding:20px 0 50px;        
         }
         .bschatdot{
             position: fixed;
@@ -91,19 +72,13 @@ function PostPage({title,body,thumbnail,user_date}){
             height: 32px;
             cursor:pointer;
         }
-
-        .PageBlock {
-            
+        .PageBlock {         
             width:100%;
             display:flex;
             flex-direction:column;
             @media(max-width:767px) {
-                width:100%;
-
-               
-                
-            }
-           
+                width:100%;             
+            } 
             .title {
                 width:100%;
                 padding: 20px 0 50px;
@@ -117,10 +92,7 @@ function PostPage({title,body,thumbnail,user_date}){
                     padding-top:50px;
                     padding-bottom:10px;
                     @media(max-width:767px) {
-                        margin:1rem;
-                        
-                       
-                        
+                        margin:1rem;             
                     }
                     .itemTitle {
                         color:rgba(0,0,0,0.84);
@@ -136,10 +108,8 @@ function PostPage({title,body,thumbnail,user_date}){
                       
                         text-align:center;
                        
-                    }
-                   
+                    }              
                 }
-                
                 .LogoWithIntro {
                     display:flex;
                     margin-top:10px;
@@ -168,8 +138,7 @@ function PostPage({title,body,thumbnail,user_date}){
                                    text-decoration:underline;
                                    opacity:1;
                                }
-                           }
-                           
+                           }  
                        }
                     }
                     .Logo {
@@ -182,10 +151,7 @@ function PostPage({title,body,thumbnail,user_date}){
                                 margin-bottom:30px;
                             }
                         }
-                       
                     }
-                        
-                    
                 }
             }
             .body {
@@ -194,7 +160,6 @@ function PostPage({title,body,thumbnail,user_date}){
                
                 display:flex;
                 justify-content:center;
-
                 .center {
                     box-sizing:border-box;
                     justify-content:center;
@@ -203,39 +168,27 @@ function PostPage({title,body,thumbnail,user_date}){
                     text-align:center;
                   
                     @media(max-width:767px) {
-                        padding-right:0;
-                        
-                       
-                        
+                        padding-right:0;                  
                     }
-                   
-
-                }
-               
+                }  
             }
         }
     `
-   
     return (
         <>  
             <HeaderSmall />
             <PostPageBlock>
                 <div className="bschatdot"  onClick={onClickChat}>
                     <BsChatSquareDots size="48"/>
-                </div>
-                
+                </div>     
                 <div className="PageBlock">
                     <div className="title">
                         <div className="titleandDelete">
                             <h1 className="itemTitle">
                                 <p>
                                     {mydata.title}
-                                </p>
-                                
+                                </p>                           
                             </h1>
-                            
-                            
-
                         </div>
                         <div className="LogoWithIntro">
                             <div className="Intro">
@@ -246,7 +199,6 @@ function PostPage({title,body,thumbnail,user_date}){
                                 <div className="description">
                                     <p className="text name" style={{margin:'0'}}>
                                         <Link className ="text" to ="/introduce" style={{textDecoration:'none'}}><div className="text">김준영</div></Link>
-
                                     </p>
                                     <p className="text name" style={{margin:'0'}}>
                                         {mydata.user_date}
@@ -260,31 +212,19 @@ function PostPage({title,body,thumbnail,user_date}){
                                 <p className="Logo1 facebook" onClick={() => {window.location.assign("https://www.facebook.com")}}>
                                     <img size ="14" src={facebook} alt="페이스북" />
                                 </p>
-                                
                             </div>
                         </div>
-                    </div>
-                
-                    <div className="body">
-                        
+                    </div>               
+                    <div className="body">                       
                         <div className="center">
                             <CodeEditorPreview mydata={mydata}/>
-                        </div>
-                        
-                        
-                        
+                        </div>                
                     </div>
                 </div>
             </PostPageBlock>
-            <ShowComment/>
-                        
-            
-            
+            <ShowComment/>        
             <Comment my_id={refresh_data.my_id} />
             <Footer/>
-            
-
-
         </>
         
     )   

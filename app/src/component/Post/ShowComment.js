@@ -32,8 +32,6 @@ function ShowComment() {
                    
                 })
             }
-           
-            
         })
     }
     const deleteFunc=(check,name,my_id)=> {
@@ -47,7 +45,6 @@ function ShowComment() {
             window.location.reload()
         })
     }
-   
     return (
         <>  
            
@@ -80,16 +77,13 @@ function ShowComment() {
                                                 <div className="list_info_body">
                                                     <p className="inpbody">{mydata[key].body}</p>
                                                 </div>
-                                            </div>
-                                            
+                                            </div>          
                                         </div>
                                     </div>
                                     <div className="deleteicon">
                                     <AiTwotoneDelete size="32" style={{cursor:'pointer'}} onClick={()=>{onClickDelete(mydata[key].check,mydata[key].name,mydata[key].my_id)}}/>
                                     </div>
-                                </div>
-                                
-                                
+                                </div>                                
                             </>
                     )
                 })}

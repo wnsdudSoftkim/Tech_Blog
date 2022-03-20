@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import styled,{createGlobalStyle} from 'styled-components'
 import {Link} from 'react-router-dom'
-import Header from './Header'
+import Header from './base/Header'
 import axios from 'axios'
 import LoginModal from './Modal/LoginModal'
 import { AiOutlineMail,AiOutlineLock} from "react-icons/ai";

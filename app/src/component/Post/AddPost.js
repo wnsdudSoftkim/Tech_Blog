@@ -20,9 +20,7 @@ function HeaderInput() {
             header:e.target.value
 
         })
-        
     }   
- 
     if(header.length===0) {
         Toggle = false
     }else {
@@ -38,7 +36,6 @@ function HeaderInput() {
                 onChange={e=>onChangeHeader(e)}
             />    
         </>
-        
     )
 }
 const BodyBlcok = styled.div`
@@ -48,33 +45,20 @@ const BodyBlcok = styled.div`
 const LeftBlock =styled.div`
     width:50vw;
     display:flex
-    
 `
 const RightBlock = styled.div`
     width:50vw;
     display:flex;
-    
 `
 function BodyInput() {
-  
     useEffect(()=> {
-        return CodeEditorPreview.bind(mydata||"")
+        return CodeEditorPreview.bind(mydata || "")
     },[])
+
     const mydata = useSelector(state=> state.writedata)
-   
     data.bodydata = mydata.body
     data.thumbnail=mydata.thumbnail
-   
-    
-  
-   
-    
-
-   
-    
-   
     return(
-    
         <>
             <BodyBlcok>
                 <LeftBlock>
@@ -86,13 +70,7 @@ function BodyInput() {
             </BodyBlcok>
         
         </>
-
-
     )
-   
-        
-        
-    
 }
 async function SubmitPost() {
    
@@ -107,10 +85,8 @@ async function SubmitPost() {
             title:data.titledata,
             body:data.bodydata,
             thumbnail:data.thumbnail,
-        }).then(function(response){
-           
-            if(response.data['response']==="Good") {
-              
+        }).then(function(response){         
+            if(response.data['response']==="Good") {         
                 window.location.assign("http://localhost:3000")
             }else {
                 alert("오류가 발생하였습니다")
@@ -120,14 +96,8 @@ async function SubmitPost() {
             
         })
     }
-   
 }
 function AddPost() {
-    const [activeTab,setActiveTab] = useState(1)
-    
-   
-
-   
     const AddPostBlock = styled.div`
         width:100%;
         height:100%;
@@ -172,8 +142,7 @@ function AddPost() {
                     margin-top:1rem;
                     margin-bottom:0.66rem;
                     background:rgb(73,80,87);
-                    height:6px;
-                   
+                    height:6px;      
                 }
             }
         }
@@ -183,9 +152,6 @@ function AddPost() {
             flex-direction:column;
             min-height:500px;
             overflow-x:scroll;
-            
-           
-
         }
     `
     const FooterBlock = styled.div`
@@ -194,7 +160,6 @@ function AddPost() {
         width:100%;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
         display:flex;
-
         justify-content:center;
         align-items:center;
         button{
@@ -237,39 +202,26 @@ function AddPost() {
           .btn1{
               background:#333;
           }
-          
-          
-
-    `
-   
-    
+    `  
     return (
         <>
-           
             <AddPostBlock>
                 <MainBodyBlock>
                     <div className="Header">
                         <div className="HeaderBox" >
-                            <HeaderInput />
-                            
+                            <HeaderInput />            
                             <div className="border"/>
                         </div>
-
                     </div>
                     <div className="Section">
-                        
-                        
-                        <BodyInput />
-                       
+                        <BodyInput />        
                     </div>
                 </MainBodyBlock>
-            </AddPostBlock>
-                
+            </AddPostBlock>           
             <FooterBlock>
                     <Link to ="/">
                         <button className="button btn1">나가기</button>
-                    </Link>
-                    
+                    </Link>           
                     <button className="button" onClick={SubmitPost}>
                         저장하기   
                     </button>

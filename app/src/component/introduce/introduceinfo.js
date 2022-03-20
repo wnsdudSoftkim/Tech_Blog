@@ -7,16 +7,13 @@ function IntroduceInfo({activeTab}) {
     const InfoBlock = styled.div`
         display:flex;
         flex-direction:column;
-
         position:absolute;
         width:100%;
         font-family: 'Noto Sans KR', sans-serif;
-        color:#959595;
-        
+        color:#959595; 
         .span{
             font-size:13px;
-            padding-bottom:1rem;
-            
+            padding-bottom:1rem;      
         }
         .p {
             font-size:13px;
@@ -55,10 +52,7 @@ function IntroduceInfo({activeTab}) {
                 }
             }
         }
-        
-    
     `
-   
     const PotBlock = styled.div`
         display:block;
         position:absolute;
@@ -66,7 +60,6 @@ function IntroduceInfo({activeTab}) {
         font-family: 'Noto Sans KR', sans-serif;
 		color:#959595;
     `
-
     if(activeTab===1) {
         return(
             <InfoBlock>
@@ -75,17 +68,13 @@ function IntroduceInfo({activeTab}) {
                 <span className="span">You got a dream. you gotta protect it.</span>
                 <span className="span">좋아하는 영화 "행복을 찾아서" 명대사 입니다</span>
                 <span className="span">느려도 한걸음씩 나아가는 마음으로 개발을 하려합니다.</span>
-                <div className="address">
-                   
+                <div className="address">            
                     <p className="github" onClick={() => {window.location.assign("https://github.com/wnsdudSoftkim")}}>Github</p>
                     <p className="instagram" onClick={() => {window.location.assign("https://www.instagram.com/cm_jun0/?hl=ko")}}>
 							<img className="img" size ="10" src={instagram} alt="인스타"  />
 							<p className="cm">cm_jun0</p>
 					</p>
                 </div>
-                
-                
-                
             </InfoBlock>
         )
     }else {

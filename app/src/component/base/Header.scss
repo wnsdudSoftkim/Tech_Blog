@@ -1,0 +1,69 @@
+
+header {
+  @media screen and (min-width:769px) {
+    background-image: url('../image/deon-van-zyl-7O--HcTK14s-unsplash.jpg');
+    background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 0;
+        padding-top: 36.64%; /* (img-height / img-width * container-width) */
+                    /* (853 / 1280 * 100) */
+  }
+  @media screen and (max-width:768px) {
+    background-image: url('../image/deon-van-zyl-7O--HcTK14s-unsplash-small.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 66.64%; /* (img-height / img-width * container-width) */
+                /* (853 / 1280 * 100) */
+  }
+  .inner-header{
+    margin:0 auto;
+   
+    width:100%;
+    position: absolute; 
+    top:0rem;
+    left:0rem;
+    display:flex;
+    justify-content: center;
+    .site-header-content {
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 10vw 4vw;
+      min-height: 200px;
+      max-height: 450px;
+      text-align: center;
+      .site-title {
+        z-index: 10;
+        padding: 0;
+        font-size: 4.7rem;
+        font-weight: 700;
+        color:azure;
+      }
+    }
+  }
+  .site-nav {
+    position: relative;
+    top:-5rem;
+    .nav{
+      color:white;
+      display:flex;
+      list-style:none;
+      margin: 0 0 0 -12px;
+      .Link {
+        padding: 10px 12px;
+        font-weight: 700;
+        color:white;
+        &:hover {
+          color:#2c6196;
+        }
+      }
+    }
+  }
+}

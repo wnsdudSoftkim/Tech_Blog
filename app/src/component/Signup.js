@@ -3,7 +3,7 @@ import styled,{createGlobalStyle} from 'styled-components'
 import Modal from './Modal/Modal.js'
 import { AiOutlineMail,AiOutlineLock,AiOutlineUser} from "react-icons/ai";
 import axios from 'axios'
-import Header from './Header'
+import Header from './base/Header'
 
 function SignUp() {
     const [author, setName] = useState("")

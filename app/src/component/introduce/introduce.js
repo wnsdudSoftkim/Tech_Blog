@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import styled, { css } from 'styled-components'
 import profile from '../image/profile.jpg'
 import IntroduceInfo from './introduceinfo'
-import HeaderSmall from '../HeaderSmall'
+import HeaderSmall from '../base/HeaderSmall'
 
 
 function Introduce() {
@@ -30,7 +30,6 @@ function Introduce() {
         @media(max-width:500px){
             width:300px;
         }
-
     `
     const IntroHeaderBlock = styled.div`
         width:100%;
@@ -74,8 +73,7 @@ function Introduce() {
         position:absolute;
         top:0%;
         right:0%;
-        .profile {
-            
+        .profile { 
             width:100px;
             height:100px;
             border-radius:50px;
@@ -86,7 +84,6 @@ function Introduce() {
 
     `
     const ButtonBlock = styled.div`
-
         height:30px;
         border-radius:16px;
         display:flex;
@@ -98,7 +95,6 @@ function Introduce() {
         border:1px solid lightgray;
         font-size:18px;
         cursor:pointer;
-        
         &:hover{
             background:#f1f2f3;
 
@@ -113,7 +109,6 @@ function Introduce() {
         .BottomUl {
             display:flex;
             justify-content:space-between;
-
         }
         .BottomLi{
             width:33.33%;
@@ -130,8 +125,6 @@ function Introduce() {
             color:#959595;
             text-decoration:none;
             font-size:16px;
-           
-            
         }
         .a1 {
              ${props=>props.activeTab===1&& css`
@@ -153,22 +146,19 @@ function Introduce() {
         position:absolute;
         width:100%
     `
-
     return (
 		<>
 			<HeaderSmall />
 			<IntroBlock>
 				<SectionBlock>
 					<IntroHeaderBlock>
-						
 						<TumbBlock>
 							<img src={profile} className="profile" alt='aa' size="80" />
 						</TumbBlock>
 						<strong className="H1">김준영</strong>
 						<span className="SubH1 GrayText">backend-developer</span>
 						<div className="visitor">
-							<p className="GrayText">끊임없는 성장을 추구합니다.</p>
-							
+							<p className="GrayText">끊임없는 성장을 추구합니다.</p>				
 						</div>
 						<ButtonBlock onClick={()=> {
 							window.location.assign('http://localhost:3000')
@@ -192,12 +182,7 @@ function Introduce() {
 					</IntroBottomBlock>
 				</SectionBlock>
 			</IntroBlock>
-           
-       
-
-		</>
-        
-		
+		</>		
 	)
 
 }

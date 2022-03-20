@@ -29,11 +29,8 @@ function ShowGuestComment() {
                             title:"일치 하지 않습니다."
                         })
                     }
-                   
                 })
-            }
-           
-            
+            } 
         })
     }
     const deleteFunc=(check,name)=> {
@@ -47,8 +44,6 @@ function ShowGuestComment() {
             window.location.reload()
         })
     }
-   
-  
     return (
         <>  
             <div className="comment_container">
@@ -67,28 +62,22 @@ function ShowGuestComment() {
                                                     <strong>{mydata[key].name}</strong>
                                                     <div className="list_info_header_date">
                                                         <p className="inp">{mydata[key].my_date}</p>
-                                                    </div>
-                                                    
+                                                    </div>        
                                                 </div>
                                                 <div className="list_info_body">
                                                     <p className="inpbody">{mydata[key].body}</p>
                                                 </div>
-                                            </div>
-                                            
-                                        </div>
-                                        
+                                            </div>     
+                                        </div>   
                                     </div>
                                     <div className="deleteicon">
                                         <AiTwotoneDelete size="32" style={{cursor:'pointer'}} onClick={()=>{onClickDelete(mydata[key].check,mydata[key].name)}}/>
                                     </div>
                                 </div>
-                               
-                                
                             </>
                     )
                 })}
             </div>
-           
         </>
     )
 }

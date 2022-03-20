@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers'
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 //persist 를 사용해 새로고침 시 데이터 날라감 방지
 import { PersistGate } from 'redux-persist/integration/react';
 import {persistReducer,persistStore} from 'redux-persist'
@@ -35,4 +35,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();

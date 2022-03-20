@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter,Switch,Route} from 'react-router-dom'
-import Home from '../component/Home'
+import Home from '../component/base/Home'
 import Introduce from '../component/introduce/introduce'
 import SignUp from '../component/Signup'
 import SignIn from '../component/Signin'

@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import {useDispatch} from 'react-redux'
-import HeaderSmall from '../HeaderSmall'
+import HeaderSmall from '../base/HeaderSmall'
 import Lottie from 'react-lottie'
-import lottieanim from '../../lottie/GuestLottie.json'
+import lottieanim from '../../util/GuestLottie.json'
 import {AiOutlineSend} from 'react-icons/ai'
 import axios from 'axios'
 import './GuestBook.scss'
@@ -26,11 +26,7 @@ function GuestCommentName() {
         SetNameInput({
             name:e.target.value
         })
-        
-        
     }
-    
-    
     if(name.length===0) {
         Toggle.nametoggle=false
     }else {
@@ -56,13 +52,8 @@ function GuestCommentCheck() {
 
         SetCheckInput({
             check:e.target.value
-        })
-        
-        
+        })     
     }
-    
-    
-   
     if(check.length===0) {
         Toggle.checktoggle = false
     }else {
@@ -90,17 +81,13 @@ function GuestCommentBody() {
         e.preventDefault()
         SetBodyInput({
             body:e.target.value
-        })
-        
-        
+        })     
     }
- 
-    if(body.length===0) {
-       
-    }else {
-        
-        data.bodydata=body
-    }   
+
+    if(body.length !== 0) {
+       data.bodydata=body
+    }
+
     return (
         <>
             <textarea name ="body"
@@ -108,8 +95,7 @@ function GuestCommentBody() {
                     placeholder="댓글을 입력해주세요"
                     value={body}
                     onChange={e=>onChangeBody(e)}
-            />
-           
+            /> 
         </>
     )
 }
@@ -121,7 +107,6 @@ function SubmitGuestComment() {
         console.log('No Data Here')
         alert("제목과 확인번호를 입력해주시기 바립니다.")
     }else {
-   
         console.log('good to go')
         axios.defaults.xsrfCookieName = "csrftoken"
         axios.defaults.xsrfHeaderName = "X-CSRFToken"
@@ -132,22 +117,16 @@ function SubmitGuestComment() {
             my_id:data.my_id,
             my_date:my_date,
         }).then(function(response){
-           
             if(response.data['response']==="Good") {
                 //페이지 새로고침
-                window.location.reload()
-                
-                
+                window.location.reload()       
             }else {
                 alert("오류가 발생하였습니다")
             }
         }).catch(function(error){
-            console.log(error)
-           
+            console.log(error)         
         })
     }
-    
-   
 }
 function GuestBook() {
     const dispatch = useDispatch()
@@ -160,24 +139,16 @@ function GuestBook() {
         axios.defaults.xsrfHeaderName = "X-CSRFToken"
         axios.post('/Comment/fetchcomment',{
             my_id:data.my_id
-        }).then(function(response){
-            
+        }).then(function(response){          
             if(!(response.data==="N")){
                 //response.data를 전부 store에 저장
-                dispatch(fetchComment(response.data))
-           
+                dispatch(fetchComment(response.data))      
             }else {
                 //데이터가 아무것도 없을 때 store 초기화
                 dispatch(fetchComment(null))
-            }
-                
-               
-            
-            
-
+            }  
         }).catch(function(error){
-            console.log(error)
-           
+            console.log(error)        
         })
     }
     //로티 옵션
@@ -185,10 +156,8 @@ function GuestBook() {
         animationData:lottieanim,
         loop:true,
         autoplay:true,
-        
     }
     return (
-
         <>
             <div className="wrapper">
                 <HeaderSmall />
@@ -213,22 +182,14 @@ function GuestBook() {
                             <GuestCommentBody/>
                             <p className="iconp">
                                 <AiOutlineSend className="sendicon" size="32" onClick={SubmitGuestComment}/>
-                            </p>
-                            
-
-                            
+                            </p>                         
                         </div>
                         <div className="guest-show-comment">
                             <ShowGuestComment/>
-                        </div>
-                        
-                       
-                        
+                        </div>            
                     </div>
                 </div>
-            </div>
-            
-            
+            </div> 
         </>
     )
 }
