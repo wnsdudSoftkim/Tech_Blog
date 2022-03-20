@@ -4,8 +4,7 @@ import {Link} from 'react-router-dom'
 function Header() {
     return(
         <>
-            <header className="header">
-                
+            <header className="header">              
                 <div className="inner-header">
                     <div className="site-header-content">
                         <h1 className="site-title">
@@ -18,29 +17,22 @@ function Header() {
                         <li className="nav-home">
                             <Link to="/" className="Link">
                                 HOME
-                            </Link>
-                            
+                            </Link>                  
                         </li>
                         <li className="nav-home">
                             <Link to="/guestbook"  className="Link">
                                 GUEST BOOK
                             </Link>
                            
-                        </li>
-                        
+                        </li>             
                         <li className="nav-home">
                             <Link to="/introduce"  className="Link">
                                 ABOUT
-                            </Link>
-                            
-                        </li>
-                       
+                            </Link>                
+                        </li>           
                     </ul>
                 </nav>
-
             </header>
-            
-            
         </>
 
     )

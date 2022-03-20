@@ -24,19 +24,11 @@ function ShowPost() {
             dispatch(result)
         })
     },[])
-    
-
-
-
-   
-    
-
     const ShowPostBlock = styled.div`
         
     `
     if(mydata!=null) {
-        return (
-        
+        return ( 
             <>  
                 <ShowPostBlock>   
                     <Grid divided="vertically">
@@ -53,12 +45,10 @@ function ShowPost() {
                                         />
                                 </Grid.Column>
                             )
-                       
                         })}
                         </Grid.Row>
                     </Grid>
                 </ShowPostBlock>
-    
             </>
         )
     }else {

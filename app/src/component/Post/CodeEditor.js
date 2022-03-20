@@ -74,13 +74,6 @@ function CodeEditor() {
         })
 
     },[])
-
-
-        
-  
-   
-    
-
     const onChange = (doc) => {
         
         state.cursor = doc.getCursor()
@@ -88,16 +81,8 @@ function CodeEditor() {
         // EditBody(state.cursor,state.body).then(function(result){
         //     dispatch(result)
         // })
-        dispatch(EditBody(state.cursor,state.body,state.thumbnail[0]))
-   
-   
-    
-        
-      
+        dispatch(EditBody(state.cursor,state.body,state.thumbnail[0])) 
     }
-    
-    
-   
     return (
         <>
             <div className="CodeEditor">
@@ -106,13 +91,8 @@ function CodeEditor() {
                 </div>
             </div>
         </>
-
-        
-        
-    )
-    
+    ) 
 }
-
 export default CodeEditor
 
 

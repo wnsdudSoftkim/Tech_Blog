@@ -151,7 +151,6 @@ function PostPage({title,body,thumbnail,user_date}){
                                 margin-bottom:30px;
                             }
                         }
-                       
                     }
                 }
             }
@@ -161,7 +160,6 @@ function PostPage({title,body,thumbnail,user_date}){
                
                 display:flex;
                 justify-content:center;
-
                 .center {
                     box-sizing:border-box;
                     justify-content:center;
@@ -170,15 +168,9 @@ function PostPage({title,body,thumbnail,user_date}){
                     text-align:center;
                   
                     @media(max-width:767px) {
-                        padding-right:0;
-                        
-                       
-                        
+                        padding-right:0;                  
                     }
-                   
-
-                }
-               
+                }  
             }
         }
     `
@@ -188,8 +180,7 @@ function PostPage({title,body,thumbnail,user_date}){
             <PostPageBlock>
                 <div className="bschatdot"  onClick={onClickChat}>
                     <BsChatSquareDots size="48"/>
-                </div>
-                
+                </div>     
                 <div className="PageBlock">
                     <div className="title">
                         <div className="titleandDelete">
@@ -221,7 +212,6 @@ function PostPage({title,body,thumbnail,user_date}){
                                 <p className="Logo1 facebook" onClick={() => {window.location.assign("https://www.facebook.com")}}>
                                     <img size ="14" src={facebook} alt="페이스북" />
                                 </p>
-                                
                             </div>
                         </div>
                     </div>               

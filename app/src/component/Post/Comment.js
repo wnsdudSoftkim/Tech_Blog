@@ -20,11 +20,7 @@ function CommentNameInput() {
         SetNameInput({
             name:e.target.value
         })
-        
-        
-    }
-    
-   
+    } 
     if(name.length===0) {
         Toggle.nametoggle=false
     }else {
@@ -51,13 +47,8 @@ function CommentCheckInput() {
 
         SetCheckInput({
             check:e.target.value
-        })
-        
-        
+        })       
     }
-    
-    
- 
     if(check.length===0) {
         Toggle.checktoggle = false
     }else {
@@ -86,16 +77,11 @@ function CommentBodyInput() {
         SetBodyInput({
             body:e.target.value
         })
-        
-        
     }
     
-    if(body.length===0) {
-       
-    }else {
-        
+    if(body.length !== 0) {
         data.bodydata=body
-    }   
+    }
     return (
         <>
             <textarea name ="body"
@@ -103,8 +89,7 @@ function CommentBodyInput() {
                     placeholder="댓글을 입력해주세요"
                     value={body}
                     onChange={e=>onChangeBody(e)}
-            />
-           
+            /> 
         </>
     )
 }
@@ -126,13 +111,10 @@ function SubmitComment() {
             body:data.bodydata,
             my_id:data.my_id,
             my_date:my_date,
-        }).then(function(response){
-         
+        }).then(function(response){   
             if(response.data['response']==="Good") {
                 //페이지 새로고침
-                window.location.reload()
-                
-                
+                window.location.reload()              
             }else {
                 alert("오류가 발생하였습니다")
             }
@@ -141,8 +123,6 @@ function SubmitComment() {
       
         })
     }
-    
-   
 }
 function Comment() {
     var mydata  = useSelector(state=> state.singlepostdata)
@@ -151,8 +131,6 @@ function Comment() {
     },[mydata])
     const CommentBlock = styled.div`
     input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-
-
         width:80%;
         display:flex;
         flex-direction:column;
@@ -164,8 +142,7 @@ function Comment() {
         @media(max-width:400px) {
             width:100%;
             margin:0 0 10px 0;
-        }
-      
+        } 
         .Background {
             .form {
                 display:flex;
@@ -179,8 +156,7 @@ function Comment() {
                     line-height:17px;
                     color:#000;
                     box-sizing:border-box;
-                    margin: 0 4px;
-                  
+                    margin: 0 4px;            
                 }
             }
             .textarea1 {
@@ -212,12 +188,6 @@ function Comment() {
                 }
             }
         }
-        
-    
-    
-       
-
-
     `
     return (
         <>

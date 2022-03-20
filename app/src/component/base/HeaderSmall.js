@@ -15,17 +15,13 @@ function HeaderSmall() {
                     <li className="nav-home-small">
                         <Link to="/guestbook"  className="Link-small">
                             GUEST BOOK
-                        </Link>
-                        
-                    </li>
-                    
+                        </Link>             
+                    </li>          
                     <li className="nav-home-small">
                         <Link to="/introduce"  className="Link-small">
                             ABOUT
-                        </Link>
-                        
-                    </li>
-                    
+                        </Link>             
+                    </li>               
                 </ul>
             </nav>
         </>

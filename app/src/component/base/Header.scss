@@ -1,7 +1,5 @@
 
 header {
-  
-  
   @media screen and (min-width:769px) {
     background-image: url('../image/deon-van-zyl-7O--HcTK14s-unsplash.jpg');
     background-size: cover;
@@ -11,8 +9,6 @@ header {
         padding-top: 36.64%; /* (img-height / img-width * container-width) */
                     /* (853 / 1280 * 100) */
   }
- 
-  
   @media screen and (max-width:768px) {
     background-image: url('../image/deon-van-zyl-7O--HcTK14s-unsplash-small.jpg');
     background-size: contain;
@@ -51,7 +47,6 @@ header {
         color:azure;
       }
     }
-    
   }
   .site-nav {
     position: relative;

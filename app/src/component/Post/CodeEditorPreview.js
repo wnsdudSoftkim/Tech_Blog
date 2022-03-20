@@ -5,10 +5,8 @@ marked.setOptions({
     headerPrefix: "header-"
 });
 function CodeEditorPreview ({mydata}) {
- 
-    var value = marked(mydata.body||'');
-   
-  
+    var value = marked(mydata.body||'')
+    
     return (
         <>
             

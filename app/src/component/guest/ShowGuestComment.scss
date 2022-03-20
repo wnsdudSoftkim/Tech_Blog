@@ -6,13 +6,11 @@
     }
 }
 .comment_container{
-   
     width:80%;
     display:flex;
     flex-direction: column;
     margin:0 auto;
     .list_header{
-     
         .list_header_strong{
             font-family: "Noto Sans Light","Malgun Gothic",sans-serif;
             padding-top: 4px;
@@ -23,7 +21,6 @@
             color: #00c3bd;
         }
     }
-    
     .list_item {
         width:100%;
         padding:20px 1vw 50px;
@@ -34,8 +31,7 @@
                 width:48px;
                 height:48px;
             }
-            .list_info_wrapper {
-                
+            .list_info_wrapper { 
                 margin-left: 1rem;
                 .list_info_header {
                     display:flex;
@@ -43,7 +39,6 @@
                         font-size:12px;
                         line-height: 14px;
                         opacity: .8;
-
                     }
                     .list_info_header_date{
                         margin-left:.5rem;
@@ -52,9 +47,7 @@
                             font-size: 12px;
                             line-height: 14px;
                         }
-                    }
-                   
-                    
+                    } 
                 }
                 .list_info_body{
                     .inpbody{
@@ -64,7 +57,6 @@
                     line-height: 22px;
                 }
             }
-            
         }
         &:hover {
             background: #f8f8f8

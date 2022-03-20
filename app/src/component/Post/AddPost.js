@@ -70,8 +70,6 @@ function BodyInput() {
             </BodyBlcok>
         
         </>
-
-
     )
 }
 async function SubmitPost() {
@@ -87,10 +85,8 @@ async function SubmitPost() {
             title:data.titledata,
             body:data.bodydata,
             thumbnail:data.thumbnail,
-        }).then(function(response){
-           
-            if(response.data['response']==="Good") {
-              
+        }).then(function(response){         
+            if(response.data['response']==="Good") {         
                 window.location.assign("http://localhost:3000")
             }else {
                 alert("오류가 발생하였습니다")
@@ -100,7 +96,6 @@ async function SubmitPost() {
             
         })
     }
-   
 }
 function AddPost() {
     const AddPostBlock = styled.div`
@@ -147,8 +142,7 @@ function AddPost() {
                     margin-top:1rem;
                     margin-bottom:0.66rem;
                     background:rgb(73,80,87);
-                    height:6px;
-                   
+                    height:6px;      
                 }
             }
         }
@@ -166,7 +160,6 @@ function AddPost() {
         width:100%;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
         display:flex;
-
         justify-content:center;
         align-items:center;
         button{
@@ -216,8 +209,7 @@ function AddPost() {
                 <MainBodyBlock>
                     <div className="Header">
                         <div className="HeaderBox" >
-                            <HeaderInput />
-                            
+                            <HeaderInput />            
                             <div className="border"/>
                         </div>
                     </div>
