@@ -1,0 +1,2 @@
+- name: Slack Merge Queue
+  uses: lwhiteley/slack-merge-queue@v2.0.0
