@@ -1,0 +1,17 @@
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  merge-queue:
+    runs-on: ubuntu-latest
+    name: Slack Merge Queue
+    steps:
+      - name: Add PR to merge queue
+        uses: lwhiteley/slack-merge-queue@v2.0.0
+        env:
+          SLACK_TOKEN: xoxb-4909713929475-4903272779398-7asxUlImZoZZQbp08XbZIwEy
+        with:
+          mode: 'ADD'
+          channel: 'merge-queue'
+          pr_number: ${{ github.event.pull_request.number }}
